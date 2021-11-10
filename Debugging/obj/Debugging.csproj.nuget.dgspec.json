@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Cliente\\pontosNaWeb\\Dependencies\\Dependencies.csproj": {}
+    "C:\\Users\\Cliente\\pontosNaWeb\\Debugging\\Debugging.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Cliente\\pontosNaWeb\\Dependencies\\Dependencies.csproj": {
+    "C:\\Users\\Cliente\\pontosNaWeb\\Debugging\\Debugging.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Cliente\\pontosNaWeb\\Dependencies\\Dependencies.csproj",
-        "projectName": "Dependencies",
-        "projectPath": "C:\\Users\\Cliente\\pontosNaWeb\\Dependencies\\Dependencies.csproj",
+        "projectUniqueName": "C:\\Users\\Cliente\\pontosNaWeb\\Debugging\\Debugging.csproj",
+        "projectName": "Debugging",
+        "projectPath": "C:\\Users\\Cliente\\pontosNaWeb\\Debugging\\Debugging.csproj",
         "packagesPath": "C:\\Users\\Cliente\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Cliente\\pontosNaWeb\\Dependencies\\obj\\",
+        "outputPath": "C:\\Users\\Cliente\\pontosNaWeb\\Debugging\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Cliente\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -37,12 +37,6 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "dependencies": {
-            "Humanizer": {
-              "target": "Package",
-              "version": "[2.7.9, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

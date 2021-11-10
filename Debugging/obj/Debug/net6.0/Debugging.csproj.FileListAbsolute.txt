@@ -1,0 +1,15 @@
+C:\Users\Cliente\pontosNaWeb\Debugging\obj\Debug\net6.0\Debugging.csproj.AssemblyReference.cache
+C:\Users\Cliente\pontosNaWeb\Debugging\obj\Debug\net6.0\Debugging.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cliente\pontosNaWeb\Debugging\obj\Debug\net6.0\Debugging.AssemblyInfoInputs.cache
+C:\Users\Cliente\pontosNaWeb\Debugging\obj\Debug\net6.0\Debugging.AssemblyInfo.cs
+C:\Users\Cliente\pontosNaWeb\Debugging\obj\Debug\net6.0\Debugging.csproj.CoreCompileInputs.cache
+C:\Users\Cliente\pontosNaWeb\Debugging\bin\Debug\net6.0\Debugging.exe
+C:\Users\Cliente\pontosNaWeb\Debugging\bin\Debug\net6.0\Debugging.deps.json
+C:\Users\Cliente\pontosNaWeb\Debugging\bin\Debug\net6.0\Debugging.runtimeconfig.json
+C:\Users\Cliente\pontosNaWeb\Debugging\bin\Debug\net6.0\Debugging.dll
+C:\Users\Cliente\pontosNaWeb\Debugging\bin\Debug\net6.0\ref\Debugging.dll
+C:\Users\Cliente\pontosNaWeb\Debugging\bin\Debug\net6.0\Debugging.pdb
+C:\Users\Cliente\pontosNaWeb\Debugging\obj\Debug\net6.0\Debugging.dll
+C:\Users\Cliente\pontosNaWeb\Debugging\obj\Debug\net6.0\ref\Debugging.dll
+C:\Users\Cliente\pontosNaWeb\Debugging\obj\Debug\net6.0\Debugging.pdb
+C:\Users\Cliente\pontosNaWeb\Debugging\obj\Debug\net6.0\Debugging.genruntimeconfig.cache
