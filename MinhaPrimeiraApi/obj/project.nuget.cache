@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "O5o1AgZmi4im9KrDcgQJXquhvvu3F/fYFNMPfgiYh2wAMRlRyUaSwuEP2Uit0wSUZF28weo81Q8oZqOtPFs0GA==",
+  "dgSpecHash": "CseE4EzPJPnFTP1Hprq7PYqQAPkE6MKe4qIVIeAQayOzJ3Q9khGmghjVo+Qp3o4Jf9cvdv3n8zYSdeqAoYoLpg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Cliente\\Labs\\MinhaPrimeiraApi\\MinhaPrimeiraApi.csproj",
+  "projectFilePath": "C:\\Users\\Cliente\\pontosNaWeb\\MinhaPrimeiraApi\\MinhaPrimeiraApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Cliente\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Cliente\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

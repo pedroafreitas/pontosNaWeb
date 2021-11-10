@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Cliente\\pontosNaWeb\\MinhaPrimeiraApi\\MinhaPrimeiraApi.csproj": {}
+    "C:\\Users\\Cliente\\pontosNaWeb\\Dependencies\\Dependencies.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Cliente\\pontosNaWeb\\MinhaPrimeiraApi\\MinhaPrimeiraApi.csproj": {
+    "C:\\Users\\Cliente\\pontosNaWeb\\Dependencies\\Dependencies.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Cliente\\pontosNaWeb\\MinhaPrimeiraApi\\MinhaPrimeiraApi.csproj",
-        "projectName": "MinhaPrimeiraApi",
-        "projectPath": "C:\\Users\\Cliente\\pontosNaWeb\\MinhaPrimeiraApi\\MinhaPrimeiraApi.csproj",
+        "projectUniqueName": "C:\\Users\\Cliente\\pontosNaWeb\\Dependencies\\Dependencies.csproj",
+        "projectName": "Dependencies",
+        "projectPath": "C:\\Users\\Cliente\\pontosNaWeb\\Dependencies\\Dependencies.csproj",
         "packagesPath": "C:\\Users\\Cliente\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Cliente\\pontosNaWeb\\MinhaPrimeiraApi\\obj\\",
+        "outputPath": "C:\\Users\\Cliente\\pontosNaWeb\\Dependencies\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Cliente\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -37,12 +37,6 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "dependencies": {
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[6.2.3, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -54,9 +48,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
