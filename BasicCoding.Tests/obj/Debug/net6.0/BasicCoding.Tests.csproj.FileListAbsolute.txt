@@ -1,0 +1,5 @@
+C:\Users\Cliente\pontosNaWeb\BasicCoding.Tests\obj\Debug\net6.0\BasicCoding.Tests.csproj.AssemblyReference.cache
+C:\Users\Cliente\pontosNaWeb\BasicCoding.Tests\obj\Debug\net6.0\BasicCoding.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cliente\pontosNaWeb\BasicCoding.Tests\obj\Debug\net6.0\BasicCoding.Tests.AssemblyInfoInputs.cache
+C:\Users\Cliente\pontosNaWeb\BasicCoding.Tests\obj\Debug\net6.0\BasicCoding.Tests.AssemblyInfo.cs
+C:\Users\Cliente\pontosNaWeb\BasicCoding.Tests\obj\Debug\net6.0\BasicCoding.Tests.csproj.CoreCompileInputs.cache
