@@ -4,7 +4,7 @@ namespace SimpleCalculator
 {
     public class Person
     {
-        //Non static methods can only be created if we create an object of that method.
+        //Non static methods can only be created if we create anArgument object of that method.
         private int _age = 25;
         public int getAge()
         {
