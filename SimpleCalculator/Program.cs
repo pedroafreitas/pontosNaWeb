@@ -64,6 +64,12 @@ namespace SimpleCalculator
                 default:
                     return 1;
             }
+
+            Person person1  = new Person();
+            Console.WriteLine(person1.getAge());
+            person1.setAge(99);
+            Console.WriteLine(person1.getAge());
+
             return 0;
         }
     }
