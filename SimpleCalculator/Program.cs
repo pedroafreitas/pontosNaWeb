@@ -4,73 +4,40 @@ namespace SimpleCalculator
 {
     class Program
     {
-        static int Main(string[] args)
+        
+        static void Main(string[] args)
         {
-            string input = Console.ReadLine();
+            // Notes notes = new Notes();
+            // notes.basicCommands();
 
-            int convertedInputToNumber;
-            int.TryParse(input, out convertedInputToNumber);
-
-            int number = 90;
-            int result = 10 + 10 - 100 + 100 - number + convertedInputToNumber; 
-
-            Console.WriteLine(result);
-
-            string someText = "meh";
-            string otherText = "meh2";
-
-            bool isEqual = someText.Equals(otherText, StringComparison.Ordinal);
-
-            string addedText = someText + " " + otherText + " meh 3";
-            string formatedText = string.Format("{0} {1} meh3", someText, otherText);
-
-            Console.WriteLine(formatedText.Length);
-            Console.WriteLine(addedText.Length);
-            Console.WriteLine(formatedText[3]);
-
-            Console.WriteLine(someText.Substring(0,2));
-
-            Console.WriteLine(someText.ToLower());
-            Console.WriteLine(someText.ToUpper());
-
-            string anotherText = string.Empty;
-
-            string replacedText = someText.Replace("h", "lhor emprego do mundo");
-            Console.WriteLine(replacedText);
-
-            input = Console.ReadLine();
-            string password = Console.ReadLine();
-
-            if (input.Equals("Pedro") && password.Equals("123"))
+            try
             {
-                Console.WriteLine("nice");
-            } else if (input.Equals("Anna") && password.Equals("123"))
+                //first write the placeholders
+                InputConverter inputConverter = new InputConverter();
+                CalcEngine calcEngine = new CalcEngine();
+                int op = 1;
+                while(op == 1)
+                {
+
+                    double firstNumber = inputConverter.ConvertToNumeric(Console.ReadLine());
+                    string operation = Console.ReadLine();
+                    double secondNumber = inputConverter.ConvertToNumeric(Console.ReadLine());
+
+                    double result = calcEngine.Calc(operation, firstNumber, secondNumber);
+                    
+                    Console.WriteLine("Result: {0}\n Do want to perform another operation? Yes(1) No(0)", result);
+
+                    int.TryParse(Console.ReadLine(), out op);
+                }
+
+
+            } catch (Exception ex)
             {
-                Console.WriteLine("nice");
+                //In the real world we would want to log the message
+                Console.WriteLine(ex.Message);
+                
             }
-            else
-            {
-                return 1;
-            }
-
-            switch(input)
-            {
-                case "Pedro":
-                    Console.WriteLine("nice");
-                    break;
-                case "Anna":
-                    Console.WriteLine("nice");
-                    break; 
-                default:
-                    return 1;
-            }
-
-            Person person1  = new Person();
-            Console.WriteLine(person1.getAge());
-            person1.setAge(99);
-            Console.WriteLine(person1.getAge());
-
-            return 0;
+            
         }
     }
 }
