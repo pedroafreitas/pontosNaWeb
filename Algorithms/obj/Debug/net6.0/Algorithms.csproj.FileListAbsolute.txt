@@ -1,0 +1,15 @@
+C:\Users\Cliente\pontosNaWeb\Algorithms\bin\Debug\net6.0\Algorithms.exe
+C:\Users\Cliente\pontosNaWeb\Algorithms\bin\Debug\net6.0\Algorithms.deps.json
+C:\Users\Cliente\pontosNaWeb\Algorithms\bin\Debug\net6.0\Algorithms.runtimeconfig.json
+C:\Users\Cliente\pontosNaWeb\Algorithms\bin\Debug\net6.0\Algorithms.dll
+C:\Users\Cliente\pontosNaWeb\Algorithms\bin\Debug\net6.0\ref\Algorithms.dll
+C:\Users\Cliente\pontosNaWeb\Algorithms\bin\Debug\net6.0\Algorithms.pdb
+C:\Users\Cliente\pontosNaWeb\Algorithms\obj\Debug\net6.0\Algorithms.csproj.AssemblyReference.cache
+C:\Users\Cliente\pontosNaWeb\Algorithms\obj\Debug\net6.0\Algorithms.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cliente\pontosNaWeb\Algorithms\obj\Debug\net6.0\Algorithms.AssemblyInfoInputs.cache
+C:\Users\Cliente\pontosNaWeb\Algorithms\obj\Debug\net6.0\Algorithms.AssemblyInfo.cs
+C:\Users\Cliente\pontosNaWeb\Algorithms\obj\Debug\net6.0\Algorithms.csproj.CoreCompileInputs.cache
+C:\Users\Cliente\pontosNaWeb\Algorithms\obj\Debug\net6.0\Algorithms.dll
+C:\Users\Cliente\pontosNaWeb\Algorithms\obj\Debug\net6.0\ref\Algorithms.dll
+C:\Users\Cliente\pontosNaWeb\Algorithms\obj\Debug\net6.0\Algorithms.pdb
+C:\Users\Cliente\pontosNaWeb\Algorithms\obj\Debug\net6.0\Algorithms.genruntimeconfig.cache
