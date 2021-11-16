@@ -1,0 +1,15 @@
+C:\Users\Cliente\pontosNaWeb\WordUnscrambler\bin\Debug\net6.0\WordUnscrambler.exe
+C:\Users\Cliente\pontosNaWeb\WordUnscrambler\bin\Debug\net6.0\WordUnscrambler.deps.json
+C:\Users\Cliente\pontosNaWeb\WordUnscrambler\bin\Debug\net6.0\WordUnscrambler.runtimeconfig.json
+C:\Users\Cliente\pontosNaWeb\WordUnscrambler\bin\Debug\net6.0\WordUnscrambler.dll
+C:\Users\Cliente\pontosNaWeb\WordUnscrambler\bin\Debug\net6.0\ref\WordUnscrambler.dll
+C:\Users\Cliente\pontosNaWeb\WordUnscrambler\bin\Debug\net6.0\WordUnscrambler.pdb
+C:\Users\Cliente\pontosNaWeb\WordUnscrambler\obj\Debug\net6.0\WordUnscrambler.csproj.AssemblyReference.cache
+C:\Users\Cliente\pontosNaWeb\WordUnscrambler\obj\Debug\net6.0\WordUnscrambler.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cliente\pontosNaWeb\WordUnscrambler\obj\Debug\net6.0\WordUnscrambler.AssemblyInfoInputs.cache
+C:\Users\Cliente\pontosNaWeb\WordUnscrambler\obj\Debug\net6.0\WordUnscrambler.AssemblyInfo.cs
+C:\Users\Cliente\pontosNaWeb\WordUnscrambler\obj\Debug\net6.0\WordUnscrambler.csproj.CoreCompileInputs.cache
+C:\Users\Cliente\pontosNaWeb\WordUnscrambler\obj\Debug\net6.0\WordUnscrambler.dll
+C:\Users\Cliente\pontosNaWeb\WordUnscrambler\obj\Debug\net6.0\ref\WordUnscrambler.dll
+C:\Users\Cliente\pontosNaWeb\WordUnscrambler\obj\Debug\net6.0\WordUnscrambler.pdb
+C:\Users\Cliente\pontosNaWeb\WordUnscrambler\obj\Debug\net6.0\WordUnscrambler.genruntimeconfig.cache
