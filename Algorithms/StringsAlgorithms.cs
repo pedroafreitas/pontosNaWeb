@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace Algorithms
 {
     public class StringsAlgorithms
@@ -24,10 +26,26 @@ namespace Algorithms
             return false;
         }
 
-        public string InverstOrderOfWords(string str)
+        public string InvertOrderOfWords(string str)
         {
-            
-            return str;
+
+            string aux = string.Empty;
+            StringBuilder inverted = new StringBuilder();
+            for (int i = str.Length - 1; i >= 0; i--)
+            {    
+                if(str[i] != ' '){
+                    aux += str[i]; 
+                } else {
+                    inverted.Append(InvertString(aux));
+                    inverted.Append(" ");  
+                    aux = string.Empty;
+                }                
+            }
+
+            if (!string.IsNullOrEmpty(aux))
+                inverted.Append(InvertString(aux));
+
+            return inverted.ToString();
         }
     }
 

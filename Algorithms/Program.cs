@@ -8,7 +8,7 @@ namespace Algorithms
         {
 
             StringsAlgorithms strObj = new();
-            string input = Console.ReadLine();
+            string input ="Anna Clara Vieira";
 
             string invertedString = strObj.InvertString(input);
             Console.WriteLine(invertedString);
@@ -17,6 +17,8 @@ namespace Algorithms
             {
                 Console.WriteLine("Palindrome");
             }
+
+            Console.WriteLine(strObj.InvertOrderOfWords(input));
         }
     }
 }
