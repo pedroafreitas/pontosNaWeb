@@ -1,11 +1,10 @@
-﻿
-namespace WordUnscrambler
+﻿namespace WordUnscrambler
 {
     class Program
     {
         static void Main(string[] args)
         {
-            bool continue = true;
+            bool continueProgram = true;
 
             do
             {
@@ -25,7 +24,19 @@ namespace WordUnscrambler
                     default:
                         break;
                 }
-            }while();
+
+                var continueDecision = string.Empty;
+                do{
+
+                    Console.WriteLine("Do you want to continue (y/n)?");
+                    continueDecision = (Console.ReadLine() ?? string.Empty);
+                } while(
+                !continueDecision.Equals("y", StringComparison.OrdinalIgnoreCase) &&
+                !continueDecision.Equals("n", StringComparison.OrdinalIgnoreCase));
+
+                continueProgram = continueDecision.Equals("y", StringComparison.OrdinalIgnoreCase);
+                
+            }while(continueProgram);
         }
 
         private static void ScrambleWordsInFileScenario()
@@ -35,7 +46,9 @@ namespace WordUnscrambler
 
         private static void ScrambleWordsManualScenario()
         {
-            throw new NotImplementedException();
+            var manualInput = Console.ReadLine() ?? string.Empty;
+            string [] scrambledWords = manualInput.Split(',');
+            DisplayMatchedUnscrambledWords(scrambledWords);
         }
     }   
 }
