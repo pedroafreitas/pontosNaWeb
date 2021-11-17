@@ -19,6 +19,7 @@ namespace Algorithms
             }
 
             Console.WriteLine(strObj.InvertOrderOfWords(input));
+            Console.WriteLine(strObj.InvertPhrase(input));
         }
     }
 }

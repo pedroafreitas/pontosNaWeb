@@ -30,7 +30,7 @@ namespace Algorithms
         {
 
             string aux = string.Empty;
-            StringBuilder inverted = new StringBuilder();
+            StringBuilder inverted = new();
             for (int i = str.Length - 1; i >= 0; i--)
             {    
                 if(str[i] != ' '){
@@ -42,6 +42,27 @@ namespace Algorithms
                 }                
             }
 
+            if (!string.IsNullOrEmpty(aux))
+                inverted.Append(InvertString(aux));
+
+            return inverted.ToString();
+        }
+
+        public string InvertPhrase(string str)
+        {
+            string aux = string.Empty;
+            StringBuilder inverted = new();
+
+            for (int i = str.Length - 1; i >= 0; i--)
+            {    
+                if(str[i] != ' '){
+                    aux += str[i]; 
+                } else {
+                    inverted.Append(aux);
+                    inverted.Append(" ");  
+                    aux = string.Empty;
+                }                
+            }
             if (!string.IsNullOrEmpty(aux))
                 inverted.Append(InvertString(aux));
 
