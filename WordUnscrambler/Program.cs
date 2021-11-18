@@ -1,76 +1,92 @@
-﻿using System.IO;
+﻿using System;
+using System.Text;
+using System.Linq;
+using System.Collections.Generic;
+using WordUnscrambler.Data;
+using WordUnscrambler.Workers;
+
 namespace WordUnscrambler
 {
     class Program
     {
-        private const string wordListFile = "wordlist.txt";
+        private static readonly FileReader _fileReader = new FileReader();
+        private static readonly WordMatcher _wordMatcher = new WordMatcher();   
+
         static void Main(string[] args)
         {
             bool continueProgram = true;
 
             do
             {
-                Console.WriteLine("Options: F for file, M for Manual");
+                Console.WriteLine(Constants.OptionsOnHowToEnterScrambledWords);
                 var option = Console.ReadLine() ?? string.Empty;
 
                 switch (option.ToUpper())
                 {
-                    case "F":
-                        Console.Write("Enter file name: ");
+                    case Constants.File:
+                        Console.Write(Constants.EnterScrambledWordsViaFile);
                         ScrambleWordsInFileScenario();
                         break;
-                    case "M":
-                        Console.Write("Enter words: ");
+                    case Constants.Manual:
+                        Console.Write(Constants.EnterScrambledWordsManually);
                         ScrambleWordsManualScenario();
                         break;
                     default:
+                        Console.WriteLine(Constants.EnterScrambleWordsNotRecognize);
                         break;
                 }
 
                 var continueDecision = string.Empty;
                 do{
 
-                    Console.WriteLine("Do you want to continue (y/n)?");
+                    Console.WriteLine(Constants.OptionsOnContinuingTheProgram);
                     continueDecision = (Console.ReadLine() ?? string.Empty);
                 } while(
-                !continueDecision.Equals("y", StringComparison.OrdinalIgnoreCase) &&
-                !continueDecision.Equals("n", StringComparison.OrdinalIgnoreCase));
+                !continueDecision.Equals(Constants.Yes, StringComparison.OrdinalIgnoreCase) &&
+                !continueDecision.Equals(Constants.No, StringComparison.OrdinalIgnoreCase));
 
-                continueProgram = continueDecision.Equals("y", StringComparison.OrdinalIgnoreCase);
+                continueProgram = continueDecision.Equals(Constants.Yes, StringComparison.OrdinalIgnoreCase);
                 
             }while(continueProgram);
         }
 
         private static void ScrambleWordsInFileScenario()
         {
-            var filename = Console.ReadLine() ?? string.Empty;
-            string[] scrambledWords = _fileReader.Read(filename);
-            DisplayMatchedUnscrambledWords(scrambledWords);
+            try{
+                var filename = Console.ReadLine() ?? string.Empty;
+                string[] scrambledWords = _fileReader.Read(filename);
+                DisplayMatchedUnscrambledWords(scrambledWords);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(Constants.ErrorScrambledWordsCannotBeLoaded + ex.Message);
+            }
+            
         }
 
         private static void ScrambleWordsManualScenario()
         {
-            var manuealInput = Console.ReadLine() ?? string.Empty;
+            var manualInput = Console.ReadLine() ?? string.Empty;
             string[] scrambledWords = manualInput.Split(',');
             DisplayMatchedUnscrambledWords(scrambledWords);
         }
 
         private static void DisplayMatchedUnscrambledWords(string[] scrambledWords)
         {
-            string[] wordlist = _fileRead.Read(wordListFileName);
+            string[] wordlist = _fileReader.Read(Constants.WordListFileName);
 
             List<MatchedWord> matchedWords = _wordMatcher.Match(scrambledWords, wordlist);
 
             if (matchedWords.Any())
             {
-                foreach(var word in matchedWords)
+                foreach(var matchedWord in matchedWords)
                 {
-                    Console.WriteLine("Match found for {0}: {1} ", matchedWords.ScreambledWord, matchedWord);
+                    Console.WriteLine(Constants.MatchFound, matchedWord.ScrambledWord, matchedWord.Word);
                 }
             } 
             else
             {
-                Console.WriteLine("No matches have been found.");
+                Console.WriteLine(Constants.MatchNotFound);
             }
 
         }

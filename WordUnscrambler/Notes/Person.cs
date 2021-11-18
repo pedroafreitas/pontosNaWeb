@@ -1,6 +1,4 @@
-using System;
-
-namespace WordUnscrambler
+namespace WordUnscrambler.Notes
 {
     //Used to put variables together. A lot simpler.
     class Person

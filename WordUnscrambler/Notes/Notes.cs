@@ -1,4 +1,4 @@
-namespace WordUnscrambler
+namespace WordUnscrambler.Notes
 {
     class Notes
     {
