@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Text;
-using System.Linq;
-using System.Collections.Generic;
+using System.Threading;
 using WordUnscrambler.Data;
 using WordUnscrambler.Workers;
 
@@ -14,40 +13,51 @@ namespace WordUnscrambler
 
         static void Main(string[] args)
         {
-            bool continueProgram = true;
-
-            do
+            try
             {
-                Console.WriteLine(Constants.OptionsOnHowToEnterScrambledWords);
-                var option = Console.ReadLine() ?? string.Empty;
+                bool continueProgram = true;
 
-                switch (option.ToUpper())
+                do
                 {
-                    case Constants.File:
-                        Console.Write(Constants.EnterScrambledWordsViaFile);
-                        ScrambleWordsInFileScenario();
-                        break;
-                    case Constants.Manual:
-                        Console.Write(Constants.EnterScrambledWordsManually);
-                        ScrambleWordsManualScenario();
-                        break;
-                    default:
-                        Console.WriteLine(Constants.EnterScrambleWordsNotRecognize);
-                        break;
-                }
+                    Console.WriteLine(Constants.OptionsOnHowToEnterScrambledWords);
+                    var option = Console.ReadLine() ?? string.Empty;
 
-                var continueDecision = string.Empty;
-                do{
+                    switch (option.ToUpper())
+                    {
+                        case Constants.File:
+                            Console.Write(Constants.EnterScrambledWordsViaFile);
+                            ScrambleWordsInFileScenario();
+                            break;
+                        case Constants.Manual:
+                            Console.Write(Constants.EnterScrambledWordsManually);
+                            ScrambleWordsManualScenario();
+                            break;
+                        default:
+                            Console.WriteLine(Constants.EnterScrambleWordsNotRecognize);
+                            break;
+                    }
 
-                    Console.WriteLine(Constants.OptionsOnContinuingTheProgram);
-                    continueDecision = (Console.ReadLine() ?? string.Empty);
-                } while(
-                !continueDecision.Equals(Constants.Yes, StringComparison.OrdinalIgnoreCase) &&
-                !continueDecision.Equals(Constants.No, StringComparison.OrdinalIgnoreCase));
+                    var continueDecision = string.Empty;
+                    do{
 
-                continueProgram = continueDecision.Equals(Constants.Yes, StringComparison.OrdinalIgnoreCase);
+                        Console.WriteLine(Constants.OptionsOnContinuingTheProgram);
+                        continueDecision = (Console.ReadLine() ?? string.Empty);
+                    } while(
+                    !continueDecision.Equals(Constants.Yes, StringComparison.OrdinalIgnoreCase) &&
+                    !continueDecision.Equals(Constants.No, StringComparison.OrdinalIgnoreCase));
+
+                    continueProgram = continueDecision.Equals(Constants.Yes, StringComparison.OrdinalIgnoreCase);
+                    
+                }while(continueProgram);
                 
-            }while(continueProgram);
+                Console.WriteLine(Constants.ProgramWillBeTerminated);
+                Thread.Sleep(1000);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(Constants.ProgramWillBeTerminated + ex.Message);
+                Thread.Sleep(1000);
+            }
         }
 
         private static void ScrambleWordsInFileScenario()
