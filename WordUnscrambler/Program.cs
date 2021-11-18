@@ -1,7 +1,9 @@
-﻿namespace WordUnscrambler
+﻿using System.IO;
+namespace WordUnscrambler
 {
     class Program
     {
+        private const string wordListFile = "wordlist.txt";
         static void Main(string[] args)
         {
             bool continueProgram = true;
@@ -41,14 +43,36 @@
 
         private static void ScrambleWordsInFileScenario()
         {
-            throw new NotImplementedException();
+            var filename = Console.ReadLine() ?? string.Empty;
+            string[] scrambledWords = _fileReader.Read(filename);
+            DisplayMatchedUnscrambledWords(scrambledWords);
         }
 
         private static void ScrambleWordsManualScenario()
         {
-            var manualInput = Console.ReadLine() ?? string.Empty;
-            string [] scrambledWords = manualInput.Split(',');
+            var manuealInput = Console.ReadLine() ?? string.Empty;
+            string[] scrambledWords = manualInput.Split(',');
             DisplayMatchedUnscrambledWords(scrambledWords);
+        }
+
+        private static void DisplayMatchedUnscrambledWords(string[] scrambledWords)
+        {
+            string[] wordlist = _fileRead.Read(wordListFileName);
+
+            List<MatchedWord> matchedWords = _wordMatcher.Match(scrambledWords, wordlist);
+
+            if (matchedWords.Any())
+            {
+                foreach(var word in matchedWords)
+                {
+                    Console.WriteLine("Match found for {0}: {1} ", matchedWords.ScreambledWord, matchedWord);
+                }
+            } 
+            else
+            {
+                Console.WriteLine("No matches have been found.");
+            }
+
         }
     }   
 }
