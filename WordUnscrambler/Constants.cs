@@ -8,7 +8,7 @@ namespace WordUnscrambler
         public const string EnterScrambledWordsManually = "Enter words manually (separedted by commas if multiple): ";
         public const string EnterScrambleWordsNotRecognize = "The option was not recognized";
         
-        public const string ErrorScrambledWordsCannotBeLoaded = "Error: Scrambled words were not loaded";
+        public const string ErrorScrambledWordsCannotBeLoaded = "Error: Scrambled words were not loaded. ";
         public const string ProgramWillBeTerminated = "Program will be terminated. ";
         
         public const string MatchFound = "Match Found for {0} -> {1}";
