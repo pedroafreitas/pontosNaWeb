@@ -9,7 +9,7 @@ namespace Catalog.Dtos
         public string? Name
         {
             get => _name;
-            set => _name = value ?? throw new ArgumentNullException(Constants.ErrorNullValue);
+            init => _name = value ?? throw new ArgumentNullException(Constants.ErrorNullValue);
         }
 
         public decimal Price {get; init;}

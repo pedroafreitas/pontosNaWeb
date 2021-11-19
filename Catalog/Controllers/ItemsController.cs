@@ -38,5 +38,30 @@ namespace Catalog.Controllers
 
             return item.AsDto();
         }
+
+        // POST/items
+        [HttpPost]  //adding route
+        public ActionResult<ItemDto> CreateItem(CreateItemDto itemDto)
+        {
+            Item item = new(){
+                Id = Guid.NewGuid(),
+                Name = itemDto.Name,
+                Price = itemDto.Price,
+                CreatedDate = DateTimeOffset.UtcNow
+            };
+
+            repository.CreateItem(item);
+
+
+            //The convention here is to return the item that has been created
+            //and also return a header that specifies where you can get the info
+            //about the item created.
+                                    //Param 1: "What is action that reflects the route 
+                                    //to get info about the item? GetItem."
+                                    //Param 2: Where is the route data? Id.
+                                    //Param 3: item is returned as dto.
+            return CreatedAtAction(nameof(GetItem), new {id = item.Id}, item.AsDto());
+        }
+
     }
 }
