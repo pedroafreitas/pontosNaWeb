@@ -25,9 +25,15 @@ namespace Catalog.Controllers
 
         // GET/items/id
         [HttpGet("{id}")] //Here we specify how we are gonna create another piece of this route
-        public Item GetItem(Guid id)
+        public ActionResult<Item> GetItem(Guid id)
         {
             var item = repository.GetItem(id);
+
+            if(item is null)
+            {
+                return NotFound();
+            }
+
             return item;
         }
     }
