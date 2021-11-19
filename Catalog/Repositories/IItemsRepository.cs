@@ -6,8 +6,9 @@ namespace Catalog.Repositories
 {
     public interface IInMemoryItemsRepository
     {
-        IHostMetadata GetItem(Guid id);
+        Item GetItem(Guid id);
         IEnumerable<Item> GetItems();
+
         
     }
 }

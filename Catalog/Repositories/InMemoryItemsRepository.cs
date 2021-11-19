@@ -6,7 +6,7 @@ using System.Linq;
 namespace Catalog.Repositories
 {
 
-    public class InMemoryItemsRepository
+    public class InMemoryItemsRepository : IInMemoryItemsRepository
     {
         private readonly List<Item> items = new()
         {
@@ -22,7 +22,8 @@ namespace Catalog.Repositories
         }
         public Item GetItem(Guid id)
         {
-            return items.Where(item => item.Id == id).SingleOrDefault();// ?? throw new ArgumentNullException(Constants.ErrorNullValue);
+            return items.Where(item => item.Id == id).
+                        SingleOrDefault() ?? throw new ArgumentNullException(Constants.ErrorNullValue);
         }
     }
 }

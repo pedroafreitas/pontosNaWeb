@@ -20,3 +20,10 @@ out api consumers (DTOs)
 ![alt text](./img/1.png)
 
 This is only my studing repo. I do not own this content.
+
+
+* Data Transfer Object: "an object that carries data between processes in order to reduce the number of method calls.
+
+![alt text](https://martinfowler.com/eaaCatalog/dtoSketch.gif)
+
+How do we validate DTOs?
