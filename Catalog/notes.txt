@@ -1,0 +1,6 @@
+Fundations
+
+
+Entity/Domain/Models - represents the itens in catalog ( via c# record types)
+Repository - resposible for all itens storage related operations (in memory)
+Controller - controls the requests to the api
