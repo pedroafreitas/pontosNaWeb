@@ -22,7 +22,7 @@ namespace Catalog.Repositories
 
         public Item GetItem(Guid id)
         {
-            return items.Where(item => item.Id == id).SingleOrDefault();
+            return items.Where(item => item.Id == id).SingleOrDefault() ?? throw new ArgumentNullException(Constants.ErrorNullValue);
         }
     }
 }

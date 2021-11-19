@@ -5,7 +5,7 @@ using Catalog.Entities;
 namespace Catalog.Controllers
 {
     [ApiController]
-    [Route("[items]")]
+    [Route("items")]
     public class ItemsController : ControllerBase
     {
         private readonly InMemoryItemsRepository repository;
@@ -21,6 +21,14 @@ namespace Catalog.Controllers
         {
             var items = repository.GetItems();
             return items;
+        }
+
+        // GET/items/id
+        [HttpGet("{id}")] //Here we specify how we are gonna create another piece of this route
+        public Item GetItem(Guid id)
+        {
+            var item = repository.GetItem(id);
+            return item;
         }
     }
 }
