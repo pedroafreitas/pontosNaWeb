@@ -35,5 +35,7 @@ namespace Catalog.Repositories
             var index = items.FindIndex(existingItem => existingItem.Id == item.Id);
             items[index] = item;
         }
+
+        public 
     }
 }
