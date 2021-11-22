@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vOP/mhBivEGKa7LZgyErmKS4xHN6AS1M4PqUjGCU7j44iodPSBDkVPANZr1vUB4++eNmbiQgWse84VtvPn77IQ==",
+  "dgSpecHash": "K3JAHkQB+ckTQe9cziq9TDf1sQNNi3WKOZU3wJJUoX+J1GzLB7Rj61cgcQi2hkpAx4EjRSoLbaD9hxKP0qDyrw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Cliente\\pontosNaWeb\\DataBases\\DataBases.csproj",
+  "projectFilePath": "C:\\Users\\Cliente\\pontosNaWeb\\CustomerOrderViewer\\CustomerOrderViewer.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

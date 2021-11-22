@@ -1,0 +1,15 @@
+C:\Users\Cliente\pontosNaWeb\CustomerOrderViewer\bin\Debug\net6.0\CustomerOrderViewer.exe
+C:\Users\Cliente\pontosNaWeb\CustomerOrderViewer\bin\Debug\net6.0\CustomerOrderViewer.deps.json
+C:\Users\Cliente\pontosNaWeb\CustomerOrderViewer\bin\Debug\net6.0\CustomerOrderViewer.runtimeconfig.json
+C:\Users\Cliente\pontosNaWeb\CustomerOrderViewer\bin\Debug\net6.0\CustomerOrderViewer.dll
+C:\Users\Cliente\pontosNaWeb\CustomerOrderViewer\bin\Debug\net6.0\ref\CustomerOrderViewer.dll
+C:\Users\Cliente\pontosNaWeb\CustomerOrderViewer\bin\Debug\net6.0\CustomerOrderViewer.pdb
+C:\Users\Cliente\pontosNaWeb\CustomerOrderViewer\obj\Debug\net6.0\CustomerOrderViewer.csproj.AssemblyReference.cache
+C:\Users\Cliente\pontosNaWeb\CustomerOrderViewer\obj\Debug\net6.0\CustomerOrderViewer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cliente\pontosNaWeb\CustomerOrderViewer\obj\Debug\net6.0\CustomerOrderViewer.AssemblyInfoInputs.cache
+C:\Users\Cliente\pontosNaWeb\CustomerOrderViewer\obj\Debug\net6.0\CustomerOrderViewer.AssemblyInfo.cs
+C:\Users\Cliente\pontosNaWeb\CustomerOrderViewer\obj\Debug\net6.0\CustomerOrderViewer.csproj.CoreCompileInputs.cache
+C:\Users\Cliente\pontosNaWeb\CustomerOrderViewer\obj\Debug\net6.0\CustomerOrderViewer.dll
+C:\Users\Cliente\pontosNaWeb\CustomerOrderViewer\obj\Debug\net6.0\ref\CustomerOrderViewer.dll
+C:\Users\Cliente\pontosNaWeb\CustomerOrderViewer\obj\Debug\net6.0\CustomerOrderViewer.pdb
+C:\Users\Cliente\pontosNaWeb\CustomerOrderViewer\obj\Debug\net6.0\CustomerOrderViewer.genruntimeconfig.cache

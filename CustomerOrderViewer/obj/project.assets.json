@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Cliente\\pontosNaWeb\\DataBases\\DataBases.csproj",
-      "projectName": "DataBases",
-      "projectPath": "C:\\Users\\Cliente\\pontosNaWeb\\DataBases\\DataBases.csproj",
+      "projectUniqueName": "C:\\Users\\Cliente\\pontosNaWeb\\CustomerOrderViewer\\CustomerOrderViewer.csproj",
+      "projectName": "CustomerOrderViewer",
+      "projectPath": "C:\\Users\\Cliente\\pontosNaWeb\\CustomerOrderViewer\\CustomerOrderViewer.csproj",
       "packagesPath": "C:\\Users\\Cliente\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Cliente\\pontosNaWeb\\DataBases\\obj\\",
+      "outputPath": "C:\\Users\\Cliente\\pontosNaWeb\\CustomerOrderViewer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Cliente\\AppData\\Roaming\\NuGet\\NuGet.Config",
