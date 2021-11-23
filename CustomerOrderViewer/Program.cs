@@ -1,6 +1,9 @@
-﻿using System.Data.SqlClient;
-using CustomerOrderViewer.Models;
+﻿using CustomerOrderViewer.Models;
 using CustomerOrderViewer.Repository;
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
 
 namespace CustomerOrderViewer
 {
@@ -10,33 +13,30 @@ namespace CustomerOrderViewer
         {
             try
             {
-                CustomerOrderDetailCommand customerOrderDetailCommand = new CustomerOrderDetailCommand(@"Data Source = localhost; Initial Catalog = CustomerOrderViewer; Integrated Security = True");
-            
+                CustomerOrderDetailCommand  customerOrderDetailCommand = new CustomerOrderDetailCommand(@"Data Source=localhost;Initial Catalog=CustomerOrderViwer;Integrated Security=True");
+
                 IList<CustomerOrderDetailModel> customerOrderDetailModels = customerOrderDetailCommand.GetList();
 
-                if (customerOrderDetailModels.Any())
+                if(customerOrderDetailModels.Any())
                 {
-                    foreach (CustomerOrderDetailModel customerOrderDetailModel in customerOrderDetailModels)
+                    foreach(CustomerOrderDetailModel customerOrderDetailModel in customerOrderDetailModels)
                     {
-                        Console.WriteLine("{0}: Fullname {1} {2} (id: {3}) - purchased {4} for {5} (id: {6})",
-                        customerOrderDetailModel.CustomerOrderId,
-                        customerOrderDetailModel.FirstName,
-                        customerOrderDetailModel.LastName,
-                        customerOrderDetailModel.CustomerId,
-                        customerOrderDetailModel.Description,
-                        customerOrderDetailModel.Price,
-                        customerOrderDetailModel.ItemId
+                        Console.WriteLine("{0}: Fullname: {1} {2} (id: {3}) - purchased {4} for {5} (id:{6})",
+                            customerOrderDetailModel.CustomerOrderId,
+                            customerOrderDetailModel.FirstName,
+                            customerOrderDetailModel.LastName,
+                            customerOrderDetailModel.CustomerId,
+                            customerOrderDetailModel.Description,
+                            customerOrderDetailModel.Price,
+                            customerOrderDetailModel.ItemId
                         );
-
                     }
                 }
             }
             catch (Exception ex)
             {
-                
-                Console.WriteLine("Error: {0}", ex.Message);
+                Console.WriteLine("Error {0}: ", ex.Message);
             }
-
         }
     }
 }

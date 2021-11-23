@@ -5,7 +5,7 @@ using CustomerOrderViewer.Models;
 
 namespace CustomerOrderViewer.Repository
 {
-    class CustomerOrderDetailCommand
+    class   CustomerOrderDetailCommand
     {
         private string _connectionString;
 
