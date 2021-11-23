@@ -27,7 +27,7 @@ namespace CustomerOrderViewer.Repository
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         if (reader.HasRows)
-                        {
+                          {
                             while (reader.Read())
                             {
                                 CustomerOrderDetailModel customerOrderDetailModel = new CustomerOrderDetailModel()
