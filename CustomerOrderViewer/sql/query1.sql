@@ -6,7 +6,8 @@ CREATE TABLE [dbo].[Customer]
     FirstName VARCHAR(50) not null, 
     MiddleName varchar(50) null, 
     LastName varchar(50) not null, 
-    Age int not null, PRIMARY KEY (CustomerId) 
+    Age int not null, 
+    PRIMARY KEY (CustomerId) 
 );
 
 CREATE TABLE [dbo].[item] 

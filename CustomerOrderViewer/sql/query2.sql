@@ -73,21 +73,23 @@ CREATE PROCEDURE [dbo].[CustomerOrderDetail_Upsert]
 	@CustomerOrderType CustomerOrderType READONLY, --a table of CustomerOrder
 	@UserId VARCHAR(50)
 AS
-		MERGE INTO CustomerOrder TARGET --merge can insert, update and delete. dont delete with it
-		USING 
-		(
-			SELECT --selecting the source input using our uddt
-				CustomerOrderId,
-				CustomerId,
-				ItemId,
-				@UserId [UpdateId], --making UserId a named collum. UserId is UserId
-				GETDATE() [UpdateDate], 
-				@UserId [CreateId],
-				GETDATE() [CreateDate]
+	MERGE INTO CustomerOrder TARGET --merge can insert, update and delete. dont delete with it
+	--o source é CustomerOrderType passado como parâmetro
+	--o target é CustomerOrderDetail. O programa sabe o que encontrar pelo CustomerOrderId do parametro
+	USING 
+	(
+		SELECT --selecting the source input using our uddt
+			CustomerOrderId,
+			CustomerId,
+			ItemId,
+			@UserId [UpdateId], --making UserId a named collum. UserId is UserId
+			GETDATE() [UpdateDate], 
+			@UserId [CreateId],
+			GETDATE() [CreateDate]
 
-			FROM
-				@CustomerOrderType
-		) AS SOURCE
+		FROM
+			@CustomerOrderType --o que queremos inserir
+	) AS SOURCE
     ON 
 		(
 		--how are you ganna match the source to the target? 
