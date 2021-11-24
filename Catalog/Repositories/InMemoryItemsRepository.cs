@@ -36,6 +36,5 @@ namespace Catalog.Repositories
             items[index] = item;
         }
 
-        public 
     }
 }
