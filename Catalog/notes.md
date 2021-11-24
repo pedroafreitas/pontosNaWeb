@@ -26,6 +26,15 @@ How do we validate DTOs?
 
 So: create the model
 
-then we keep doig this: repo, add the interface, dto, controller
+Then we keep doig this: repo, add the interface, dto, controller
+
+## Part 3
+
+Now we will connect our service to a MongoDb database, replacing our in memory repository with it.
+
+We will learn:
+    1.How to create a MongoDb repository
+    2.How to run MongoDb as a docker container
+    3.How to use Postman to interact with a REST API
 
 This is only my studyng repo. I do not own this content.

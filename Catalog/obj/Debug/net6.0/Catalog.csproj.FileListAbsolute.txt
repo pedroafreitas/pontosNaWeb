@@ -25,3 +25,4 @@ C:\Users\Cliente\pontosNaWeb\Catalog\obj\Debug\net6.0\Catalog.dll
 C:\Users\Cliente\pontosNaWeb\Catalog\obj\Debug\net6.0\ref\Catalog.dll
 C:\Users\Cliente\pontosNaWeb\Catalog\obj\Debug\net6.0\Catalog.pdb
 C:\Users\Cliente\pontosNaWeb\Catalog\obj\Debug\net6.0\Catalog.genruntimeconfig.cache
+C:\Users\Cliente\pontosNaWeb\Catalog\bin\Debug\net6.0\nunit.framework.dll
