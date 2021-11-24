@@ -24,8 +24,8 @@ out api consumers (DTOs)
 
 How do we validate DTOs?
 
-então: a gente cria o model
+So: create the model
 
-depois vai fazendo: repo, add na interface, dto, controller
+then we keep doig this: repo, add the interface, dto, controller
 
 This is only my studyng repo. I do not own this content.
