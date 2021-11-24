@@ -1,10 +1,12 @@
 using Catalog.Repositories;
 using Catalog.Settings;
 using MongoDB.Driver;
+using System;
 using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
+BsonSerializer obj = new();
 BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
 BsonSerializer.RegisterSerializer(new DateTimeOffsetSerializer(BsonType.String));
 
@@ -17,7 +19,7 @@ builder.Services.AddSingleton<IMongoClient>(serviceProvider =>
 });
 
 // Add services to the container. Only one copy because of singleton
-builder.Services.AddSingleton<IItemsRepository, IMongoDbSettings>();
+builder.Services.AddSingleton<IItemsRepository, MongoDbItemsRepository>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
