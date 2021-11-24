@@ -38,3 +38,11 @@ We will learn:
     3.How to use Postman to interact with a REST API
 
 This is only my studyng repo. I do not own this content.
+
+Postman is self-explanatory. It is httprepl with an GUI.
+
+Docker encapsulates everything you need to run your application. Including mongo.
+
+We need to add our localhost and the port on appsettings. We can create a class to put settign inside c# (it can be named either Settings, Configuration or Options).
+
+How Mongo works in c#?

@@ -10,11 +10,11 @@ namespace Catalog.Repositories
         private const string collectionName = "items";
         //We want to store mongo's collection
         private readonly IMongoCollection<Item> itemsCollection;
-        public MongoDbItemsRepository(IMongoClient mongoClient)
+        public MongoDbItem msRepository(IMongoClient mongoClient)
         {
             //This will get us a reference to the db
             IMongoDatabase database = mongoClient.GetDatabase(databasename); 
-            itemsCollection = database.GetCollection<Item>(collectionName);
+            //itemsCollection = database.GetCollection<Item>(collectionName);
         }
         
         public void CreateItem(Item item)
