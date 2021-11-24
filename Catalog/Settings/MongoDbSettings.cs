@@ -1,6 +1,6 @@
 namespace Catalog.Settings
 {
-    public class MongoDbSettings
+    public class MongoDbSettings : IMongoDbSettings
     {
         private string? _host;
 

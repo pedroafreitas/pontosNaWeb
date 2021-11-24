@@ -1,13 +1,11 @@
-using System;
 using Catalog.Entities;
 
 
 namespace Catalog.Repositories
 {
-    public interface IInMemoryItemsRepository
+    public interface IMongoDbItemsRepository
     {
         Item GetItem(Guid id);
-        
         IEnumerable<Item> GetItems();
 
         void CreateItem(Item item);

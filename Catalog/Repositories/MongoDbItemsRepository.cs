@@ -3,18 +3,20 @@ using MongoDB.Driver;
 
 namespace Catalog.Repositories
 {
-    public class MongoDbItemsRepository : IInMemoryItemsRepository
+    public class MongoDbItemsRepository : IMongoDbItemsRepository
     {
         //All our documents will be in collections and the db will have a lot of collections
         private const string databasename = "catalog";
         private const string collectionName = "items";
         //We want to store mongo's collection
-        private readonly IMongoCollection<Item> itemsCollection;
-        public MongoDbItem msRepository(IMongoClient mongoClient)
+        private readonly IMongoCollection<Item>? itemsCollection;
+
+
+        public MongoDbItemsRepository(IMongoClient mongoClient)
         {
             //This will get us a reference to the db
             IMongoDatabase database = mongoClient.GetDatabase(databasename); 
-            //itemsCollection = database.GetCollection<Item>(collectionName);
+            itemsCollection = database.GetCollection<Item>(collectionName);
         }
         
         public void CreateItem(Item item)

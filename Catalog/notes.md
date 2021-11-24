@@ -11,8 +11,7 @@
 * Dependency injection is a technique to properly inject our
 repository instance with items controller.
 
-* Data transfer objects are used to establish our peer contract with 
-out api consumers (DTOs)
+* Data transfer objects are used to establish our peer contract with out api consumers (DTOs)
 
 * Classes should not be dependents of other objects, but of interfaces.
 
