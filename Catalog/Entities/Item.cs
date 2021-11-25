@@ -13,8 +13,6 @@ namespace Catalog.Entities
             init => _name = value ?? throw new ArgumentNullException(Constants.ErrorNullValue);
         }
 
-        public string ba{get; init;}
-
         public decimal Price {get; init;}
         public DateTimeOffset CreatedDate{get; init;}
 

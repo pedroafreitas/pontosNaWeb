@@ -1,20 +1,21 @@
 using Catalog.Repositories;
 using Catalog.Settings;
 using MongoDB.Driver;
-using System;
-using Microsoft.Extensions.Configuration;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Serializers;
+using MongoDB.Bson;
+
 
 var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
 
-BsonSerializer obj = new();
 BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
-BsonSerializer.RegisterSerializer(new DateTimeOffsetSerializer(BsonType.String));
+BsonSerializer.RegisterSerializer(new DateTimeOffsetSerializer(BsonType.String)); 
 
-IConfiguration  Configuration = new();
 //lets receive some things
 builder.Services.AddSingleton<IMongoClient>(serviceProvider =>
 {
-    var settings = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
+    var settings = app.Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
     return new MongoClient(settings.ConnectionString);
 });
 
@@ -25,7 +26,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

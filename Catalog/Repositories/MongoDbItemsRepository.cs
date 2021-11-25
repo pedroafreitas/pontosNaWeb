@@ -3,7 +3,7 @@ using MongoDB.Driver;
 
 namespace Catalog.Repositories
 {
-    public class MongoDbItemsRepository : IMongoDbItemsRepository
+    public class MongoDbItemsRepository : IItemsRepository
     {
         //All our documents will be in collections and the db will have a lot of collections
         private const string databasename = "catalog";

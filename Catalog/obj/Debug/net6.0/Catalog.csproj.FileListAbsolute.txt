@@ -26,3 +26,15 @@ C:\Users\Cliente\pontosNaWeb\Catalog\obj\Debug\net6.0\ref\Catalog.dll
 C:\Users\Cliente\pontosNaWeb\Catalog\obj\Debug\net6.0\Catalog.pdb
 C:\Users\Cliente\pontosNaWeb\Catalog\obj\Debug\net6.0\Catalog.genruntimeconfig.cache
 C:\Users\Cliente\pontosNaWeb\Catalog\bin\Debug\net6.0\nunit.framework.dll
+C:\Users\Cliente\pontosNaWeb\Catalog\bin\Debug\net6.0\DnsClient.dll
+C:\Users\Cliente\pontosNaWeb\Catalog\bin\Debug\net6.0\MongoDB.Bson.dll
+C:\Users\Cliente\pontosNaWeb\Catalog\bin\Debug\net6.0\MongoDB.Driver.dll
+C:\Users\Cliente\pontosNaWeb\Catalog\bin\Debug\net6.0\MongoDB.Driver.Core.dll
+C:\Users\Cliente\pontosNaWeb\Catalog\bin\Debug\net6.0\MongoDB.Libmongocrypt.dll
+C:\Users\Cliente\pontosNaWeb\Catalog\bin\Debug\net6.0\SharpCompress.dll
+C:\Users\Cliente\pontosNaWeb\Catalog\bin\Debug\net6.0\runtimes\win\native\libzstd.dll
+C:\Users\Cliente\pontosNaWeb\Catalog\bin\Debug\net6.0\runtimes\win\native\snappy32.dll
+C:\Users\Cliente\pontosNaWeb\Catalog\bin\Debug\net6.0\runtimes\win\native\snappy64.dll
+C:\Users\Cliente\pontosNaWeb\Catalog\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
+C:\Users\Cliente\pontosNaWeb\Catalog\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\Cliente\pontosNaWeb\Catalog\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll
