@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "U2S+VA+L968lO8xQacWfDgw+vYu4RR92mmLFGy6zPEPPvy933Y+jNYiHQc8mfEedm7W0RPYQJ0BBXdnlc0nsLQ==",
+  "dgSpecHash": "/qoMFJNcQ9bT8vMyi3IFdvbs+JcWAIdwIFK7+vN+NkqZM5z/NHzo2NhcGB0IiDJ/K7RKeUyOILJ7xNjwZxj78Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Cliente\\pontosNaWeb\\WebScraper\\WebScraper.csproj",
+  "projectFilePath": "C:\\Users\\Cliente\\pontosNaWeb\\Training\\WebScraper.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

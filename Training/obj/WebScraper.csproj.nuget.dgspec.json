@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Cliente\\pontosNaWeb\\WebScraper\\WebScraper.csproj": {}
+    "C:\\Users\\Cliente\\pontosNaWeb\\Training\\WebScraper.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Cliente\\pontosNaWeb\\WebScraper\\WebScraper.csproj": {
+    "C:\\Users\\Cliente\\pontosNaWeb\\Training\\WebScraper.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Cliente\\pontosNaWeb\\WebScraper\\WebScraper.csproj",
+        "projectUniqueName": "C:\\Users\\Cliente\\pontosNaWeb\\Training\\WebScraper.csproj",
         "projectName": "WebScraper",
-        "projectPath": "C:\\Users\\Cliente\\pontosNaWeb\\WebScraper\\WebScraper.csproj",
+        "projectPath": "C:\\Users\\Cliente\\pontosNaWeb\\Training\\WebScraper.csproj",
         "packagesPath": "C:\\Users\\Cliente\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Cliente\\pontosNaWeb\\WebScraper\\obj\\",
+        "outputPath": "C:\\Users\\Cliente\\pontosNaWeb\\Training\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Cliente\\AppData\\Roaming\\NuGet\\NuGet.Config",

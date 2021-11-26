@@ -17,7 +17,7 @@ class Program
 
         Kata kata = new();
 
-        Console.WriteLine(kata.Disemvowel(kataStr));
+        Console.WriteLine(kata.AlphabetPosition(kataStr));
     }
     
     public static bool IsValidEmail(string inputEmail)

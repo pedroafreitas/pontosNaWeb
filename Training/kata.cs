@@ -1,10 +1,40 @@
 using System.Text.RegularExpressions;
-using System;
+using System.Text;
 
 namespace Training
 {
     public class Kata
     {
+        public  string AlphabetPosition(string text)
+        {
+            text = text.ToUpper();
+            byte[] ascii = Encoding.ASCII.GetBytes(text);
+            List<int> removeIndex = new();
+
+            for (int i = 0; i < ascii.Length; ++i)
+            {
+                if(ascii[i] > 90 || ascii[i] < 65)
+                {
+                    removeIndex.Add(i);
+                } 
+                else 
+                {
+                    ascii[i] = (byte)(ascii[i] - 64);
+                }
+            }
+            ascii = RemoveIndexesByteArray(ascii, removeIndex);
+            return ascii.ToString() ?? throw new ArgumentNullException();
+        }
+
+        public static byte[] RemoveIndexesByteArray(byte[] array, List<int> removeIndexes)
+        {
+            for (int i = 0; i < removeIndexes.Count; ++i)
+            {
+                array = array.Where((val, idx) => idx != removeIndexes[i]).ToArray();
+            }
+            return array;
+        }
+
         public string Disemvowel(string str)
         {
             string result = str;
