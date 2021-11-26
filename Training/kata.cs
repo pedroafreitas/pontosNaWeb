@@ -5,7 +5,7 @@ namespace Training
 {
     public class Kata
     {
-        public  string AlphabetPosition(string text)
+        public byte[] AlphabetPosition(string text)
         {
             text = text.ToUpper();
             byte[] ascii = Encoding.ASCII.GetBytes(text);
@@ -23,15 +23,20 @@ namespace Training
                 }
             }
             ascii = RemoveIndexesByteArray(ascii, removeIndex);
-            return ascii.ToString() ?? throw new ArgumentNullException();
+            return ascii;
+            // return string.Join(" ", text.ToLower().Where(char.IsLetter).Select(x => x - 'a'+1));
         }
 
         public static byte[] RemoveIndexesByteArray(byte[] array, List<int> removeIndexes)
         {
+            List<byte> tmp= new List<byte>(array);
+            int control = 0;
             for (int i = 0; i < removeIndexes.Count; ++i)
             {
-                array = array.Where((val, idx) => idx != removeIndexes[i]).ToArray();
+                tmp.RemoveAt(removeIndexes[i]-control); 
+                ++control;
             }
+            array = tmp.ToArray();
             return array;
         }
 

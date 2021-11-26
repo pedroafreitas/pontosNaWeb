@@ -13,11 +13,12 @@ class Program
             //Console.WriteLine("{0} {1} a valid email", s, IsValidEmail(s) ? "is" : "is not");
         }
 
-        string kataStr = "The stealth wAAAAAoA A rrior";
+        string kataStr = " ab cxw y-z";
 
         Kata kata = new();
 
-        Console.WriteLine(kata.AlphabetPosition(kataStr));
+        string returnString = string.Join(" ",kata.AlphabetPosition(kataStr));
+        Console.WriteLine(returnString);
     }
     
     public static bool IsValidEmail(string inputEmail)
