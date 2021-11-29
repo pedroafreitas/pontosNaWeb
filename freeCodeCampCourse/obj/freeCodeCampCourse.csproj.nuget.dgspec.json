@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Cliente\\pontosNaWeb\\freeCodeCampCourse\\freeCodeCampCourse.csproj": {}
+    "c:\\Users\\Cliente\\pontosNaWeb\\freeCodeCampCourse\\freeCodeCampCourse.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Cliente\\pontosNaWeb\\freeCodeCampCourse\\freeCodeCampCourse.csproj": {
+    "c:\\Users\\Cliente\\pontosNaWeb\\freeCodeCampCourse\\freeCodeCampCourse.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Cliente\\pontosNaWeb\\freeCodeCampCourse\\freeCodeCampCourse.csproj",
+        "projectUniqueName": "c:\\Users\\Cliente\\pontosNaWeb\\freeCodeCampCourse\\freeCodeCampCourse.csproj",
         "projectName": "freeCodeCampCourse",
-        "projectPath": "C:\\Users\\Cliente\\pontosNaWeb\\freeCodeCampCourse\\freeCodeCampCourse.csproj",
+        "projectPath": "c:\\Users\\Cliente\\pontosNaWeb\\freeCodeCampCourse\\freeCodeCampCourse.csproj",
         "packagesPath": "C:\\Users\\Cliente\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Cliente\\pontosNaWeb\\freeCodeCampCourse\\obj\\",
+        "outputPath": "c:\\Users\\Cliente\\pontosNaWeb\\freeCodeCampCourse\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Cliente\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.13.3, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.13.2, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"

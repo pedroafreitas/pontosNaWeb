@@ -1,0 +1,15 @@
+C:\Users\Cliente\pontosNaWeb\Linq\bin\Debug\net6.0\Linq.exe
+C:\Users\Cliente\pontosNaWeb\Linq\bin\Debug\net6.0\Linq.deps.json
+C:\Users\Cliente\pontosNaWeb\Linq\bin\Debug\net6.0\Linq.runtimeconfig.json
+C:\Users\Cliente\pontosNaWeb\Linq\bin\Debug\net6.0\Linq.dll
+C:\Users\Cliente\pontosNaWeb\Linq\bin\Debug\net6.0\ref\Linq.dll
+C:\Users\Cliente\pontosNaWeb\Linq\bin\Debug\net6.0\Linq.pdb
+C:\Users\Cliente\pontosNaWeb\Linq\obj\Debug\net6.0\Linq.csproj.AssemblyReference.cache
+C:\Users\Cliente\pontosNaWeb\Linq\obj\Debug\net6.0\Linq.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cliente\pontosNaWeb\Linq\obj\Debug\net6.0\Linq.AssemblyInfoInputs.cache
+C:\Users\Cliente\pontosNaWeb\Linq\obj\Debug\net6.0\Linq.AssemblyInfo.cs
+C:\Users\Cliente\pontosNaWeb\Linq\obj\Debug\net6.0\Linq.csproj.CoreCompileInputs.cache
+C:\Users\Cliente\pontosNaWeb\Linq\obj\Debug\net6.0\Linq.dll
+C:\Users\Cliente\pontosNaWeb\Linq\obj\Debug\net6.0\ref\Linq.dll
+C:\Users\Cliente\pontosNaWeb\Linq\obj\Debug\net6.0\Linq.pdb
+C:\Users\Cliente\pontosNaWeb\Linq\obj\Debug\net6.0\Linq.genruntimeconfig.cache

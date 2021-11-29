@@ -13,7 +13,7 @@ class Program
             //Console.WriteLine("{0} {1} a valid email", s, IsValidEmail(s) ? "is" : "is not");
         }
 
-        string kataStr = " ab cxw y-z";
+        string kataStr = "Hello World !";
 
         Kata kata = new();
 

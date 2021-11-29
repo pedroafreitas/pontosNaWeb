@@ -5,6 +5,15 @@ namespace Training
 {
     public class Kata
     {
+        public string PigIt(string str)
+        {
+            
+            //string[] splitData = s.Split(new string[] { "|", ";" }, StringSplitOptions.RemoveEmptyEntries);
+            string[] splitStr = str.Split(' ', ',', '.', '!','?');
+            
+            return str;
+        }
+
         public byte[] AlphabetPosition(string text)
         {
             text = text.ToUpper();
