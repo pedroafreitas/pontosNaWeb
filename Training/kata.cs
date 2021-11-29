@@ -9,8 +9,13 @@ namespace Training
         {
             
             //string[] splitData = s.Split(new string[] { "|", ";" }, StringSplitOptions.RemoveEmptyEntries);
-            string[] splitStr = str.Split(' ', ',', '.', '!','?');
+            var res = Regex.Matches(str, @"([\w']+|[.,!?&;])").Cast<Match>().Select(match => match.Value).ToList();
             
+            //@"[\w']+|[.,!?&;]"
+            //var res = Regex.Matches(str, @"(?<=\[source=)[A-Za-z0-9-_ \\/.:]+(?=\])").Cast<Match>().Select(match => match.Value).ToList();
+
+
+
             return str;
         }
 

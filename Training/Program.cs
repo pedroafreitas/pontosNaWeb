@@ -17,7 +17,7 @@ class Program
 
         Kata kata = new();
 
-        string returnString = string.Join(" ",kata.AlphabetPosition(kataStr));
+        string returnString = string.Join(" ",kata.PigIt(kataStr));
         Console.WriteLine(returnString);
     }
     

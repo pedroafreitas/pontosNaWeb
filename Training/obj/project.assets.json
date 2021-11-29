@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Cliente\\pontosNaWeb\\Training\\WebScraper.csproj",
-      "projectName": "WebScraper",
-      "projectPath": "C:\\Users\\Cliente\\pontosNaWeb\\Training\\WebScraper.csproj",
+      "projectUniqueName": "C:\\Users\\Cliente\\pontosNaWeb\\Training\\Training.csproj",
+      "projectName": "Training",
+      "projectPath": "C:\\Users\\Cliente\\pontosNaWeb\\Training\\Training.csproj",
       "packagesPath": "C:\\Users\\Cliente\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Cliente\\pontosNaWeb\\Training\\obj\\",
       "projectStyle": "PackageReference",
