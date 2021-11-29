@@ -7,14 +7,22 @@ namespace Training
     {
         public string PigIt(string str)
         {
-            
+            string first = string.Empty;
             //string[] splitData = s.Split(new string[] { "|", ";" }, StringSplitOptions.RemoveEmptyEntries);
-            var res = Regex.Matches(str, @"([\w']+|[.,!?&;])").Cast<Match>().Select(match => match.Value).ToList();
-            
-            //@"[\w']+|[.,!?&;]"
-            //var res = Regex.Matches(str, @"(?<=\[source=)[A-Za-z0-9-_ \\/.:]+(?=\])").Cast<Match>().Select(match => match.Value).ToList();
+            //var res = Regex.Matches(str, @"([.,!?&;])").Cast<Match>().Select(match => match.Value).ToList();
 
+            for(int i = 0; i < str.Length; ++i)
+            {
+                
+                // if (!str[i].ToString() Matches regex && isFirstLetter(str[i])){
+                //     first = str[i];
+                //     if(isEndingLetter(str[i])){
 
+                //     }
+                // }
+
+                // result.Add(str[int]);
+            }
 
             return str;
         }

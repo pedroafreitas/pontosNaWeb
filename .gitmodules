@@ -1,0 +1,3 @@
+[submodule "vemproifood-backend"]
+	path = vemproifood-backend
+	url = https://github.com/ifood/vemproifood-backend.git

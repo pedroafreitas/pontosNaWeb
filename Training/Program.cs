@@ -15,8 +15,6 @@ class Program
 
         string kataStr = "Hello World !";
 
-        Kata kata = new();
-
         string returnString = string.Join(" ",kata.PigIt(kataStr));
         Console.WriteLine(returnString);
     }
