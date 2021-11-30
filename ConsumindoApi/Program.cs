@@ -22,12 +22,13 @@ namespace ConsumindoApi
                 var usuarios = task.Result;
                 foreach(var usuario in usuarios)
                     WriteLine(usuario.ToString());
+                    
                 Environment.Exit(0);
             },
             TaskContinuationOptions.OnlyOnRanToCompletion
             );
 
-
+        ReadLine();
         }
     }
 }

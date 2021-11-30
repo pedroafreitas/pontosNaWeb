@@ -5,25 +5,19 @@ namespace Training
 {
     public class Kata
     {
+        
+        /*
+        Passo 1: fazer split das palavras e salvar numa lista
+        Passo 2: verificar se é pontuação
+        Passo 3: Cocatenar primeira letra no final
+        Passo 4: Concatenar ay no final 
+        Passo 5: Concatenar todas as palavras na lista para retorno
+        */
         public string PigIt(string str)
         {
-            string first = string.Empty;
-            //string[] splitData = s.Split(new string[] { "|", ";" }, StringSplitOptions.RemoveEmptyEntries);
-            //var res = Regex.Matches(str, @"([.,!?&;])").Cast<Match>().Select(match => match.Value).ToList();
-
-            for(int i = 0; i < str.Length; ++i)
-            {
-                
-                // if (!str[i].ToString() Matches regex && isFirstLetter(str[i])){
-                //     first = str[i];
-                //     if(isEndingLetter(str[i])){
-
-                //     }
-                // }
-
-                // result.Add(str[int]);
-            }
-
+            string firstLetter = string.Empty;
+            
+            string[] tokens = str.Split();
             return str;
         }
 

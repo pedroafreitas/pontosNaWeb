@@ -12,7 +12,7 @@ namespace ConsumindoApi
 
         public UsuarioRepository()
         {
-            client.BaseAddress = new Uri("https://localhost:5001");
+            client.BaseAddress = new Uri("http://localhost:5000");
 
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));          
@@ -28,6 +28,7 @@ namespace ConsumindoApi
             }
             return new List<Usuario>();
         }
+        
         
     }
 }
