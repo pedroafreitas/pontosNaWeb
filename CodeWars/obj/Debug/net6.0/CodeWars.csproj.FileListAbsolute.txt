@@ -1,0 +1,15 @@
+C:\Users\Cliente\pontosNaWeb\CodeWars\obj\Debug\net6.0\CodeWars.csproj.AssemblyReference.cache
+C:\Users\Cliente\pontosNaWeb\CodeWars\obj\Debug\net6.0\CodeWars.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cliente\pontosNaWeb\CodeWars\obj\Debug\net6.0\CodeWars.AssemblyInfoInputs.cache
+C:\Users\Cliente\pontosNaWeb\CodeWars\obj\Debug\net6.0\CodeWars.AssemblyInfo.cs
+C:\Users\Cliente\pontosNaWeb\CodeWars\obj\Debug\net6.0\CodeWars.csproj.CoreCompileInputs.cache
+C:\Users\Cliente\pontosNaWeb\CodeWars\bin\Debug\net6.0\CodeWars.exe
+C:\Users\Cliente\pontosNaWeb\CodeWars\bin\Debug\net6.0\CodeWars.deps.json
+C:\Users\Cliente\pontosNaWeb\CodeWars\bin\Debug\net6.0\CodeWars.runtimeconfig.json
+C:\Users\Cliente\pontosNaWeb\CodeWars\bin\Debug\net6.0\CodeWars.dll
+C:\Users\Cliente\pontosNaWeb\CodeWars\bin\Debug\net6.0\ref\CodeWars.dll
+C:\Users\Cliente\pontosNaWeb\CodeWars\bin\Debug\net6.0\CodeWars.pdb
+C:\Users\Cliente\pontosNaWeb\CodeWars\obj\Debug\net6.0\CodeWars.dll
+C:\Users\Cliente\pontosNaWeb\CodeWars\obj\Debug\net6.0\ref\CodeWars.dll
+C:\Users\Cliente\pontosNaWeb\CodeWars\obj\Debug\net6.0\CodeWars.pdb
+C:\Users\Cliente\pontosNaWeb\CodeWars\obj\Debug\net6.0\CodeWars.genruntimeconfig.cache
