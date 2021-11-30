@@ -4,7 +4,7 @@ namespace Catalog.Entities
 {
     public record Item
     {
-        public Guid Id{get; init;} //after its creation, it is not possible to modify this property
+        public Guid Id{get; init;} //after its creation, it is not possible to modify this property. can only be set in an initliazer
 
         private string? _name; 
         public string? Name
