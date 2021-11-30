@@ -32,7 +32,7 @@ namespace OneMoreApi
             services.AddDbContext<UsuarioDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddTransient<IUsuarioRepository, InMemoryUsuarioRepository>();
+            services.AddTransient<IUsuarioRepository, UsuarioRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
