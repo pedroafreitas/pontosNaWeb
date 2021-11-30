@@ -1,4 +1,5 @@
 
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -20,6 +21,33 @@ namespace TesteDeCasa
 
         public string TransactionSourceAccount {get; init; }
 
-        public string TransactionDestinyAccount {get; init; }
+        public string TransactionDestinationAccount {get; init; }
+
+        public string TransactionDescription {get; init; }
+
+        public TransactionType TransactionType {get; init; }
+
+        public DateTime TransactionDate {get; init; } 
+
+        public Transaction()
+        {
+            TransactionUniqueReference = $"{Guid.NewGuid().ToString().Replace("-","").Substring(1, 27)}";
+        }
+
+    }
+
+    public enum TransactionStatus
+    {
+        Failed,
+        Success,
+        Error
+    }
+
+    public enum TransactionType
+    {
+        Deposit,
+        Withdrawl,
+        Transfer
+
     }
 }
