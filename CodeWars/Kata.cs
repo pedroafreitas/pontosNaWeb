@@ -21,8 +21,10 @@ namespace CodeWars
                 if(!IsPunctuation(tokens[i]))
                     tokens[i] = string.Concat(tokens[i], tokens[i][0], "ay").Remove(0, 1);
             }
-                        
+
             return string.Join(" ", tokens);
+            //return string.Join(" ", str.Split(' ').Select(w => w.Any(char.IsPunctuation) ? w : w.Substring(1) + w[0] + "ay"));
+            //return Regex.Replace(str, @"((\S)(\S+))", "$3$2ay");
         }
 
 
