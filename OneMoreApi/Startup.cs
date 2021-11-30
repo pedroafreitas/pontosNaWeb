@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using OneMoreApi.Models;
+using OneMoreApi.Repository;
 
 namespace OneMoreApi
 {
@@ -30,6 +31,8 @@ namespace OneMoreApi
         {
             services.AddDbContext<UsuarioDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddTransient<IUsuarioRepository, InMemoryUsuarioRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
