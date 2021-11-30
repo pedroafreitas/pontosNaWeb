@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "GlDFARHQm1gG/iGGnJ9KQ8V+NMIvPlULq2+rOpQohQ3y37ZikTnBIfG+E2UIIVOoS9NZgINVQRqnmx2FqqzOrw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Cliente\\pontosNaWeb\\ConsumindoApi\\ConsumindoApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Cliente\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
