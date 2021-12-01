@@ -8,6 +8,7 @@ namespace OneMoreApi.Repository
     public class UsuarioRepository : IUsuarioRepository
     {
         private readonly UsuarioDbContext _context;
+        
         public UsuarioRepository (UsuarioDbContext ctx)
         {
             _context = ctx;    

@@ -9,7 +9,7 @@ namespace TesteDeCasa
     public class Transaction
     {
         [Key]
-        public int Id {get; init; }
+        public Guid Id {get; init; }
 
         public string TransactionUniqueReference {get; init; }
 

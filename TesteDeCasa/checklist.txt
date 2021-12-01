@@ -1,2 +1,5 @@
 1. Pesquisa como melhorar a segurança das senhas
 2. cpf e email devem ser unicos (da para resolver isso no models?)
+
+
+service é repository??

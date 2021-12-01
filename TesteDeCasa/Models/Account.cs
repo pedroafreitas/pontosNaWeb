@@ -8,7 +8,9 @@ namespace TesteDeCasa.Models
     public record Account
     {
         [Key]
-        public int Cpf {get; init;}
+        public Guid Id {get; init; }
+
+        public int Cpf {get; init; }
 
         public string FirstName {get; init; }
 
@@ -24,9 +26,9 @@ namespace TesteDeCasa.Models
 
         public string AccountNumberGenerated {get; init; }
 
-        public byte[] PinHash {get; init; }
+        public byte[] PinHash {get; set; }
 
-        public byte[] PinSalt {get; init; }
+        public byte[] PinSalt {get; set; }
 
         public DateTime DateCreated {get; init;}
 
