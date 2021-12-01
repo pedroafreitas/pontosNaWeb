@@ -74,7 +74,7 @@ namespace TesteDeCasa
             app.UseSwaggerUI(x =>
             {
                 var prefix = string.IsNullOrEmpty(x.RoutePrefix) ? "." : "..";
-                x.SwaggerEndpoint($"{prefix}.swagger/v2/swagger,json", "Api de Banco do Teste De Casa");
+                x.SwaggerEndpoint($"{prefix}/swagger/v2/swagger.json", "Api de Banco do Teste De Casa");
             });
 
             app.UseEndpoints(endpoints =>
