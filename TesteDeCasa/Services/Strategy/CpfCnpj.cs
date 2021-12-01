@@ -1,4 +1,4 @@
-namespace TesteDeCada.Services.Strategy
+namespace TesteDeCasa.Services.Strategy
 {
     public class CpfCnpj
     {

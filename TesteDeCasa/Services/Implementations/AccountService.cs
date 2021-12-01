@@ -5,7 +5,7 @@ using TesteDeCasa.DAL;
 using TesteDeCasa.Models;
 using System.Linq;
 using System.Text;
-using TesteDeCada.Services.Strategy;
+using TesteDeCasa.Services.Strategy;
 
 namespace TesteDeCasa.Services.Implementations
 {
@@ -34,7 +34,7 @@ namespace TesteDeCasa.Services.Implementations
 
         private static bool VerifyPinHash(string Pin, byte[] pinHash, byte[] pinSalt)
         {
-            if(string.IsNullOrWhiteSpace(Pin)) throw new ArgumentNullException(Constants.ErrorNullPin);
+            if(string.IsNullOrWhiteSpace(Pin)) throw new ArgumentNullException(Constants.InvalidPin);
             
             using(var hmac = new System.Security.Cryptography.HMACSHA512(pinSalt))
             {
@@ -103,7 +103,7 @@ namespace TesteDeCasa.Services.Implementations
 
         public Account GetById(Guid Id)
         {
-            var account = _dbContext.Accounts.Where(x => x.Id == Id).FirstOrDefault();
+            var account = _dbContext.Accounts.Where(x => x.Id.Equals(Id)).FirstOrDefault();
             if(account == null) return null;
 
             return account;
@@ -113,7 +113,7 @@ namespace TesteDeCasa.Services.Implementations
         public void Update(Account account, string Pin = null)
         {
             var accountToBeUpdated = _dbContext.Accounts.Where(x => x.Email == account.Email).SingleOrDefault();
-            if(accountToBeUpdated == null) throw new ApplicationException(Constants.ErrorNullAccount);
+            if(accountToBeUpdated == null) throw new ApplicationException(Constants.NullAccount);
 
             if(!string.IsNullOrWhiteSpace(account.Email))
             {
@@ -134,6 +134,7 @@ namespace TesteDeCasa.Services.Implementations
             {
                 accountToBeUpdated.LastName = account.LastName;                
             }
+            accountToBeUpdated.DateLastUpdated = DateTime.Now;
 
             _dbContext.Accounts.Update(accountToBeUpdated);
             _dbContext.SaveChanges();
