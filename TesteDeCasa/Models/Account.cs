@@ -10,15 +10,15 @@ namespace TesteDeCasa.Models
         [Key]
         public Guid Id {get; init; }
 
-        public int Cpf {get; init; }
+        public string Cpf {get; init; }
 
         public string FirstName {get; init; }
 
-        public string LastName {get; init; }
+        public string LastName {get; set; }
 
-        public string AccountName{get; init; }
+        public string AccountName {get; init; }
 
-        public string Email {get; init;}
+        public string Email {get; set;}
 
         public decimal CurrentAccountBalance {get; set; }
 

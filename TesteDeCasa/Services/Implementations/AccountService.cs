@@ -5,13 +5,16 @@ using TesteDeCasa.DAL;
 using TesteDeCasa.Models;
 using System.Linq;
 using System.Text;
+using TesteDeCada.Services.Strategy;
 
 namespace TesteDeCasa.Services.Implementations
 {
     public class AccountService : IAccountService
     {
         private readonly BankingDbContext _dbContext;
+        private readonly CpfCnpj _cpfCnpj;
 
+        
         public AccountService(BankingDbContext dbContext)
         {
             _dbContext = dbContext;
@@ -47,9 +50,9 @@ namespace TesteDeCasa.Services.Implementations
         public Account Create(Account account, string Pin, string ConfirmPin)
         {
 
-            if(_dbContext.Accounts.Any(x  => x.Email == account.Email)) throw new ApplicationException(Constants.ExistingAccount);
+            if(_dbContext.Accounts.Any(x  => x.Email == account.Email)) throw new ApplicationException(Constants.ExistingAccountEmail);
 
-            if(_dbContext.Accounts.Any(x  => x.Cpf == account.Cpf)) throw new ApplicationException(Constants.ExistingAccount);
+            if(_dbContext.Accounts.Any(x  => x.Cpf == account.Cpf)) throw new ApplicationException(Constants.ExistingAccountCpf);
 
             if(!Pin.Equals(ConfirmPin)) throw new ArgumentException(Constants.WrongPassword);
 
@@ -77,27 +80,63 @@ namespace TesteDeCasa.Services.Implementations
 
         public void Delete(Guid Id)
         {
-            throw new NotImplementedException();
+            var account = _dbContext.Accounts.Find(Id);
+            if(account != null)
+            {
+                _dbContext.Accounts.Remove(account);
+                _dbContext.SaveChanges(); 
+            }
         }
 
         public IEnumerable<Account> GetAllAccounts()
         {
-            throw new NotImplementedException();
+            return _dbContext.Accounts.ToList();
         }
 
         public Account GetByAccountNumber(string AccountNumber)
         {
-            throw new NotImplementedException();
+            var account = _dbContext.Accounts.Where(x => x.AccountNumberGenerated == AccountNumber).FirstOrDefault();
+            if(account == null) return null;
+
+            return account;
         }
 
         public Account GetById(Guid Id)
         {
-            throw new NotImplementedException();
+            var account = _dbContext.Accounts.Where(x => x.Id == Id).FirstOrDefault();
+            if(account == null) return null;
+
+            return account;
         }
 
+        //The user can only update his/her Email, Pin and LastName
         public void Update(Account account, string Pin = null)
         {
-            throw new NotImplementedException();
+            var accountToBeUpdated = _dbContext.Accounts.Where(x => x.Email == account.Email).SingleOrDefault();
+            if(accountToBeUpdated == null) throw new ApplicationException(Constants.ErrorNullAccount);
+
+            if(!string.IsNullOrWhiteSpace(account.Email))
+            {
+                if(_dbContext.Accounts.Any(x => x.Email == account.Email)) throw new ApplicationException(Constants.ExistingAccountEmail);
+                accountToBeUpdated.Email = account.Email;
+            }
+
+            if(!string.IsNullOrWhiteSpace(Pin))
+            {
+                byte[] pinHash, pinSalt;
+                CreatePinHash(Pin, out pinHash, out pinSalt);
+
+                accountToBeUpdated.PinHash = pinHash;
+                accountToBeUpdated.PinSalt = pinSalt;
+            }
+
+            if(!string.IsNullOrWhiteSpace(account.LastName))
+            {
+                accountToBeUpdated.LastName = account.LastName;                
+            }
+
+            _dbContext.Accounts.Update(accountToBeUpdated);
+            _dbContext.SaveChanges();
         }
     }
 }
