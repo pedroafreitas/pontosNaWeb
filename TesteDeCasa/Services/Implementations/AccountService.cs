@@ -6,6 +6,7 @@ using TesteDeCasa.Models;
 using System.Linq;
 using System.Text;
 using TesteDeCasa.Services.Strategy;
+using Microsoft.AspNetCore.Mvc;
 
 namespace TesteDeCasa.Services.Implementations
 {
@@ -56,6 +57,8 @@ namespace TesteDeCasa.Services.Implementations
 
             if(!Pin.Equals(ConfirmPin)) throw new ArgumentException(Constants.WrongPassword);
 
+            if(!_cpfCnpj.IsValidCpfCnpj(account.Cpf)) throw new ArgumentException(Constants.InvalidCpfCnpj);
+            
             byte[] pinHash, pinSalt;
 
             CreatePinHash(Pin, out pinHash, out pinSalt);
@@ -113,6 +116,7 @@ namespace TesteDeCasa.Services.Implementations
         public void Update(Account account, string Pin = null)
         {
             var accountToBeUpdated = _dbContext.Accounts.Where(x => x.Email == account.Email).SingleOrDefault();
+
             if(accountToBeUpdated == null) throw new ApplicationException(Constants.NullAccount);
 
             if(!string.IsNullOrWhiteSpace(account.Email))
