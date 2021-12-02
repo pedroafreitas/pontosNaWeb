@@ -33,9 +33,11 @@ namespace TesteDeCasa.Controllers
         }
 
         [HttpGet]
-        [Route("get_by_account_numeber")]
+        [Route("get_by_account_number")]
         public IActionResult GetByAccountNumber(string AccountNumber)
         {
+
+            
             if(!Regex.IsMatch(AccountNumber, @"[0][1-9]\d{9}$|^[1-9]\d{9}$")) return BadRequest(Constants.InvalidAccountNumber);
 
             var account = _accountService.GetByAccountNumber(AccountNumber);
