@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace TesteDeCasa.Models
 {
@@ -26,8 +27,10 @@ namespace TesteDeCasa.Models
 
         public string AccountNumberGenerated {get; init; }
 
+        [JsonIgnore]
         public byte[] PinHash {get; set; }
 
+        [JsonIgnore]
         public byte[] PinSalt {get; set; }
 
         public DateTime DateCreated {get; init;}
@@ -38,7 +41,7 @@ namespace TesteDeCasa.Models
         Random rand = new Random();
         public Account()
         {
-            AccountNumberGenerated = Convert.ToString((long) rand.NextDouble() * 9_000_000_000L + 1_000_000_000L);
+            AccountNumberGenerated = ((long)(rand.NextDouble() * 9000000000) + 1000000000).ToString();
             AccountName = $"{FirstName} {LastName}";
         }
     }

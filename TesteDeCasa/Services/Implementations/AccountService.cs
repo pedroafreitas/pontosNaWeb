@@ -6,16 +6,14 @@ using TesteDeCasa.Models;
 using System.Linq;
 using System.Text;
 using TesteDeCasa.Services.Strategy;
-using Microsoft.AspNetCore.Mvc;
 
 namespace TesteDeCasa.Services.Implementations
 {
     public class AccountService : IAccountService
     {
         private readonly BankingDbContext _dbContext;
-        private readonly CpfCnpj _cpfCnpj;
-
         
+
         public AccountService(BankingDbContext dbContext)
         {
             _dbContext = dbContext;
@@ -50,7 +48,8 @@ namespace TesteDeCasa.Services.Implementations
 
         public Account Create(Account account, string Pin, string ConfirmPin)
         {
-
+            CpfCnpj _cpfCnpj = new();
+            
             if(_dbContext.Accounts.Any(x  => x.Email == account.Email)) throw new ApplicationException(Constants.ExistingAccountEmail);
 
             if(_dbContext.Accounts.Any(x  => x.Cpf == account.Cpf)) throw new ApplicationException(Constants.ExistingAccountCpf);
@@ -58,6 +57,7 @@ namespace TesteDeCasa.Services.Implementations
             if(!Pin.Equals(ConfirmPin)) throw new ArgumentException(Constants.WrongPassword);
 
             if(!_cpfCnpj.IsValidCpfCnpj(account.Cpf)) throw new ArgumentException(Constants.InvalidCpfCnpj);
+            
             
             byte[] pinHash, pinSalt;
 
@@ -69,6 +69,7 @@ namespace TesteDeCasa.Services.Implementations
             _dbContext.Accounts.Add(account);
             _dbContext.SaveChanges();
 
+            _cpfCnpj = null;
             return account;
         }
 
@@ -115,7 +116,7 @@ namespace TesteDeCasa.Services.Implementations
         //The user can only update his/her Email, Pin and LastName
         public void Update(Account account, string Pin = null)
         {
-            var accountToBeUpdated = _dbContext.Accounts.Where(x => x.Email == account.Email).SingleOrDefault();
+            var accountToBeUpdated = _dbContext.Accounts.Where(x => x.Id == account.Id).SingleOrDefault();
 
             if(accountToBeUpdated == null) throw new ApplicationException(Constants.NullAccount);
 

@@ -13,7 +13,7 @@ namespace TesteDeCasa.Dtos
         public string LastName {get; set; }
 
         [Required]
-        [RegularExpression(@"^[0-9]/d{6}", ErrorMessage = Constants.InvalidPin)]
+        [RegularExpression(@"^[0-9]{6}", ErrorMessage = Constants.InvalidPin)]
         public string Pin {get; set; }
 
         [Compare("Pin", ErrorMessage = Constants.WrongPassword)]

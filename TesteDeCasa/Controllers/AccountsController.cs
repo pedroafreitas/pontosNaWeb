@@ -60,7 +60,7 @@ namespace TesteDeCasa.Controllers
             if(!ModelState.IsValid) return BadRequest(newAccount);
 
             var account = _mapper.Map<Account>(newAccount);
-            return Ok(_accountService.Create(account, newAccount.Pin, newAccount.ComfirmPin));
+            return Ok(_accountService.Create(account, newAccount.Pin, newAccount.ConfirmPin));
         }
 
         [HttpPost]

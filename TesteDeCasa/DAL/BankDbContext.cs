@@ -12,7 +12,7 @@ namespace TesteDeCasa.DAL
         }
 
         //DbSet
-        public DbSet<Account> Accounts {get; init;}
-        public DbSet<Transaction> transactions {get; init; }
+        public DbSet<Account> Accounts {get; set;}
+        public DbSet<Transaction> Transactions {get; set; }
     }
 }
