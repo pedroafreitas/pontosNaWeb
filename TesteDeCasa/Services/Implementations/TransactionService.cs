@@ -17,7 +17,7 @@ namespace TesteDeCada.Services.Implementations
         ILogger<TransactionService> _logger;
         
         private AppSettings _settings;
-        private static string _bankSttlementAccount;
+        private static string _bankSettlementAccount;
         private readonly IAccountService _accountService;
 
         public TransactionService (BankingDbContext dbContext, ILogger<TransactionService> logger, IOptions<AppSettings> settings, IAccountService accountService)
@@ -25,7 +25,7 @@ namespace TesteDeCada.Services.Implementations
             _dbContext = dbContext;
             _logger = logger;
             _settings = settings.Value;
-            _bankSttlementAccount = _settings.BankSettlementAccount;
+            _bankSettlementAccount = _settings.BankSettlementAccount;
             _accountService = accountService;
         }
         
@@ -65,7 +65,7 @@ namespace TesteDeCada.Services.Implementations
 
             try
             {
-                sourceAccount = _accountService.GetByAccountNumber(_bankSttlementAccount);
+                sourceAccount = _accountService.GetByAccountNumber(_bankSettlementAccount);
                 destinyAccount = _accountService.GetByAccountNumber(AccountNumber);
 
                 sourceAccount.CurrentAccountBalance -= Amount;
@@ -82,7 +82,7 @@ namespace TesteDeCada.Services.Implementations
                 else
                 {
                     transaction.TransactionStatus = TransactionStatus.Failed;
-                    response.ResponseCode = "02";
+                    response.ResponseCode = "01";
                     response.ResponseMessage = "Transaction failed";
                     response.Data = null;
                 }
@@ -93,15 +93,15 @@ namespace TesteDeCada.Services.Implementations
             }
         
             transaction.TransactionType = TransactionType.Deposit;
-            transaction.TransactionSourceAccount = _bankSttlementAccount;
+            transaction.TransactionSourceAccount = _bankSettlementAccount;
             transaction.TransactionDestinationAccount = AccountNumber;
             transaction.TransactionAmount = Amount;
             transaction.TransactionDate = DateTime.Now;
-            transaction.TransactionDescription = $"Nova transação de  => {JsonConvert.SerializeObject(transaction.TransactionSourceAccount)} para => {JsonConvert.SerializeObject (transaction.TransactionDestinationAccount)} em => {transaction.TransactionDate} QUANTIDADE => {JsonConvert.SerializeObject(transaction.TransactionAmount)} TIPO => {JsonConvert.SerializeObject(transaction.TransactionType)} STATUS => {JsonConvert.SerializeObject(transaction.TransactionStatus)}";
+            transaction.TransactionDescription = $"Nova transação de  => {JsonConvert.SerializeObject(transaction.TransactionSourceAccount)} para => {JsonConvert.SerializeObject (transaction.TransactionDestinationAccount)} em => {transaction.TransactionDate} QUANTIDADE => {JsonConvert.SerializeObject(transaction.TransactionAmount)} TIPO => {transaction.TransactionType} STATUS => {transaction.TransactionStatus}";
 
             _dbContext.Transactions.Add(transaction);
             _dbContext.SaveChanges();
-            
+
             return response;
         }
 
@@ -141,7 +141,7 @@ namespace TesteDeCada.Services.Implementations
                 else
                 {
                     transaction.TransactionStatus = TransactionStatus.Failed;
-                    response.ResponseCode = "02";
+                    response.ResponseCode = "01";
                     response.ResponseMessage = "Transaction failed";
                     response.Data = null;
                 }
@@ -164,7 +164,7 @@ namespace TesteDeCada.Services.Implementations
             return response;
         }
 
-        public Response MakeWithdrawal(string AccountNumber, decimal Amount, string TransactionPin)
+        public Response MakeWithdrawal(string AccountNumber, decimal Amount, string TransactionPin) 
         {
             //Validar se usuario tem saldo antes de sacar
             Response response = new();
@@ -178,7 +178,7 @@ namespace TesteDeCada.Services.Implementations
             try
             {
                 sourceAccount = _accountService.GetByAccountNumber(AccountNumber);
-                destinyAccount = _accountService.GetByAccountNumber(_bankSttlementAccount);
+                destinyAccount = _accountService.GetByAccountNumber(_bankSettlementAccount);
 
                 sourceAccount.CurrentAccountBalance -= Amount;
                 destinyAccount.CurrentAccountBalance += Amount;
@@ -194,7 +194,7 @@ namespace TesteDeCada.Services.Implementations
                 else
                 {
                     transaction.TransactionStatus = TransactionStatus.Failed;
-                    response.ResponseCode = "02";
+                    response.ResponseCode = "01";
                     response.ResponseMessage = "Transaction failed";
                     response.Data = null;
                 }
@@ -206,7 +206,7 @@ namespace TesteDeCada.Services.Implementations
         
             transaction.TransactionType = TransactionType.Withdrawl;
             transaction.TransactionSourceAccount = AccountNumber;
-            transaction.TransactionDestinationAccount = _bankSttlementAccount;
+            transaction.TransactionDestinationAccount = _bankSettlementAccount;
             transaction.TransactionAmount = Amount;
             transaction.TransactionDate = DateTime.Now;
             transaction.TransactionDescription = $"Nova transação de  => {JsonConvert.SerializeObject(transaction.TransactionSourceAccount)} para => {JsonConvert.SerializeObject (transaction.TransactionDestinationAccount)} em => {transaction.TransactionDate} QUANTIDADE => {JsonConvert.SerializeObject(transaction.TransactionAmount)} TIPO => {JsonConvert.SerializeObject(transaction.TransactionType)} STATUS => {JsonConvert.SerializeObject(transaction.TransactionStatus)}";

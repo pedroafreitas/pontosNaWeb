@@ -16,6 +16,7 @@ using TesteDeCada.Services.Implementations;
 using TesteDeCasa.DAL;
 using TesteDeCasa.Services.Implementations;
 using TesteDeCasa.Services.Interfaces;
+using TesteDeCasa.Utils;
 
 namespace TesteDeCasa
 {
@@ -38,8 +39,9 @@ namespace TesteDeCasa
             services.AddScoped<ITransactionService, TransactionService>();
             
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.Configure<ApiExplorerSettingsAttribute>(Configuration.GetSection("AppSettings"));
             
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

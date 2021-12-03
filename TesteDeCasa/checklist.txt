@@ -9,7 +9,7 @@ procurar por cpf (services)
 mudar deletar para desativar
 
 
-
+"Nova transação de  => \"6805968711\" para => \"5578937568\" em => 03/12/2021 11:04:56 QUANTIDADE => 1000.0 TIPO => Deposit STATUS => Success"
 
 
 
