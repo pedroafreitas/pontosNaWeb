@@ -13,21 +13,21 @@ namespace TesteDeCasa
 
         public string TransactionUniqueReference {get; init; }
 
-        public decimal TransactionAmount {get; init; }
+        public decimal TransactionAmount {get; set; }
 
-        public TransactionStatus TransactionStatus {get; init; }
+        public TransactionStatus TransactionStatus {get; set; }
 
         public bool IsTransactionSuccessful => TransactionStatus.Equals(TransactionStatus.Success);
 
-        public string TransactionSourceAccount {get; init; }
+        public string TransactionSourceAccount {get; set; }
 
-        public string TransactionDestinationAccount {get; init; }
+        public string TransactionDestinationAccount {get; set; }
 
-        public string TransactionDescription {get; init; }
+        public string TransactionDescription {get; set; }
 
-        public TransactionType TransactionType {get; init; }
+        public TransactionType TransactionType {get; set; }
 
-        public DateTime TransactionDate {get; init; } 
+        public DateTime TransactionDate {get; set; } 
 
         public Transaction()
         {
@@ -48,6 +48,5 @@ namespace TesteDeCasa
         Deposit,
         Withdrawl,
         Transfer
-
     }
 }

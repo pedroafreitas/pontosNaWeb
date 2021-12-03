@@ -12,12 +12,12 @@ namespace TesteDeCasa.Services.Interfaces
 
         Response FindTransactionsByDate(DateTime date);
 
-        Response MakeDeposit(string AccountNumber, string Amount, string TransactionPin);
+        Response MakeDeposit(string AccountNumber, decimal Amount, string TransactionPin);
 
-        Response MakeWithDraw(string AccountNumber, string Amount, string TransactionPin);
+        Response MakeWithDraw(string AccountNumber, decimal Amount, string TransactionPin);
 
         Response MakeFundsTransfer(string FromAccount, string ToAccount, decimal Amount);
 
-        Response ReversalFundsTransfer(string TransactionPin);
+        Response ReversalFundsTransfer(Guid Id);
     }
 }

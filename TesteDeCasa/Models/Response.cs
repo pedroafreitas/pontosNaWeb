@@ -6,11 +6,11 @@ namespace TesteDeCasa.Models
     {
         public string  RequestId => $"{Guid.NewGuid().ToString()}";
 
-        public string ResponseCode {get; init; }
+        public string ResponseCode {get; set; }
 
-        public string ResponseMessage {get; init; }
+        public string ResponseMessage {get; set; }
 
-        public object Data {get; init; }
+        public object Data {get; set; }
 
     }
 
