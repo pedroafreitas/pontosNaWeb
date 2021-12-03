@@ -6,7 +6,7 @@ using TesteDeCasa.Models;
 
 namespace TesteDeCasa.Services.Interfaces
 {
-    public interface ITrasactionService
+    public interface ITransactionService
     {
         Response CreateNewTransaction(Transaction transaction);
 
@@ -14,7 +14,7 @@ namespace TesteDeCasa.Services.Interfaces
 
         Response MakeDeposit(string AccountNumber, decimal Amount, string TransactionPin);
 
-        Response MakeWithDraw(string AccountNumber, decimal Amount, string TransactionPin);
+        Response MakeWithdrawal(string AccountNumber, decimal Amount, string TransactionPin);
 
         Response MakeFundsTransfer(string FromAccount, string ToAccount, decimal Amount, string TransactionPin);
 

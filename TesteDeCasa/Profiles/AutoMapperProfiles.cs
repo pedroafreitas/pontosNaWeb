@@ -1,6 +1,7 @@
 using AutoMapper;
 using TesteDeCasa.Dtos;
 using TesteDeCasa.Models;
+using TestesDeCasa.Dtos;
 
 namespace TesteDeCasa.Profiles
 {
@@ -13,6 +14,8 @@ namespace TesteDeCasa.Profiles
             CreateMap<UpdateAccountDto, Account>();
 
             CreateMap<Account, GetAccountDto>();
+
+            CreateMap<TransactionRequestDto, Transaction>();
         }
     }
 }

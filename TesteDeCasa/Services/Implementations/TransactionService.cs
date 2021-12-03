@@ -11,7 +11,7 @@ using TesteDeCasa.Utils;
 
 namespace TesteDeCada.Services.Implementations
 {
-    public class TransactionService : ITrasactionService
+    public class TransactionService : ITransactionService
     {
         private BankingDbContext _dbContext;
         ILogger<TransactionService> _logger;
@@ -164,7 +164,7 @@ namespace TesteDeCada.Services.Implementations
             return response;
         }
 
-        public Response MakeWithDraw(string AccountNumber, decimal Amount, string TransactionPin)
+        public Response MakeWithdrawal(string AccountNumber, decimal Amount, string TransactionPin)
         {
             //Validar se usuario tem saldo antes de sacar
             Response response = new();
