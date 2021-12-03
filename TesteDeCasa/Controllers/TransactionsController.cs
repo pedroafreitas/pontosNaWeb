@@ -7,7 +7,7 @@ using TestesDeCasa.Dtos;
 namespace TesteDeCasa.Controllers
 {
     [ApiController]
-    [Route("api/v3[controller")]
+    [Route("api/v3[controller]")]
     public class TransactionsController : ControllerBase
     {
 

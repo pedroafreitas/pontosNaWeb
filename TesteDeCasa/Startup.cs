@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using TesteDeCada.Services.Implementations;
 using TesteDeCasa.DAL;
 using TesteDeCasa.Services.Implementations;
 using TesteDeCasa.Services.Interfaces;
@@ -34,9 +35,11 @@ namespace TesteDeCasa
             services.AddDbContext<BankingDbContext>(ctx => ctx.UseSqlServer(Configuration.GetConnectionString("BankingDbConnection")));
 
             services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<ITransactionService, TransactionService>();
             
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
+            services.Configure<ApiExplorerSettingsAttribute>(Configuration.GetSection("AppSettings"));
+            
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
