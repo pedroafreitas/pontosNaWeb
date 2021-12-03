@@ -11,8 +11,6 @@ namespace TesteDeCasa
         [Key]
         public Guid Id {get; init; }
 
-        public string TransactionUniqueReference {get; init; }
-
         public decimal TransactionAmount {get; set; }
 
         public TransactionStatus TransactionStatus {get; set; }
@@ -28,11 +26,6 @@ namespace TesteDeCasa
         public TransactionType TransactionType {get; set; }
 
         public DateTime TransactionDate {get; set; } 
-
-        public Transaction()
-        {
-            TransactionUniqueReference = $"{Guid.NewGuid().ToString().Replace("-","").Substring(1, 27)}";
-        }
 
     }
 
