@@ -37,9 +37,6 @@ namespace TesteDeCasa.Models
 
         public DateTime DateLastUpdated {get; set; }
 
-        public bool Status {get; set; }
-
-
         Random rand = new Random();
         public Account()
         {

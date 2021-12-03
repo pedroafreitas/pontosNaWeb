@@ -56,11 +56,7 @@ namespace TesteDeCada.Services.Implementations
         {
             //contas iguais**
             Account authUser;
-
             if(Amount <= 0) throw new ApplicationException(Constants.InvalidValue);
-            if(FromAccount.CurrentAccountBalance < Amount) throw new ApplicationException(Constants.InsufficienFunds);
-            if(FromAccount.Id == ToAccount.Id) throw new ApplicationException(Constants.SameAccount);
-            if((((int)FromAccount.AccountType) == 1)) throw new ApplicationException(Constants.InvalidUser);
 
             switch (OperationType)
             {
@@ -68,12 +64,18 @@ namespace TesteDeCada.Services.Implementations
                     if(ToAccount == null) throw new ApplicationException(Constants.NullAccount);
                     break;
                 case "Withdrawal":
+                    if((((int)FromAccount.AccountType) == 1)) throw new ApplicationException(Constants.InvalidUser);
+                    if(FromAccount.Id == ToAccount.Id) throw new ApplicationException(Constants.SameAccount);
+                    if(FromAccount.CurrentAccountBalance < Amount) throw new ApplicationException(Constants.InsufficienFunds);
                     if(FromAccount == null) throw new ApplicationException(Constants.NullAccount);
                     
                     authUser =  _accountService.Authenticate(ToAccount.AccountNumberGenerated, TransactionPin);
                     if(authUser == null) throw new ApplicationException(Constants.InvalidPin);
                     break;
                 default:
+                    if((((int)FromAccount.AccountType) == 1)) throw new ApplicationException(Constants.InvalidUser);
+                    if(FromAccount.Id == ToAccount.Id) throw new ApplicationException(Constants.SameAccount);
+                    if(FromAccount.CurrentAccountBalance < Amount) throw new ApplicationException(Constants.InsufficienFunds);
                     if(ToAccount == null || FromAccount == null) throw new ApplicationException(Constants.NullAccount);
 
                     authUser =  _accountService.Authenticate(FromAccount.AccountNumberGenerated, TransactionPin);
@@ -83,10 +85,25 @@ namespace TesteDeCada.Services.Implementations
             return true;       
         }
 
-        public Response MakeTransaction(Account FromAccount, Account ToAccount, decimal Amount, Response response, Transaction transaction)
+        //Default: Transaction
+        //Op 1: Deposit
+        //Op 1: WithDrawal
+        public Response MakeTransaction(Account FromAccount, Account ToAccount, decimal Amount, Response response, Transaction transaction, string OperationType = "default")
         {
-            FromAccount.CurrentAccountBalance -= Amount;
-            ToAccount.CurrentAccountBalance += Amount;
+            switch (OperationType)
+            {
+                case "Deposit":
+                    ToAccount.CurrentAccountBalance += Amount;
+                    break;
+                case "Withdrawal":
+                    FromAccount.CurrentAccountBalance -= Amount;
+                    break;
+                default:
+                    ToAccount.CurrentAccountBalance += Amount;
+                    FromAccount.CurrentAccountBalance -= Amount;
+                    break;
+            }    
+            
 
             if((_dbContext.Entry(FromAccount).State == Microsoft.EntityFrameworkCore.EntityState.Modified) &&
             (_dbContext.Entry(ToAccount).State == Microsoft.EntityFrameworkCore.EntityState.Modified))
@@ -215,9 +232,7 @@ namespace TesteDeCada.Services.Implementations
             Transaction transaction = new();
 
             try
-            {
-                if(id == null) throw new ApplicationException(Constants.NullId);
-            
+            {           
                 transaction = _dbContext.Transactions.Where(x => x.Id == id).SingleOrDefault();
 
                 if(transaction == null) throw new ApplicationException(Constants.InvalidAccountNumber);

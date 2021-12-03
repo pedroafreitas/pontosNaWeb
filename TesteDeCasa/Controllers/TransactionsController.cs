@@ -66,13 +66,7 @@ namespace TesteDeCasa.Controllers
         [Route("make_reversal_founds_transfer")]
         public IActionResult ReversalFundsTransfer(Guid id, string TransactionPin)
         {
-        //No recebimento de pagamento, o usuário ou lojista precisa receber notificação (envio de email, sms) enviada 
-        //por um serviço de terceiro e eventualmente este serviço pode estar indisponível/instável. 
-        //Use este mock para simular o envio (http://o4d9z.mocklab.io/notify). Melhor criar o mock https://www.mocklab.io/docs/mock-rest-api/
             if(!Regex.IsMatch(id.ToString(), Constants.RegexValidGuid)) return BadRequest();
-
-            
-
 
             return Ok(_transactionService.ReversalFundsTransfer(id, TransactionPin));
         } 
