@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Cliente\\pontosNaWeb\\TesteDeCasa\\TesteDeCasa.csproj": {}
+    "C:\\Users\\Cliente\\pontosNaWeb\\TesteDeCasa.Moq\\TesteDeCasa.Moq.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Cliente\\pontosNaWeb\\TesteDeCasa\\TesteDeCasa.csproj": {
+    "C:\\Users\\Cliente\\pontosNaWeb\\TesteDeCasa.Moq\\TesteDeCasa.Moq.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Cliente\\pontosNaWeb\\TesteDeCasa\\TesteDeCasa.csproj",
-        "projectName": "TesteDeCasa",
-        "projectPath": "C:\\Users\\Cliente\\pontosNaWeb\\TesteDeCasa\\TesteDeCasa.csproj",
+        "projectUniqueName": "C:\\Users\\Cliente\\pontosNaWeb\\TesteDeCasa.Moq\\TesteDeCasa.Moq.csproj",
+        "projectName": "TesteDeCasa.Moq",
+        "projectPath": "C:\\Users\\Cliente\\pontosNaWeb\\TesteDeCasa.Moq\\TesteDeCasa.Moq.csproj",
         "packagesPath": "C:\\Users\\Cliente\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Cliente\\pontosNaWeb\\TesteDeCasa\\obj\\",
+        "outputPath": "C:\\Users\\Cliente\\pontosNaWeb\\TesteDeCasa.Moq\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Cliente\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,35 +40,21 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+            "MSTest.TestAdapter": {
               "target": "Package",
-              "version": "[8.1.1, )"
+              "version": "[2.2.3, )"
             },
-            "Microsoft.EntityFrameworkCore": {
+            "MSTest.TestFramework": {
               "target": "Package",
-              "version": "[5.0.0, )"
+              "version": "[2.2.3, )"
             },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
+            "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[5.0.0, )"
+              "version": "[16.9.4, )"
             },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
+            "coverlet.collector": {
               "target": "Package",
-              "version": "[5.0.0, )"
-            },
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[13.0.1, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[5.6.3, )"
-            },
-            "Swashbuckle.AspNetCore.Swagger": {
-              "target": "Package",
-              "version": "[5.6.3, )"
+              "version": "[3.0.2, )"
             }
           },
           "imports": [
@@ -82,9 +68,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

@@ -16,6 +16,8 @@ namespace TesteDeCasa.Profiles
             CreateMap<Account, GetAccountDto>();
 
             CreateMap<TransactionRequestDto, Transaction>();
+
+            CreateMap<Transaction, GetTransactionDto>();
         }
     }
 }

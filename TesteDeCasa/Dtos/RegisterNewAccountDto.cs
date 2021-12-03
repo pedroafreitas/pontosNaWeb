@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using TesteDeCasa.Models;
+using TesteDeCasa.Utils;
 
 namespace TesteDeCasa.Dtos
 {

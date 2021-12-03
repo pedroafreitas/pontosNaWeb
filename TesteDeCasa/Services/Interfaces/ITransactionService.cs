@@ -8,16 +8,20 @@ namespace TesteDeCasa.Services.Interfaces
 {
     public interface ITransactionService
     {
-        Response CreateNewTransaction(Transaction transaction);
 
-        Response FindTransactionsByDate(DateTime date);
+        IEnumerable<Transaction> GetAllTransactions();
 
-        Response MakeDeposit(string AccountNumber, decimal Amount, string TransactionPin);
+        Response GetById(Guid id);
 
-        Response MakeWithdrawal(string AccountNumber, decimal Amount, string TransactionPin);
+        bool AuthorizeOperation(Account FromAccount, Account ToAccount, decimal Amount, string TransactionPin, string OperationType = "default");
+        Response MakeTransaction(Account FromAccount, Account ToAccount, decimal Amount, Response response, Transaction transaction);
+
+        Response MakeDeposit(String ToAccount, decimal Amount, string TransactionPin);
+
+        Response MakeWithdrawal(string FromAccount, decimal Amount, string TransactionPin);
 
         Response MakeFundsTransfer(string FromAccount, string ToAccount, decimal Amount, string TransactionPin);
 
-        Response ReversalFundsTransfer(Guid Id);
+        Response ReversalFundsTransfer(Guid id, string TransactionPin);
     }
 }

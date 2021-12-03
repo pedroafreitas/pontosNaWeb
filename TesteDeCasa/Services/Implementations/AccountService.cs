@@ -6,6 +6,7 @@ using TesteDeCasa.Models;
 using System.Linq;
 using System.Text;
 using TesteDeCasa.Services.Strategy;
+using TesteDeCasa.Utils;
 
 namespace TesteDeCasa.Services.Implementations
 {
@@ -100,7 +101,7 @@ namespace TesteDeCasa.Services.Implementations
         public Account GetByAccountNumber(string AccountNumber)
         {
             var account = _dbContext.Accounts.Where(x => x.AccountNumberGenerated == AccountNumber).FirstOrDefault();
-            if(account == null) return null;
+            if(account == null) throw new ApplicationException(Constants.NullAccount);
 
             return account;
         }
@@ -108,7 +109,7 @@ namespace TesteDeCasa.Services.Implementations
         public Account GetById(Guid Id)
         {
             var account = _dbContext.Accounts.Where(x => x.Id.Equals(Id)).FirstOrDefault();
-            if(account == null) return null;
+            if(account == null) throw new ApplicationException(Constants.NullAccount);
 
             return account;
         }
