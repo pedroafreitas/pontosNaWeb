@@ -16,7 +16,7 @@ namespace TesteDeCasa.Services.Interfaces
 
         Response MakeWithDraw(string AccountNumber, decimal Amount, string TransactionPin);
 
-        Response MakeFundsTransfer(string FromAccount, string ToAccount, decimal Amount);
+        Response MakeFundsTransfer(string FromAccount, string ToAccount, decimal Amount, string TransactionPin);
 
         Response ReversalFundsTransfer(Guid Id);
     }

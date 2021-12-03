@@ -50,5 +50,6 @@ namespace TesteDeCasa.Models
     {
         User, 
         Staff,
+        BankSettlementAccount,
     }
 }

@@ -105,7 +105,7 @@ namespace TesteDeCada.Services.Implementations
             return response;
         }
 
-        public Response MakeFundsTransfer(string FromAccount, string ToAccount, decimal Amount)
+        public Response MakeFundsTransfer(string FromAccount, string ToAccount, decimal Amount, string TransactionPin)
         {
             //aqui mesmo: Lojistas só recebem transferências, não enviam dinheiro para ninguém.
             
@@ -114,13 +114,107 @@ namespace TesteDeCada.Services.Implementations
             //talvez no controller - No recebimento de pagamento, o usuário ou lojista precisa receber notificação (envio de email, sms) enviada por um serviço de terceiro e eventualmente este serviço pode estar indisponível/instável. 
             //Use este mock para simular o envio (http://o4d9z.mocklab.io/notify). Melhor criar o mock https://www.mocklab.io/docs/mock-rest-api/
 
-            throw new NotImplementedException();
+            Response response = new();
+            Account sourceAccount;
+            Account destinyAccount;
+            Transaction transaction = new();
+
+            var authUser = _accountService.Authenticate(FromAccount, TransactionPin);
+            if(authUser == null) throw new ApplicationException("Invalid credentials");
+
+            try
+            {
+                sourceAccount = _accountService.GetByAccountNumber(FromAccount);
+                destinyAccount = _accountService.GetByAccountNumber(ToAccount);
+
+                sourceAccount.CurrentAccountBalance -= Amount;
+                destinyAccount.CurrentAccountBalance += Amount;
+
+                if((_dbContext.Entry(sourceAccount).State == Microsoft.EntityFrameworkCore.EntityState.Modified) &&
+                   (_dbContext.Entry(destinyAccount).State == Microsoft.EntityFrameworkCore.EntityState.Modified))
+                {
+                    transaction.TransactionStatus = TransactionStatus.Success;
+                    response.ResponseCode = "00";
+                    response.ResponseMessage = "Transaction successful";
+                    response.Data = null;
+                }
+                else
+                {
+                    transaction.TransactionStatus = TransactionStatus.Failed;
+                    response.ResponseCode = "02";
+                    response.ResponseMessage = "Transaction failed";
+                    response.Data = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"ERROR => {ex.Message}");
+            }
+        
+            transaction.TransactionType = TransactionType.Transfer;
+            transaction.TransactionSourceAccount = FromAccount;
+            transaction.TransactionDestinationAccount = ToAccount;
+            transaction.TransactionAmount = Amount;
+            transaction.TransactionDate = DateTime.Now;
+            transaction.TransactionDescription = $"Nova transação de  => {JsonConvert.SerializeObject(transaction.TransactionSourceAccount)} para => {JsonConvert.SerializeObject (transaction.TransactionDestinationAccount)} em => {transaction.TransactionDate} QUANTIDADE => {JsonConvert.SerializeObject(transaction.TransactionAmount)} TIPO => {JsonConvert.SerializeObject(transaction.TransactionType)} STATUS => {JsonConvert.SerializeObject(transaction.TransactionStatus)}";
+
+            _dbContext.Transactions.Add(transaction);
+            _dbContext.SaveChanges();
+            
+            return response;
         }
 
         public Response MakeWithDraw(string AccountNumber, decimal Amount, string TransactionPin)
         {
             //Validar se usuario tem saldo antes de sacar
-            throw new NotImplementedException();
+            Response response = new();
+            Account sourceAccount;
+            Account destinyAccount;
+            Transaction transaction = new();
+
+            var authUser = _accountService.Authenticate(AccountNumber, TransactionPin);
+            if(authUser == null) throw new ApplicationException("Invalid credentials");
+
+            try
+            {
+                sourceAccount = _accountService.GetByAccountNumber(AccountNumber);
+                destinyAccount = _accountService.GetByAccountNumber(_bankSttlementAccount);
+
+                sourceAccount.CurrentAccountBalance -= Amount;
+                destinyAccount.CurrentAccountBalance += Amount;
+
+                if((_dbContext.Entry(sourceAccount).State == Microsoft.EntityFrameworkCore.EntityState.Modified) &&
+                   (_dbContext.Entry(destinyAccount).State == Microsoft.EntityFrameworkCore.EntityState.Modified))
+                {
+                    transaction.TransactionStatus = TransactionStatus.Success;
+                    response.ResponseCode = "00";
+                    response.ResponseMessage = "Transaction successful";
+                    response.Data = null;
+                }
+                else
+                {
+                    transaction.TransactionStatus = TransactionStatus.Failed;
+                    response.ResponseCode = "02";
+                    response.ResponseMessage = "Transaction failed";
+                    response.Data = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"ERROR => {ex.Message}");
+            }
+        
+            transaction.TransactionType = TransactionType.Withdrawl;
+            transaction.TransactionSourceAccount = AccountNumber;
+            transaction.TransactionDestinationAccount = _bankSttlementAccount;
+            transaction.TransactionAmount = Amount;
+            transaction.TransactionDate = DateTime.Now;
+            transaction.TransactionDescription = $"Nova transação de  => {JsonConvert.SerializeObject(transaction.TransactionSourceAccount)} para => {JsonConvert.SerializeObject (transaction.TransactionDestinationAccount)} em => {transaction.TransactionDate} QUANTIDADE => {JsonConvert.SerializeObject(transaction.TransactionAmount)} TIPO => {JsonConvert.SerializeObject(transaction.TransactionType)} STATUS => {JsonConvert.SerializeObject(transaction.TransactionStatus)}";
+
+            _dbContext.Transactions.Add(transaction);
+            _dbContext.SaveChanges();
+            
+            return response;
         }
 
         public Response ReversalFundsTransfer(Guid Id)

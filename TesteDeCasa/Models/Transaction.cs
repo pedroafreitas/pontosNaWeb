@@ -47,6 +47,7 @@ namespace TesteDeCasa
     {
         Deposit,
         Withdrawl,
-        Transfer
+        Transfer,
+        ReverseTransfer
     }
 }
