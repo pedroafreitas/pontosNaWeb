@@ -17,8 +17,6 @@ namespace TesteDeCasa.Models
 
         public string LastName {get; set; }
 
-        public string AccountName {get; init; }
-
         public string Email {get; set;}
 
         public decimal CurrentAccountBalance {get; set; }
@@ -41,7 +39,6 @@ namespace TesteDeCasa.Models
         public Account()
         {
             AccountNumberGenerated = ((long)(rand.NextDouble() * 9000000000) + 1000000000).ToString();
-            AccountName = $"{FirstName} {LastName}";
         }
     }
     

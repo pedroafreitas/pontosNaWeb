@@ -1,13 +1,6 @@
-service é repository??
-
 ## O que será um Diferencial
 - Testar (unitário)
 - Revisar RESTFul
 - Desacoplar;
 - mock
 - Bugs: 
-
-
-
-
-- Uso de Docker

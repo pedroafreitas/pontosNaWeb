@@ -94,6 +94,15 @@ namespace TesteDeCada.Services.Implementations
             transaction.TransactionDescription = $"Nova transação de  => {JsonConvert.SerializeObject(transaction.TransactionSourceAccount)} para => {JsonConvert.SerializeObject (transaction.TransactionDestinationAccount)} em => {transaction.TransactionDate} QUANTIDADE => {JsonConvert.SerializeObject(transaction.TransactionAmount)} TIPO => {transaction.TransactionType} STATUS => {transaction.TransactionStatus}";
         }
 
+        public void ResponseTransaction (Response response, Transaction transaction)
+        {
+            transaction.TransactionStatus = TransactionStatus.Failed;
+            response.ResponseCode = "01";
+            response.ResponseMessage = Constants.TransactionFailed;
+            response.Data = null;
+        }
+        
+
         public Response MakeDeposit(string ToAccount, decimal Amount, string DepositantName)
         {
             
@@ -114,21 +123,24 @@ namespace TesteDeCada.Services.Implementations
                     {
                         transaction.TransactionStatus = TransactionStatus.Success;
                         response.ResponseCode = "00";
-                        response.ResponseMessage = "Transaction successful";
+                        response.ResponseMessage = Constants.TransactionSuccessful;
                         response.Data = null;
                     }
                     else
                     {
+                        destinyAccount.CurrentAccountBalance -= Amount;
                         transaction.TransactionStatus = TransactionStatus.Failed;
                         response.ResponseCode = "01";
-                        response.ResponseMessage = "Transaction failed";
-                        destinyAccount.CurrentAccountBalance += Amount;
+                        response.ResponseMessage = Constants.TransactionFailed;
                         response.Data = null;
                     }
-                }
+                } 
             }
             catch (Exception ex)
             {
+                transaction.TransactionStatus = TransactionStatus.Failed;
+                response.ResponseCode = "01";
+                response.ResponseMessage = Constants.TransactionFailed;
                 _logger.LogError($"ERROR => {ex.Message}");
             }
 
@@ -160,14 +172,14 @@ namespace TesteDeCada.Services.Implementations
                     {
                         transaction.TransactionStatus = TransactionStatus.Success;
                         response.ResponseCode = "00";
-                        response.ResponseMessage = "Transaction successful";
+                        response.ResponseMessage = Constants.TransactionSuccessful;
                         response.Data = null;
                     }
                     else
                     {
                         transaction.TransactionStatus = TransactionStatus.Failed;
                         response.ResponseCode = "01";
-                        response.ResponseMessage = "Transaction failed";
+                        response.ResponseMessage = Constants.TransactionFailed;
                         sourceAccount.CurrentAccountBalance += Amount;
                         response.Data = null;
                     }                    
@@ -175,6 +187,9 @@ namespace TesteDeCada.Services.Implementations
             }
             catch (Exception ex)
             {
+                transaction.TransactionStatus = TransactionStatus.Failed;
+                response.ResponseCode = "01";
+                response.ResponseMessage = Constants.TransactionFailed;
                 _logger.LogError($"ERROR => {ex.Message}");
             }
 
@@ -209,14 +224,14 @@ namespace TesteDeCada.Services.Implementations
                     {
                         transaction.TransactionStatus = TransactionStatus.Success;
                         response.ResponseCode = "00";
-                        response.ResponseMessage = "Transaction successful";
+                        response.ResponseMessage = Constants.TransactionSuccessful;
                         response.Data = null;
                     }
                     else
                     {
                         transaction.TransactionStatus = TransactionStatus.Failed;
                         response.ResponseCode = "01";
-                        response.ResponseMessage = "Transaction failed";
+                        response.ResponseMessage = Constants.TransactionFailed;
                         sourceAccount.CurrentAccountBalance += Amount;
                         destinyAccount.CurrentAccountBalance -= Amount;
                         response.Data = null;
@@ -225,6 +240,9 @@ namespace TesteDeCada.Services.Implementations
             }
             catch (Exception ex)
             {
+                transaction.TransactionStatus = TransactionStatus.Failed;
+                response.ResponseCode = "01";
+                response.ResponseMessage = Constants.TransactionFailed;
                 _logger.LogError($"ERROR => {ex.Message}");
             }
 
@@ -248,7 +266,6 @@ namespace TesteDeCada.Services.Implementations
 
                 if(transaction == null) throw new ApplicationException(Constants.InvalidAccountNumber);
                 if(transaction.TransactionType != TransactionType.Transfer) throw new ApplicationException(Constants.InvalidReversal);
-                
                 destinyAccount = _accountService.GetByAccountNumber(transaction.TransactionDestinationAccount);
 
                 response = MakeFundsTransfer(transaction.TransactionDestinationAccount, transaction.TransactionSourceAccount, transaction.TransactionAmount, TransactionPin);
