@@ -64,12 +64,11 @@ namespace TesteDeCada.Services.Implementations
                     if(ToAccount == null) throw new ApplicationException(Constants.NullAccount);
                     break;
                 case "Withdrawal":
-                    if((((int)FromAccount.AccountType) == 1)) throw new ApplicationException(Constants.InvalidUser);
-                    if(FromAccount.Id == ToAccount.Id) throw new ApplicationException(Constants.SameAccount);
-                    if(FromAccount.CurrentAccountBalance < Amount) throw new ApplicationException(Constants.InsufficienFunds);
                     if(FromAccount == null) throw new ApplicationException(Constants.NullAccount);
+                    if((((int)FromAccount.AccountType) == 1)) throw new ApplicationException(Constants.InvalidUser);
+                    if(FromAccount.CurrentAccountBalance < Amount) throw new ApplicationException(Constants.InsufficienFunds);
                     
-                    authUser =  _accountService.Authenticate(ToAccount.AccountNumberGenerated, TransactionPin);
+                    authUser =  _accountService.Authenticate(FromAccount.AccountNumberGenerated, TransactionPin);
                     if(authUser == null) throw new ApplicationException(Constants.InvalidPin);
                     break;
                 default:
@@ -83,45 +82,6 @@ namespace TesteDeCada.Services.Implementations
                     break;
             }       
             return true;       
-        }
-
-        //Default: Transaction
-        //Op 1: Deposit
-        //Op 1: WithDrawal
-        public Response MakeTransaction(Account FromAccount, Account ToAccount, decimal Amount, Response response, Transaction transaction, string OperationType = "default")
-        {
-            switch (OperationType)
-            {
-                case "Deposit":
-                    ToAccount.CurrentAccountBalance += Amount;
-                    break;
-                case "Withdrawal":
-                    FromAccount.CurrentAccountBalance -= Amount;
-                    break;
-                default:
-                    ToAccount.CurrentAccountBalance += Amount;
-                    FromAccount.CurrentAccountBalance -= Amount;
-                    break;
-            }    
-            
-
-            if((_dbContext.Entry(FromAccount).State == Microsoft.EntityFrameworkCore.EntityState.Modified) &&
-            (_dbContext.Entry(ToAccount).State == Microsoft.EntityFrameworkCore.EntityState.Modified))
-            {
-                transaction.TransactionStatus = TransactionStatus.Success;
-                response.ResponseCode = "00";
-                response.ResponseMessage = "Transaction successful";
-                response.Data = null;
-            }
-            else
-            {
-                transaction.TransactionStatus = TransactionStatus.Failed;
-                response.ResponseCode = "01";
-                response.ResponseMessage = "Transaction failed";
-                response.Data = null;
-            }
-
-            return response;
         }
         
         public void SetupTransaction(Transaction transaction, string FromAccount, string ToAccount, decimal Amount, TransactionType type)
@@ -147,14 +107,32 @@ namespace TesteDeCada.Services.Implementations
                 destinyAccount = _accountService.GetByAccountNumber(ToAccount);
 
                 if(AuthorizeOperation(null, destinyAccount, Amount, null, operationType))
-                    MakeTransaction(null, destinyAccount, Amount, response, transaction);
+                {
+                    destinyAccount.CurrentAccountBalance += Amount;
+
+                    if(_dbContext.Entry(destinyAccount).State == Microsoft.EntityFrameworkCore.EntityState.Modified)
+                    {
+                        transaction.TransactionStatus = TransactionStatus.Success;
+                        response.ResponseCode = "00";
+                        response.ResponseMessage = "Transaction successful";
+                        response.Data = null;
+                    }
+                    else
+                    {
+                        transaction.TransactionStatus = TransactionStatus.Failed;
+                        response.ResponseCode = "01";
+                        response.ResponseMessage = "Transaction failed";
+                        destinyAccount.CurrentAccountBalance += Amount;
+                        response.Data = null;
+                    }
+                }
             }
             catch (Exception ex)
             {
                 _logger.LogError($"ERROR => {ex.Message}");
             }
 
-            SetupTransaction(transaction, $"{operationType} (name: {DepositantName}", ToAccount, Amount, TransactionType.Deposit);
+            SetupTransaction(transaction, $"{operationType} (name: {DepositantName})", ToAccount, Amount, TransactionType.Deposit);
             
             _dbContext.Transactions.Add(transaction);
             _dbContext.SaveChanges();
@@ -175,9 +153,25 @@ namespace TesteDeCada.Services.Implementations
                 sourceAccount = _accountService.GetByAccountNumber(FromAccount);
             
                 if(AuthorizeOperation(sourceAccount, null, Amount, TransactionPin, operationType))
-                    MakeTransaction(sourceAccount, null, Amount, response, transaction);
-                
-               
+                {
+                    sourceAccount.CurrentAccountBalance -= Amount;
+
+                    if((_dbContext.Entry(sourceAccount).State == Microsoft.EntityFrameworkCore.EntityState.Modified))
+                    {
+                        transaction.TransactionStatus = TransactionStatus.Success;
+                        response.ResponseCode = "00";
+                        response.ResponseMessage = "Transaction successful";
+                        response.Data = null;
+                    }
+                    else
+                    {
+                        transaction.TransactionStatus = TransactionStatus.Failed;
+                        response.ResponseCode = "01";
+                        response.ResponseMessage = "Transaction failed";
+                        sourceAccount.CurrentAccountBalance += Amount;
+                        response.Data = null;
+                    }                    
+                }
             }
             catch (Exception ex)
             {
@@ -195,9 +189,6 @@ namespace TesteDeCada.Services.Implementations
 
         public Response MakeFundsTransfer(string FromAccount, string ToAccount, decimal Amount, string TransactionPin)
         {            
-            //talvez no controller - No recebimento de pagamento, o usuário ou lojista precisa receber notificação (envio de email, sms) enviada por um serviço de terceiro e eventualmente este serviço pode estar indisponível/instável. 
-            //Use este mock para simular o envio (http://o4d9z.mocklab.io/notify). Melhor criar o mock https://www.mocklab.io/docs/mock-rest-api/
-
             Account sourceAccount;
             Account destinyAccount;
             Response response = new();
@@ -205,11 +196,32 @@ namespace TesteDeCada.Services.Implementations
             
             try
             {
-                sourceAccount = _accountService.GetByAccountNumber(_bankSettlementAccount);
+                sourceAccount = _accountService.GetByAccountNumber(FromAccount);
                 destinyAccount = _accountService.GetByAccountNumber(ToAccount);
             
                 if(AuthorizeOperation(sourceAccount, destinyAccount, Amount, TransactionPin))
-                    MakeTransaction(sourceAccount, destinyAccount, Amount, response, transaction);
+                {
+                    sourceAccount.CurrentAccountBalance -= Amount;
+                    destinyAccount.CurrentAccountBalance += Amount;
+
+                    if((_dbContext.Entry(sourceAccount).State == Microsoft.EntityFrameworkCore.EntityState.Modified) &&
+                    (_dbContext.Entry(destinyAccount).State == Microsoft.EntityFrameworkCore.EntityState.Modified))
+                    {
+                        transaction.TransactionStatus = TransactionStatus.Success;
+                        response.ResponseCode = "00";
+                        response.ResponseMessage = "Transaction successful";
+                        response.Data = null;
+                    }
+                    else
+                    {
+                        transaction.TransactionStatus = TransactionStatus.Failed;
+                        response.ResponseCode = "01";
+                        response.ResponseMessage = "Transaction failed";
+                        sourceAccount.CurrentAccountBalance += Amount;
+                        destinyAccount.CurrentAccountBalance -= Amount;
+                        response.Data = null;
+                    }                    
+                } 
             }
             catch (Exception ex)
             {
@@ -226,7 +238,6 @@ namespace TesteDeCada.Services.Implementations
 
         public Response ReversalFundsTransfer(Guid id, string TransactionPin)
         {
-            //- A operação de transferência deve ser uma transação (ou seja, revertida em qualquer caso de inconsistência) e o dinheiro deve voltar para a carteira do usuário que envia. 
             Account destinyAccount;
             Response response = new();
             Transaction transaction = new();
@@ -236,7 +247,8 @@ namespace TesteDeCada.Services.Implementations
                 transaction = _dbContext.Transactions.Where(x => x.Id == id).SingleOrDefault();
 
                 if(transaction == null) throw new ApplicationException(Constants.InvalidAccountNumber);
-
+                if(transaction.TransactionType != TransactionType.Transfer) throw new ApplicationException(Constants.InvalidReversal);
+                
                 destinyAccount = _accountService.GetByAccountNumber(transaction.TransactionDestinationAccount);
 
                 response = MakeFundsTransfer(transaction.TransactionDestinationAccount, transaction.TransactionSourceAccount, transaction.TransactionAmount, TransactionPin);

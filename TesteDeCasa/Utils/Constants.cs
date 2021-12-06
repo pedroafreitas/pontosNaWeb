@@ -20,6 +20,8 @@ namespace TesteDeCasa.Utils
 
         public const string SuccessfulTransactionCreated = "Transação criada com sucesso";
 
+        public const string InvalidReversal = "Só transferências podem ser revertidas";
+
         public const string SuccessfulTransactionFound = "Transação encontrada com sucesso";
 
         public const string InsufficienFunds = "Saldo insuficiente";
@@ -28,5 +30,6 @@ namespace TesteDeCasa.Utils
 
         public const string RegexValidGuid =  @"[0-9a-fA-F]{8}-+(([0-9a-fA-F]{4}-){3})+[0-9a-fA-F]{12}?$";
         public const string RegexValidAccountNumber = @"^[0][1-9]\d{9}|^[1-9]\d{9}$";
+
     }
 }

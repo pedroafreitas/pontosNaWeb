@@ -14,8 +14,6 @@ namespace TesteDeCasa.Services.Interfaces
         Response GetById(Guid id);
 
         bool AuthorizeOperation(Account FromAccount, Account ToAccount, decimal Amount, string TransactionPin, string OperationType = "default");
-        Response MakeTransaction(Account FromAccount, Account ToAccount, decimal Amount, Response response, Transaction transaction);
-
         Response MakeDeposit(String ToAccount, decimal Amount, string TransactionPin);
 
         Response MakeWithdrawal(string FromAccount, decimal Amount, string TransactionPin);
