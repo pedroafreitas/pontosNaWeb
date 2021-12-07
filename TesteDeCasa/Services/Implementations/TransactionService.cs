@@ -277,6 +277,5 @@ namespace TesteDeCada.Services.Implementations
             }
             return response;
         }
-    
     }
 }

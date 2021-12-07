@@ -42,6 +42,7 @@ namespace TesteDeCasa
             
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 
+            
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

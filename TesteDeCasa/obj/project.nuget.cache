@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "j71kHXHosqvC+WPMY3//22ZOiEyn22iZEBJ1028Gxohjk1KQWV1SmWBdcpvnzX351KNwreXZd71swjNnSTdJeg==",
+  "dgSpecHash": "HBV+o7qSxQq3pdzQGM8xLba0GxjNLV3QcaUTcFXBIon8tFRX5gsT15misiL2brJSPqEfx0hFL9fMgwqZL5k9Yw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Cliente\\pontosNaWeb\\TesteDeCasa\\TesteDeCasa.csproj",
   "expectedPackageFiles": [
@@ -66,6 +66,7 @@
     "C:\\Users\\Cliente\\.nuget\\packages\\system.io.filesystem\\4.3.0\\system.io.filesystem.4.3.0.nupkg.sha512",
     "C:\\Users\\Cliente\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Cliente\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
+    "C:\\Users\\Cliente\\.nuget\\packages\\system.net.http.json\\5.0.0\\system.net.http.json.5.0.0.nupkg.sha512",
     "C:\\Users\\Cliente\\.nuget\\packages\\system.net.nameresolution\\4.3.0\\system.net.nameresolution.4.3.0.nupkg.sha512",
     "C:\\Users\\Cliente\\.nuget\\packages\\system.net.primitives\\4.3.0\\system.net.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Cliente\\.nuget\\packages\\system.private.datacontractserialization\\4.3.0\\system.private.datacontractserialization.4.3.0.nupkg.sha512",
