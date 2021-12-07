@@ -21,10 +21,17 @@ namespace WebScraper
             person.FirstName = "";
             Console.WriteLine(person.FirstName);
         
-            Console.WriteLine("-----------------OOP-----------------");
+            Console.WriteLine("-----------------Inheritance-----------------");
 
-            Dog dog = new("Toby", "Anna");
-            dog.Sleep();
+            Dog dog1 = new("Toby", "Dachshund");
+            dog1.Sleep();
+
+            SuperDog dog2 = new("Alva", "Vira lata");
+            dog2.Sleep();
+        
+            Console.WriteLine("-----------------Encapsulation-----------------");
+            
+        
         }
     }
 }
