@@ -2,18 +2,26 @@ namespace WebScraper.Notes
 {
     class Person
     {
+        //Fields
         private string _ssn;
         private string _passportData;
         private string _driverLicenseNumber;
         string _firstName = "Anna";
         string _lastName = "Veira";
 
-        public Person(string ssn, string passportData, string driverLicenseNumber)
+        public int Age {get; set; }
+        public int EyeColor {get; set; }
+
+        public Person(string ssn, string passportData, string driverLicenseNumber, string FirstName, string LastName, int Age, int EyeColor)
         {
             //this way we dont need to assign the value directly to the field
             _ssn = ssn;
             _passportData = passportData;
             _driverLicenseNumber = driverLicenseNumber;
+            _firstName = FirstName;
+            _lastName = LastName;
+            this.Age = Age;
+            this.EyeColor = EyeColor;
         }
         public bool HasProperDocuments {
             get
