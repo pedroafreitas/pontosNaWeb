@@ -2,7 +2,7 @@
 namespace NotasSigaa.Models
 {
     [Table("Alunos")]
-    public record Alunos    
+    public record Aluno    
     {
         [Key]
         public int Matricula {get; init; }

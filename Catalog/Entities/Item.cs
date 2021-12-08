@@ -6,8 +6,8 @@ namespace Catalog.Entities
     {
         public Guid Id {get; init;} //after its creation, it is not possible to modify this property. can only be set in an initliazer
 
-        private string? _name; 
-        public string? Name
+        private string _name; 
+        public string Name
         {
             get => _name;
             init => _name = value ?? throw new ArgumentNullException(Constants.ErrorNullValue);

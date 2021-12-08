@@ -1,7 +1,7 @@
-namespace NotasSigaa
+namespace NotasSigaa.Turma
 {
     [Table("Turmas")]
-    public record Turmas
+    public record Turma
     {
         [Key]
         public int COD_TURMA {get; init; }
