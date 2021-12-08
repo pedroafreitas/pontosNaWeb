@@ -1,0 +1,7 @@
+C:\Users\Cliente\pontosNaWeb\Catalog\obj\Debug\net5.0\Catalog.csproj.AssemblyReference.cache
+C:\Users\Cliente\pontosNaWeb\Catalog\obj\Debug\net5.0\Catalog.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cliente\pontosNaWeb\Catalog\obj\Debug\net5.0\Catalog.AssemblyInfoInputs.cache
+C:\Users\Cliente\pontosNaWeb\Catalog\obj\Debug\net5.0\Catalog.AssemblyInfo.cs
+C:\Users\Cliente\pontosNaWeb\Catalog\obj\Debug\net5.0\Catalog.csproj.CoreCompileInputs.cache
+C:\Users\Cliente\pontosNaWeb\Catalog\obj\Debug\net5.0\Catalog.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Cliente\pontosNaWeb\Catalog\obj\Debug\net5.0\Catalog.MvcApplicationPartsAssemblyInfo.cache

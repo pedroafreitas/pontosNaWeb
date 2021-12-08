@@ -198,11 +198,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Cliente\\pontosNaWeb\\Catalog\\Catalog.csproj",
-      "projectName": "Catalog",
-      "projectPath": "C:\\Users\\Cliente\\pontosNaWeb\\Catalog\\Catalog.csproj",
+      "projectUniqueName": "C:\\Users\\Cliente\\pontosNaWeb\\NotasSigaa\\NotasSigaa.csproj",
+      "projectName": "NotasSigaa",
+      "projectPath": "C:\\Users\\Cliente\\pontosNaWeb\\NotasSigaa\\NotasSigaa.csproj",
       "packagesPath": "C:\\Users\\Cliente\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Cliente\\pontosNaWeb\\Catalog\\obj\\",
+      "outputPath": "C:\\Users\\Cliente\\pontosNaWeb\\NotasSigaa\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Cliente\\AppData\\Roaming\\NuGet\\NuGet.Config",

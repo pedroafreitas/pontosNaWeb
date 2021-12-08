@@ -4,8 +4,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:13380",
-      "sslPort": 44363
+      "applicationUrl": "http://localhost:59856",
+      "sslPort": 44369
     }
   },
   "profiles": {
@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Catalog": {
+    "NotasSigaa": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

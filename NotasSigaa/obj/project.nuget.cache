@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kEcKvS4BmZTh/g1KiiqY1Np0+LTwhjqgTQnYjEnDHtcNNWm6C3JJ7bnqaRpszx0yBDOnwbtjuYyqOzGEHZOk2g==",
+  "dgSpecHash": "xadBwgFCe9XUAo+uuitNiyZeM4GG2ZzZQ96lXSQn8NUXCht6u21oSxaLHd6hoYT1rkUg69KMHgPano2HPXxaVQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Cliente\\pontosNaWeb\\Catalog\\Catalog.csproj",
+  "projectFilePath": "C:\\Users\\Cliente\\pontosNaWeb\\NotasSigaa\\NotasSigaa.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Cliente\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Cliente\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
