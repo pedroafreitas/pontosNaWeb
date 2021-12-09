@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Catalog.Entities;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace Catalog.Repositories
@@ -10,6 +11,9 @@ namespace Catalog.Repositories
         //All our documents will be in collections and the db will have a lot of collections
         private const string databasename = "catalog";
         private const string collectionName = "items";
+
+        //this is used to filter the items that we want to use in mongdb
+        private readonly FilterDefinitionBuilder<Item> filterBuilder = Builders<Item>.Filter;
         //We want to store mongo's collection
         private readonly IMongoCollection<Item> itemsCollection;
 
@@ -28,22 +32,26 @@ namespace Catalog.Repositories
 
         public void DeleteItem(Guid id)
         {
-            throw new NotImplementedException();
+            var filter = filterBuilder.Eq(item => item.Id, id);
+            itemsCollection.DeleteOne(filter);
         }
 
-        public Item GetItem(Guid id)
+        public Item GetItemAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var filter = filterBuilder.Eq(item => item.Id, id);
+            return itemsCollection.Find(filter).SingleOrDefault();
+
         }
 
         public IEnumerable<Item> GetItems()
         {
-            throw new NotImplementedException();
+            return itemsCollection.Find(new BsonDocument()).ToList();
         }
 
         public void UpdateItem(Item item)
         {
-            throw new NotImplementedException();
+            var filter = filterBuilder.Eq(existingItem => existingItem.Id, item.Id);
+            itemsCollection.ReplaceOne(filter, item);
         }
     }
 }

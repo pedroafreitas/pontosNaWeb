@@ -21,7 +21,7 @@ namespace Catalog.Repositories
         {
             return items;
         }
-        public Item GetItem(Guid id)
+        public Item GetItemAsync(Guid id)
         {
             return items.Where(item => item.Id == id).
                         SingleOrDefault() ?? throw new ArgumentNullException(Constants.ErrorNullValue);

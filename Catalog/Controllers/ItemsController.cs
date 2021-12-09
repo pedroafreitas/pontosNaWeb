@@ -32,7 +32,7 @@ namespace Catalog.Controllers
         [HttpGet("{id}")] //Here we specify how we are gonna create another piece of this route
         public ActionResult<ItemDto> GetItem(Guid id)
         {
-            var item = repository.GetItem(id);
+            var item = repository.GetItemAsync(id);
 
             if(item is null)
             {
@@ -70,12 +70,13 @@ namespace Catalog.Controllers
         [HttpPut("{id}")]
         public ActionResult UpdateItem(Guid id, UpdateItemDto itemDto)
         {
-            var existingItem = repository.GetItem(id);
+            var existingItem = repository.GetItemAsync(id);
 
             if (existingItem is null)
             {
                 return NotFound();
             }
+
             
             //with: getting a copy of existingItem with only the new atributes modified
             Item updatedItem = existingItem with {
@@ -92,7 +93,7 @@ namespace Catalog.Controllers
         [HttpDelete("{id}")]
         public ActionResult DeleteItem(Guid id)
         {
-            	var existingItem = repository.GetItem(id);
+            	var existingItem = repository.GetItemAsync(id);
 
                 if(existingItem is null)
                 {

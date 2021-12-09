@@ -7,7 +7,7 @@ namespace Catalog.Repositories
 {
     public interface IItemsRepository
     {
-        Item GetItem(Guid id);
+        Item GetItemAsync(Guid id);
         
         IEnumerable<Item> GetItems();
 
