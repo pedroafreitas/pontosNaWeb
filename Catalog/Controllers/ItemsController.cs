@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Catalog.Entities;
 using System.Collections.Generic;
 using System;
+using System.Threading.Tasks;
 using Catalog.Repositories;
 using System.Linq;
 using Catalog.Dtos;
@@ -72,7 +73,7 @@ namespace Catalog.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateItemAsync(Guid id, UpdateItemDto itemDto)
         {
-            var existingItem = repository.GetItemAsync(id);
+            var existingItem = await repository.GetItemAsync(id);
 
             if (existingItem is null)
             {
