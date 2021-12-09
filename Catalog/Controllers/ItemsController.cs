@@ -23,7 +23,7 @@ namespace Catalog.Controllers
         [HttpGet]
         public IEnumerable<ItemDto> GetItems()
         {
-            var items = repository.GetItems().Select(item => item.AsDto());
+            var items = repository.GetItemsAsync().Select(item => item.AsDto());
 
             return items;
         }
@@ -53,7 +53,7 @@ namespace Catalog.Controllers
                 CreatedDate = DateTimeOffset.UtcNow
             };
 
-            repository.CreateItem(item);
+            repository.CreateItemAsync(item);
 
 
             //The convention here is to return the item that has been created
@@ -84,7 +84,7 @@ namespace Catalog.Controllers
                 Price = itemDto.Price
             };
 
-            repository.UpdateItem(updatedItem);
+            repository.UpdateItemAsync(updatedItem);
             
             return NoContent();
         }
@@ -100,7 +100,7 @@ namespace Catalog.Controllers
                     return NotFound();
                 }
 
-                repository.DeleteItem(id);
+                repository.DeleteItemAsync(id);
                 
                 return NoContent();
         }

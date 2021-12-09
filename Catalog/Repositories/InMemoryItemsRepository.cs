@@ -17,7 +17,7 @@ namespace Catalog.Repositories
             new Item { Id = Guid.NewGuid(), Name = "Bronze Shield", Price = 25, CreatedDate = DateTimeOffset.UtcNow },
         };
 
-        public IEnumerable<Item> GetItems()
+        public IEnumerable<Item> GetItemsAsync()
         {
             return items;
         }
@@ -26,18 +26,18 @@ namespace Catalog.Repositories
             return items.Where(item => item.Id == id).
                         SingleOrDefault() ?? throw new ArgumentNullException(Constants.ErrorNullValue);
         }
-        public void CreateItem(Item item)
+        public void CreateItemAsync(Item item)
         {
             items.Add(item);
         }
 
-        public void UpdateItem(Item item)
+        public void UpdateItemAsync(Item item)
         {
             var index = items.FindIndex(existingItem => existingItem.Id == item.Id);
             items[index] = item;
         }
 
-        public void DeleteItem(Guid id)
+        public void DeleteItemAsync(Guid id)
         {
             var index = items.FindIndex(existingItem => existingItem.Id == id);
             items.RemoveAt(index);
