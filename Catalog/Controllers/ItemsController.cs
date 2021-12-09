@@ -2,6 +2,9 @@ using Microsoft.AspNetCore.Mvc;
 using Catalog.Entities;
 using System.Collections.Generic;
 using System;
+using Catalog.Repositories;
+using System.Linq;
+using Catalog.Dtos;
 
 namespace Catalog.Controllers
 {

@@ -1,12 +1,13 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 namespace Catalog.Dtos
 {
     public record CreateItemDto{
         
-        private string?  _name;
+        private string  _name;
 
         [Required]
-        public string? Name
+        public string Name
         {
             get => _name; 
             init => _name = value ?? throw new ArgumentNullException(Constants.ErrorNullValue);}

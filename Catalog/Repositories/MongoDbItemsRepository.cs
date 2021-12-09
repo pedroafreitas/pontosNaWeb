@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Catalog.Entities;
 using MongoDB.Driver;
 
@@ -9,7 +11,7 @@ namespace Catalog.Repositories
         private const string databasename = "catalog";
         private const string collectionName = "items";
         //We want to store mongo's collection
-        private readonly IMongoCollection<Item>? itemsCollection;
+        private readonly IMongoCollection<Item> itemsCollection;
 
 
         public MongoDbItemsRepository(IMongoClient mongoClient)
@@ -21,7 +23,7 @@ namespace Catalog.Repositories
         
         public void CreateItem(Item item)
         {
-            throw new NotImplementedException();
+            itemsCollection.InsertOne(item);
         }
 
         public void DeleteItem(Guid id)

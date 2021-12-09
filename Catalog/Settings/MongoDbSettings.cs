@@ -1,11 +1,13 @@
+using System;
+
 namespace Catalog.Settings
 {
     public class MongoDbSettings
     {
 
-        private string? _host;
+        private string _host;
 
-        public string? Host
+        public string Host
         {
             get => _host;
             set => _host = value ?? throw new ArgumentNullException(Constants.ErrorNullValue);
