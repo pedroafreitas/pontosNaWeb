@@ -1,6 +1,0 @@
-## O que será um Diferencial
-- Testar (unitário)
-- Revisar RESTFul
-- Desacoplar;
-- mock
-- Bugs: 

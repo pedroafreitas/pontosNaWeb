@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\willp\\OneDrive\\Área de Trabalho\\PedroArthur\\pontosNaWeb\\CodeSnippetsSolution\\src\\CommandAPI\\CommandAPI.csproj": {}
+    "/Users/pedrofreitas/Documents/Estudos/pontosNaWeb/CodeSnippetsSolution/src/CommandAPI/CommandAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\willp\\OneDrive\\Área de Trabalho\\PedroArthur\\pontosNaWeb\\CodeSnippetsSolution\\src\\CommandAPI\\CommandAPI.csproj": {
+    "/Users/pedrofreitas/Documents/Estudos/pontosNaWeb/CodeSnippetsSolution/src/CommandAPI/CommandAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\willp\\OneDrive\\Área de Trabalho\\PedroArthur\\pontosNaWeb\\CodeSnippetsSolution\\src\\CommandAPI\\CommandAPI.csproj",
+        "projectUniqueName": "/Users/pedrofreitas/Documents/Estudos/pontosNaWeb/CodeSnippetsSolution/src/CommandAPI/CommandAPI.csproj",
         "projectName": "CommandAPI",
-        "projectPath": "C:\\Users\\willp\\OneDrive\\Área de Trabalho\\PedroArthur\\pontosNaWeb\\CodeSnippetsSolution\\src\\CommandAPI\\CommandAPI.csproj",
-        "packagesPath": "C:\\Users\\willp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\willp\\OneDrive\\Área de Trabalho\\PedroArthur\\pontosNaWeb\\CodeSnippetsSolution\\src\\CommandAPI\\obj\\",
+        "projectPath": "/Users/pedrofreitas/Documents/Estudos/pontosNaWeb/CodeSnippetsSolution/src/CommandAPI/CommandAPI.csproj",
+        "packagesPath": "/Users/pedrofreitas/.nuget/packages/",
+        "outputPath": "/Users/pedrofreitas/Documents/Estudos/pontosNaWeb/CodeSnippetsSolution/src/CommandAPI/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\willp\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/pedrofreitas/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -61,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
         }
       }
     }
