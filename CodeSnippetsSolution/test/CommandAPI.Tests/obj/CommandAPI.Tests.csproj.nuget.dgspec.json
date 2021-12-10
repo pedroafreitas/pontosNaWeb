@@ -4,61 +4,6 @@
     "/Users/pedrofreitas/Documents/Estudos/pontosNaWeb/CodeSnippetsSolution/test/CommandAPI.Tests/CommandAPI.Tests.csproj": {}
   },
   "projects": {
-    "/Users/pedrofreitas/Documents/Estudos/pontosNaWeb/CodeSnippetsSolution/src/CommandAPI/CommandAPI.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/Users/pedrofreitas/Documents/Estudos/pontosNaWeb/CodeSnippetsSolution/src/CommandAPI/CommandAPI.csproj",
-        "projectName": "CommandAPI",
-        "projectPath": "/Users/pedrofreitas/Documents/Estudos/pontosNaWeb/CodeSnippetsSolution/src/CommandAPI/CommandAPI.csproj",
-        "packagesPath": "/Users/pedrofreitas/.nuget/packages/",
-        "outputPath": "/Users/pedrofreitas/Documents/Estudos/pontosNaWeb/CodeSnippetsSolution/src/CommandAPI/obj/",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/Users/pedrofreitas/.nuget/NuGet/NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
-        }
-      }
-    },
     "/Users/pedrofreitas/Documents/Estudos/pontosNaWeb/CodeSnippetsSolution/test/CommandAPI.Tests/CommandAPI.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -72,19 +17,15 @@
           "/Users/pedrofreitas/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net5.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {
-              "/Users/pedrofreitas/Documents/Estudos/pontosNaWeb/CodeSnippetsSolution/src/CommandAPI/CommandAPI.csproj": {
-                "projectPath": "/Users/pedrofreitas/Documents/Estudos/pontosNaWeb/CodeSnippetsSolution/src/CommandAPI/CommandAPI.csproj"
-              }
-            }
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -94,18 +35,18 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[16.11.0, )"
+              "version": "[16.9.4, )"
             },
             "coverlet.collector": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.0, )"
+              "version": "[3.0.2, )"
             },
             "xunit": {
               "target": "Package",
@@ -133,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.403/RuntimeIdentifierGraph.json"
         }
       }
     }
