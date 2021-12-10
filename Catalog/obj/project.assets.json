@@ -571,26 +571,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Cliente\\.nuget\\packages\\": {}
+    "/Users/pedrofreitas/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Cliente\\pontosNaWeb\\Catalog\\Catalog.csproj",
+      "projectUniqueName": "/Users/pedrofreitas/Documents/Estudos/pontosNaWeb/Catalog/Catalog.csproj",
       "projectName": "Catalog",
-      "projectPath": "C:\\Users\\Cliente\\pontosNaWeb\\Catalog\\Catalog.csproj",
-      "packagesPath": "C:\\Users\\Cliente\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Cliente\\pontosNaWeb\\Catalog\\obj\\",
+      "projectPath": "/Users/pedrofreitas/Documents/Estudos/pontosNaWeb/Catalog/Catalog.csproj",
+      "packagesPath": "/Users/pedrofreitas/.nuget/packages/",
+      "outputPath": "/Users/pedrofreitas/Documents/Estudos/pontosNaWeb/Catalog/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Cliente\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/pedrofreitas/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -636,7 +634,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.403/RuntimeIdentifierGraph.json"
       }
     }
   }
