@@ -45,3 +45,7 @@ Docker encapsulates everything you need to run your application. Including mongo
 We need to add our localhost and the port on appsettings. We can create a class to put settign inside c# (it can be named either Settings, Configuration or Options).
 
 How Mongo works in c#?
+
+Secret managment: we've got the appsettings, which has our host and port. But, this is not a good ideia to save a password in any file. The way to change it is to tell our api how to handle it.
+
+Ways to manage secrets is: using command line args, env variables and cloud sources.
