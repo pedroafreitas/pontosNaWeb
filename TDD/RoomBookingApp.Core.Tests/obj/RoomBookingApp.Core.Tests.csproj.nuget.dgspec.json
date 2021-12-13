@@ -1,32 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Cliente\\pontosNaWeb\\TesteDeCasa.Moq\\TesteDeCasa.Moq.csproj": {}
+    "C:\\Users\\Cliente\\pontosNaWeb\\TDD\\RoomBookingApp.Core.Tests\\RoomBookingApp.Core.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Cliente\\pontosNaWeb\\TesteDeCasa.Moq\\TesteDeCasa.Moq.csproj": {
+    "C:\\Users\\Cliente\\pontosNaWeb\\TDD\\RoomBookingApp.Core.Tests\\RoomBookingApp.Core.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Cliente\\pontosNaWeb\\TesteDeCasa.Moq\\TesteDeCasa.Moq.csproj",
-        "projectName": "TesteDeCasa.Moq",
-        "projectPath": "C:\\Users\\Cliente\\pontosNaWeb\\TesteDeCasa.Moq\\TesteDeCasa.Moq.csproj",
+        "projectUniqueName": "C:\\Users\\Cliente\\pontosNaWeb\\TDD\\RoomBookingApp.Core.Tests\\RoomBookingApp.Core.Tests.csproj",
+        "projectName": "RoomBookingApp.Core.Tests",
+        "projectPath": "C:\\Users\\Cliente\\pontosNaWeb\\TDD\\RoomBookingApp.Core.Tests\\RoomBookingApp.Core.Tests.csproj",
         "packagesPath": "C:\\Users\\Cliente\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Cliente\\pontosNaWeb\\TesteDeCasa.Moq\\obj\\",
+        "outputPath": "C:\\Users\\Cliente\\pontosNaWeb\\TDD\\RoomBookingApp.Core.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Cliente\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0"
+          "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -37,24 +37,28 @@
         }
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
-            "MSTest.TestAdapter": {
-              "target": "Package",
-              "version": "[2.2.3, )"
-            },
-            "MSTest.TestFramework": {
-              "target": "Package",
-              "version": "[2.2.3, )"
-            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[16.9.4, )"
+              "version": "[16.11.0, )"
             },
             "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[3.0.2, )"
+              "version": "[3.1.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.4.3, )"
             }
           },
           "imports": [
@@ -72,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

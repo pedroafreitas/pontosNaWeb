@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
@@ -17,10 +18,10 @@ namespace TesteDeCada.Services.Implementations
 {
     public class TransactionService : ITransactionService
     {
-        private BankingDbContext _dbContext;
-        ILogger<TransactionService> _logger;
+        private readonly BankingDbContext _dbContext;
+        private readonly ILogger<TransactionService> _logger;
         
-        private AppSettings _settings;
+        private readonly AppSettings _settings;
         private static string _bankSettlementAccount;
         private readonly IAccountService _accountService;
 
@@ -33,15 +34,16 @@ namespace TesteDeCada.Services.Implementations
             _accountService = accountService;
         }
 
-        public IEnumerable<Transaction> GetAllTransactions()
+        public async Task<IEnumerable<Transaction>> GetAllTransactionsAsync()
         {
-            return _dbContext.Transactions.ToList();
+            return await _dbContext.Transactions.ToListAsync();
         }
-        public Response GetById(Guid id)
+        
+        public async Task<Response> GetByIdAsync(Guid id)
         {
 
             Response response = new();
-            var transaction = _dbContext.Transactions.Where(x => x.Id == id).ToList();
+            var transaction = await _dbContext.Transactions.Where(x => x.Id == id).ToListAsync();
             response.ResponseCode = "00";
             response.ResponseMessage = Constants.SuccessfulTransactionFound;
             response.Data = transaction; 
@@ -52,7 +54,7 @@ namespace TesteDeCada.Services.Implementations
         //Default: Transaction
         //Op 1: Deposit
         //Op 1: WithDrawal
-        public bool AuthorizeOperation(Account FromAccount, Account ToAccount, decimal Amount, string TransactionPin, string OperationType = "default")
+        public async Task<bool> AuthorizeOperationAsync(Account FromAccount, Account ToAccount, decimal Amount, string TransactionPin, string OperationType = "default")
         {
             //contas iguais**
             Account authUser;
@@ -68,7 +70,7 @@ namespace TesteDeCada.Services.Implementations
                     if((((int)FromAccount.AccountType) == 1)) throw new ApplicationException(Constants.InvalidUser);
                     if(FromAccount.CurrentAccountBalance < Amount) throw new ApplicationException(Constants.InsufficienFunds);
                     
-                    authUser =  _accountService.Authenticate(FromAccount.AccountNumberGenerated, TransactionPin);
+                    authUser = await _accountService.AuthenticateAsync(FromAccount.AccountNumberGenerated, TransactionPin);
                     if(authUser == null) throw new ApplicationException(Constants.InvalidPin);
                     break;
                 default:
@@ -77,7 +79,7 @@ namespace TesteDeCada.Services.Implementations
                     if(FromAccount.CurrentAccountBalance < Amount) throw new ApplicationException(Constants.InsufficienFunds);
                     if(ToAccount == null || FromAccount == null) throw new ApplicationException(Constants.NullAccount);
 
-                    authUser =  _accountService.Authenticate(FromAccount.AccountNumberGenerated, TransactionPin);
+                    authUser = await _accountService.AuthenticateAsync(FromAccount.AccountNumberGenerated, TransactionPin);
                     if(authUser == null) throw new ApplicationException(Constants.InvalidPin);
                     break;
             }       
@@ -91,19 +93,15 @@ namespace TesteDeCada.Services.Implementations
             transaction.TransactionDestinationAccount = ToAccount;
             transaction.TransactionAmount = Amount;
             transaction.TransactionDate = DateTime.Now;
-            transaction.TransactionDescription = $"Nova transação de  => {JsonConvert.SerializeObject(transaction.TransactionSourceAccount)} para => {JsonConvert.SerializeObject (transaction.TransactionDestinationAccount)} em => {transaction.TransactionDate} QUANTIDADE => {JsonConvert.SerializeObject(transaction.TransactionAmount)} TIPO => {transaction.TransactionType} STATUS => {transaction.TransactionStatus}";
-        }
-
-        public void ResponseTransaction (Response response, Transaction transaction)
-        {
-            transaction.TransactionStatus = TransactionStatus.Failed;
-            response.ResponseCode = "01";
-            response.ResponseMessage = Constants.TransactionFailed;
-            response.Data = null;
+            transaction.TransactionDescription = $"Nova transação de  => {JsonConvert.SerializeObject(transaction.TransactionSourceAccount)} " +
+                                                    $"para => {JsonConvert.SerializeObject (transaction.TransactionDestinationAccount)} " +
+                                                    $"em => {transaction.TransactionDate} " +
+                                                    $"QUANTIDADE => {JsonConvert.SerializeObject(transaction.TransactionAmount)} " +
+                                                    $"TIPO => {transaction.TransactionType} " +
+                                                    $"STATUS => {transaction.TransactionStatus}";
         }
         
-
-        public Response MakeDeposit(string ToAccount, decimal Amount, string DepositantName)
+        public async Task<Response> MakeDepositAsync(string ToAccount, decimal Amount, string DepositantName)
         {
             
             Account destinyAccount;
@@ -113,9 +111,9 @@ namespace TesteDeCada.Services.Implementations
 
             try
             {
-                destinyAccount = _accountService.GetByAccountNumber(ToAccount);
+                destinyAccount = await _accountService.GetByAccountNumberAsync(ToAccount);
 
-                if(AuthorizeOperation(null, destinyAccount, Amount, null, operationType))
+                if(await AuthorizeOperationAsync(null, destinyAccount, Amount, null, operationType))
                 {
                     destinyAccount.CurrentAccountBalance += Amount;
 
@@ -146,13 +144,13 @@ namespace TesteDeCada.Services.Implementations
 
             SetupTransaction(transaction, $"{operationType} (name: {DepositantName})", ToAccount, Amount, TransactionType.Deposit);
             
-            _dbContext.Transactions.Add(transaction);
-            _dbContext.SaveChanges();
+            await _dbContext.Transactions.AddAsync(transaction);
+            await _dbContext.SaveChangesAsync();
 
             return response;
         }
 
-         public Response MakeWithdrawal(string FromAccount, decimal Amount, string TransactionPin) 
+        public async Task<Response> MakeWithdrawalAsync(string FromAccount, decimal Amount, string TransactionPin) 
         {
             //Validar se usuario tem saldo antes de sacar
             Account sourceAccount;
@@ -162,9 +160,9 @@ namespace TesteDeCada.Services.Implementations
             
             try
             {
-                sourceAccount = _accountService.GetByAccountNumber(FromAccount);
+                sourceAccount = await _accountService.GetByAccountNumberAsync(FromAccount);
             
-                if(AuthorizeOperation(sourceAccount, null, Amount, TransactionPin, operationType))
+                if(await AuthorizeOperationAsync(sourceAccount, null, Amount, TransactionPin, operationType))
                 {
                     sourceAccount.CurrentAccountBalance -= Amount;
 
@@ -202,7 +200,7 @@ namespace TesteDeCada.Services.Implementations
             return response;
         }
 
-        public Response MakeFundsTransfer(string FromAccount, string ToAccount, decimal Amount, string TransactionPin)
+        public async Task<Response> MakeFundsTransferAsync(string FromAccount, string ToAccount, decimal Amount, string TransactionPin)
         {            
             Account sourceAccount;
             Account destinyAccount;
@@ -211,10 +209,10 @@ namespace TesteDeCada.Services.Implementations
             
             try
             {
-                sourceAccount = _accountService.GetByAccountNumber(FromAccount);
-                destinyAccount = _accountService.GetByAccountNumber(ToAccount);
+                sourceAccount = await _accountService.GetByAccountNumberAsync(FromAccount);
+                destinyAccount = await _accountService.GetByAccountNumberAsync(ToAccount);
             
-                if(AuthorizeOperation(sourceAccount, destinyAccount, Amount, TransactionPin))
+                if(await AuthorizeOperationAsync(sourceAccount, destinyAccount, Amount, TransactionPin))
                 {
                     sourceAccount.CurrentAccountBalance -= Amount;
                     destinyAccount.CurrentAccountBalance += Amount;
@@ -248,13 +246,13 @@ namespace TesteDeCada.Services.Implementations
 
             SetupTransaction(transaction, FromAccount, ToAccount, Amount, TransactionType.Transfer);
             
-            _dbContext.Transactions.Add(transaction);
-            _dbContext.SaveChanges();
+            await _dbContext.Transactions.AddAsync(transaction);
+            await _dbContext.SaveChangesAsync();
 
             return response;
         }
 
-        public Response ReversalFundsTransfer(Guid id, string TransactionPin)
+        public async Task<Response> ReversalFundsTransferAsync(Guid id, string TransactionPin)
         {
             Account destinyAccount;
             Response response = new();
@@ -266,9 +264,9 @@ namespace TesteDeCada.Services.Implementations
 
                 if(transaction == null) throw new ApplicationException(Constants.InvalidAccountNumber);
                 if(transaction.TransactionType != TransactionType.Transfer) throw new ApplicationException(Constants.InvalidReversal);
-                destinyAccount = _accountService.GetByAccountNumber(transaction.TransactionDestinationAccount);
+                destinyAccount = await _accountService.GetByAccountNumberAsync(transaction.TransactionDestinationAccount);
 
-                response = MakeFundsTransfer(transaction.TransactionDestinationAccount, transaction.TransactionSourceAccount, transaction.TransactionAmount, TransactionPin);
+                response = await MakeFundsTransferAsync(transaction.TransactionDestinationAccount, transaction.TransactionSourceAccount, transaction.TransactionAmount, TransactionPin);
 
             }
             catch (Exception ex)

@@ -46,6 +46,18 @@ We need to add our localhost and the port on appsettings. We can create a class 
 
 How Mongo works in c#?
 
+## Part 4
+
+* Secret manager
+
 Secret managment: we've got the appsettings, which has our host and port. But, this is not a good ideia to save a password in any file. The way to change it is to tell our api how to handle it.
 
 Ways to manage secrets is: using command line args, env variables and cloud sources.
+
+* Health Check
+
+Is a rest api ready to do the job the right way? To get a answer out of it we should build a health check endpoint.
+
+So we query to the health endpoint to get information about the health of the api.
+
+The most inte

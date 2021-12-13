@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Transactions;
 using TesteDeCasa.Models;
 
@@ -9,17 +10,18 @@ namespace TesteDeCasa.Services.Interfaces
     public interface ITransactionService
     {
 
-        IEnumerable<Transaction> GetAllTransactions();
+        Task<IEnumerable<Transaction>> GetAllTransactionsAsync();
 
-        Response GetById(Guid id);
+        Task<Response> GetByIdAsync(Guid id);
 
-        bool AuthorizeOperation(Account FromAccount, Account ToAccount, decimal Amount, string TransactionPin, string OperationType = "default");
-        Response MakeDeposit(String ToAccount, decimal Amount, string TransactionPin);
+        Task<bool> AuthorizeOperationAsync(Account FromAccount, Account ToAccount, decimal Amount, string TransactionPin, string OperationType = "default");
 
-        Response MakeWithdrawal(string FromAccount, decimal Amount, string TransactionPin);
+        Task<Response> MakeDepositAsync(String ToAccount, decimal Amount, string TransactionPin);
 
-        Response MakeFundsTransfer(string FromAccount, string ToAccount, decimal Amount, string TransactionPin);
+        Task<Response> MakeWithdrawalAsync(string FromAccount, decimal Amount, string TransactionPin);
 
-        Response ReversalFundsTransfer(Guid id, string TransactionPin);
+        Task<Response> MakeFundsTransferAsync(string FromAccount, string ToAccount, decimal Amount, string TransactionPin);
+
+        Task<Response> ReversalFundsTransferAsync(Guid id, string TransactionPin);
     }
 }
