@@ -8,13 +8,14 @@ namespace RoomBookingApp.Core
 {
     public class RoomBookingRequestProcessorTest
     {
-        private readonly RoomBookingRequestProcessor _processor;
+        private RoomBookingRequestProcessor _processor;
         private readonly RoomBookingRequest _request;
 
         public RoomBookingRequestProcessorTest()
         {
             //Arrange
             _processor = new RoomBookingRequestProcessor();
+
 
             _request = new RoomBookingRequest
             {
