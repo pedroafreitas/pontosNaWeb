@@ -1,0 +1,12 @@
+C:\Users\Cliente\pontosNaWeb\TDD\RoomBookingApp.Core\bin\Debug\net6.0\RoomBookingApp.Core.deps.json
+C:\Users\Cliente\pontosNaWeb\TDD\RoomBookingApp.Core\bin\Debug\net6.0\RoomBookingApp.Core.dll
+C:\Users\Cliente\pontosNaWeb\TDD\RoomBookingApp.Core\bin\Debug\net6.0\ref\RoomBookingApp.Core.dll
+C:\Users\Cliente\pontosNaWeb\TDD\RoomBookingApp.Core\bin\Debug\net6.0\RoomBookingApp.Core.pdb
+C:\Users\Cliente\pontosNaWeb\TDD\RoomBookingApp.Core\obj\Debug\net6.0\RoomBookingApp.Core.csproj.AssemblyReference.cache
+C:\Users\Cliente\pontosNaWeb\TDD\RoomBookingApp.Core\obj\Debug\net6.0\RoomBookingApp.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cliente\pontosNaWeb\TDD\RoomBookingApp.Core\obj\Debug\net6.0\RoomBookingApp.Core.AssemblyInfoInputs.cache
+C:\Users\Cliente\pontosNaWeb\TDD\RoomBookingApp.Core\obj\Debug\net6.0\RoomBookingApp.Core.AssemblyInfo.cs
+C:\Users\Cliente\pontosNaWeb\TDD\RoomBookingApp.Core\obj\Debug\net6.0\RoomBookingApp.Core.csproj.CoreCompileInputs.cache
+C:\Users\Cliente\pontosNaWeb\TDD\RoomBookingApp.Core\obj\Debug\net6.0\RoomBookingApp.Core.dll
+C:\Users\Cliente\pontosNaWeb\TDD\RoomBookingApp.Core\obj\Debug\net6.0\ref\RoomBookingApp.Core.dll
+C:\Users\Cliente\pontosNaWeb\TDD\RoomBookingApp.Core\obj\Debug\net6.0\RoomBookingApp.Core.pdb
