@@ -1,4 +1,3 @@
-using System;
 
 namespace RoomBookingApp.Core.Models
 {

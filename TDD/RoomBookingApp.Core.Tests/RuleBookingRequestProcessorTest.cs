@@ -8,26 +8,32 @@ namespace RoomBookingApp.Core
 {
     public class RoomBookingRequestProcessorTest
     {
-        private RoomBookingRequestProcessor _processor;
-        public RoomBookingRequestProcessorTest(RoomBookingRequestProcessor processor)
+        private readonly RoomBookingRequestProcessor _processor;
+        private readonly RoomBookingRequest _request;
+
+        public RoomBookingRequestProcessorTest()
         {
-            _processor = processor;
+            //Arrange
+            _processor = new RoomBookingRequestProcessor();
+
+            _request = new RoomBookingRequest
+            {
+                FullName = "Test Name",
+                Email = "test.request.com",
+                Date = new DateTime(2021, 12, 13)
+            };
         }
 
         [Fact]
         public void Should_Return_Room_Booking_Request_With_Request_Values()
         {
-            //Arrange
+            //Arrange -> Constructor
             //Mocking what request is gonna look line
-            var request = new RoomBookingRequest{
-                FullName = "Test Name",
-                Email = "test.request.com",
-                Date = new DateTime(2021, 12, 13)
-            };
+
 
             //Act
             //The method BookRoom should return RoomBookingResult
-            RoomBookingResult result = _processor.BookRoom(request);
+            RoomBookingResult result = _processor.BookRoom(_request);
 
             //Assert
             Assert.NotNull(result);
@@ -48,6 +54,12 @@ namespace RoomBookingApp.Core
 
             Assert.Equal("bookingRequest", exception.ParamName);
             
+        }
+
+        [Fact]
+        public void Should_Save_Room_Booking_Request()
+        {
+            _processor.BookRoom(_request);
         }
     }
 }

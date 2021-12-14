@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\RoomBookingApp.Core",
+    "\\RoomBookingApp.Core.Tests",
+    "\\RoomBookingApp.Core\\Domain",
+    "\\RoomBookingApp.Core\\Models",
+    "\\RoomBookingApp.Core\\Processors",
+    "\\RoomBookingApp.Core\\Services"
+  ],
+  "SelectedNode": "\\RoomBookingApp.Core.Tests\\RoomBookingApp.Core.Tests.csproj",
+  "PreviewInSolutionExplorer": false
+}
