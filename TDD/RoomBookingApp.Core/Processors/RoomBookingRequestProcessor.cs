@@ -1,21 +1,45 @@
 using System;
 using RoomBookingApp.Core.Models;
+using RoomBookingApp.Core.Services;
 
 namespace RoomBookingApp.Core.Processors
 {
     public class RoomBookingRequestProcessor
     {
-        public RoomBookingRequestProcessor()
+        private readonly IRoomBookingService _roomBookingService;
+        public RoomBookingRequestProcessor(IRoomBookingService roomBookingService)
         {
+            _roomBookingService = roomBookingService;
         }
 
         public RoomBookingResult BookRoom(RoomBookingRequest bookingRequest)
         {
+            if(bookingRequest is null)
+                throw new ArgumentNullException(nameof(bookingRequest));
+                
+            _roomBookingService.Save(new Domain.RoomBooking {
+                FullName = bookingRequest.FullName,
+                Date = bookingRequest.Date,
+                Email = bookingRequest.Email,
+            });
+
             return new RoomBookingResult
             {
                 FullName = bookingRequest.FullName,
                 Date = bookingRequest.Date,
                 Email = bookingRequest.Email,                
+            };
+        }
+
+                                            //Its a generic. The parameter is whatever it is going to be returned
+        private static TRoomBooking CreateRoomBookingObject<TRoomBooking>(RoomBookingRequest bookingRequest) where TRoomBooking
+            : RoomBookingBase, new()
+        {
+            return new TRoomBooking
+            {
+                FullName = bookingRequest.FullName,
+                Date = bookingRequest.Date,
+                Email = bookingRequest.Email,
             };
         }
     }
