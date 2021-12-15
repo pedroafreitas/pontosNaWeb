@@ -21,19 +21,9 @@ namespace RoomBookingApp.Core.Processors
                 throw new ArgumentNullException(nameof(bookingRequest));
             }               
                 
-            _roomBookingService.Save(new RoomBooking
-            {
-                FullName = bookingRequest.FullName,
-                Date = bookingRequest.Date,
-                Email = bookingRequest.Email,
-            });
+            _roomBookingService.Save(CreateRoomBookingObject<RoomBooking>(bookingRequest));
 
-            return new RoomBookingResult
-            {
-                FullName = bookingRequest.FullName,
-                Date = bookingRequest.Date,
-                Email = bookingRequest.Email,
-            };
+            return CreateRoomBookingObject<RoomBookingResult>(bookingRequest);
         }
         
         //Its a generic. The parameter is whatever it is going to be returned

@@ -212,3 +212,5 @@ C:\Users\Cliente\pontosNaWeb\TDD\RoomBookingApp.Core.Tests\obj\Debug\net6.0\Room
 C:\Users\Cliente\pontosNaWeb\TDD\RoomBookingApp.Core.Tests\bin\Debug\net6.0\CoverletSourceRootsMapping
 C:\Users\Cliente\pontosNaWeb\TDD\RoomBookingApp.Core.Tests\bin\Debug\net6.0\RoomBookingApp.Core.dll
 C:\Users\Cliente\pontosNaWeb\TDD\RoomBookingApp.Core.Tests\bin\Debug\net6.0\RoomBookingApp.Core.pdb
+C:\Users\Cliente\pontosNaWeb\TDD\RoomBookingApp.Core.Tests\bin\Debug\net6.0\Castle.Core.dll
+C:\Users\Cliente\pontosNaWeb\TDD\RoomBookingApp.Core.Tests\bin\Debug\net6.0\Moq.dll
