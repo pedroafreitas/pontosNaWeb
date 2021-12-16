@@ -1,9 +1,9 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace NotasSigaa.Models
 {
-    [Table("Historicos")]
     public record Historico
     {
-        [Key]
         public int Matricula {get; init; }
 
         public int COD_TURMA {get; init; }

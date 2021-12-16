@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "RoomBookingApp.Core.Tests"
+		},
+		{
+			"path": "RoomBookingApp.Core"
+		}
+	],
+	"settings": {}
+}

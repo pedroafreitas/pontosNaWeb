@@ -1,3 +1,7 @@
+using System.Collections.Generic;
+using NotasSigaa.Models;
+using NotasSigaa.Repository.Interfaces;
+
 namespace NotasSigaa.Repository
 {
     public class AlunosRepository : IAlunosRepository

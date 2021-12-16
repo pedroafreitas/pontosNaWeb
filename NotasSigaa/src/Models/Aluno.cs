@@ -1,7 +1,8 @@
 
+using System.ComponentModel.DataAnnotations;
+
 namespace NotasSigaa.Models
 {
-    [Table("Alunos")]
     public record Aluno    
     {
         [Key]
