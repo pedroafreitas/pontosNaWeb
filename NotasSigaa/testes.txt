@@ -1,9 +1,0 @@
-Teste 1: registrar nota -1
-Teste 2: registrar nota 11
-Teste 3: registrar nota 1
-Teste 4: registrar 6 alunos
-Teste 5: cadastrar quatro notas
-Teste 6: cadastrar 0 notas
-Teste 7: cadastrar nota sem casa decimal
-Teste 8: cadastrar nota com duas casas decimais
-Teste 9: cadastrar nota 4 com nota maior que 6.9
