@@ -1,15 +1,15 @@
-namespace MiniSigaa.Models.Repository
+using MiniSigaa.Models;
+
+namespace MiniSigaa.Repository
 {
     public interface ICourseClassRepository
     {
-        Task<IEnumerable<CourseClass>> GetAllCourseClasses();
+        IEnumerable<CourseClass> GetAllCourseClasses();
 
-        Task<CourseClass> GetCourseClassById(int id);
+        CourseClass GetCourseClassById(int id);
 
-        Task RegisterStudent(int courseId, string name);
+        List<Student> GetClassStudents(int courseId);
 
-        Task<List<Student>> GetClassStudents(int courseId);
-
-        Task<bool> StudentPassed(Student student, int numberOfGrades, decimal minimum);
+        void CreateCourseClass(CourseClass courseClass);
     }
 }

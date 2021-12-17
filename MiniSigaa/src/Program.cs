@@ -1,57 +1,31 @@
 ﻿using MiniSigaa.Models;
-using MiniSigaa.Models.Repository;
+using MiniSigaa.Repository;
+using MiniSigaa.Util;
 
 namespace MiniSigaa
 {
     public class Program
     {
-        private readonly ICourseClassRepository _courseClasses;
-        public Program(ICourseClassRepository courseClass)
-        {
-            _courseClasses = courseClass;
-        }
-
         public static void Main(string[] args)
         {
             bool showMenu = true;
-            while (showMenu)
-                showMenu = MainMenu();
-        }
-
-        private static bool MainMenu()
-        {
-            Console.Clear();
-            Console.WriteLine("Bem-vindo(a) ao Mini Sigaa");
-
-            Console.WriteLine("1 - Listar Turmas Existentes");
-            Console.WriteLine("2 - Cadastrar Notas de um Aluno");
-            Console.WriteLine("Aperte 0 para sair");
-            
-            switch (Console.ReadLine())
+            CourseClassRepository courseClass = new();
+            Menu menu = new(courseClass);
+            try
             {
-                case "0":
-                    Console.WriteLine("Terminando programa...");
-                    return false;
-                case "1":
-                    Console.WriteLine("\nTurmas existentes:");
-                    ListCourseClasses();
-                    return true;
-                case "2":
-                    RegisterGrades();
-                    return true;
-                default:
-                    return true;
+                Console.Clear();
+                Console.WriteLine("Bem-vindo(a) ao Mini Sigaa: ");
+
+                if(menu != null)
+                {
+                    while (showMenu)
+                        showMenu = menu.MainMenu();
+                }              
             }
-        }
-
-        private static void RegisterGrades()
-        {
-            throw new NotImplementedException();
-        }
-
-        private static void ListCourseClasses()
-        {
-            throw new NotImplementedException();            
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

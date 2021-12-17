@@ -1,42 +1,34 @@
-namespace MiniSigaa.Models.Repository
+using MiniSigaa.Util;
+using MiniSigaa.Models;
+namespace MiniSigaa.Repository
 {
     public class CourseClassRepository : ICourseClassRepository
     {
         private readonly List<CourseClass> courseClasses = new();
 
-        public async Task<IEnumerable<CourseClass>> GetAllCourseClasses()
+        public IEnumerable<CourseClass> GetAllCourseClasses()
         {
-            return await Task.FromResult(courseClasses);
+            return courseClasses;
         }
 
-        public async Task<CourseClass> GetCourseClassById(int courseId)
+        public CourseClass GetCourseClassById(int courseId)
         {
             var courseClass = courseClasses.Where(existingClass => existingClass.Id == courseId).SingleOrDefault()
                                 ?? throw new ArgumentNullException(Constants.ErrorNullValue);
-            return await Task.FromResult(courseClass);
+            return courseClass;
         }
 
-        public async Task RegisterStudent(int courseId, string name)
+        public void CreateCourseClass(CourseClass courseClass)
         {
-            Student student = new();
-            student.Name = name;
-            var students = await GetClassStudents(courseId);
-            students.Add(student);
+            courseClasses.Add(courseClass);
         }
 
-        public async Task<List<Student>> GetClassStudents(int courseId)
+        public List<Student> GetClassStudents(int courseId)
         {
-            var courseClass = await GetCourseClassById(courseId);
+            var courseClass = GetCourseClassById(courseId);
             var students = courseClass.StudentsInCourseClass ?? throw new ArgumentNullException(Constants.ErrorNullValue);
 
-            return await Task.FromResult(students);
-        }
-
-        public async Task<bool> StudentPassed(Student student, int numberOfGrades = 3, decimal minimum = 7.0m)
-        {
-            if((student.Grade1 + student.Grade2 + student.Grade3)/numberOfGrades < minimum)
-                return await Task.FromResult(true);
-            return await Task.FromResult(false);
+            return students;
         }
     }
 }

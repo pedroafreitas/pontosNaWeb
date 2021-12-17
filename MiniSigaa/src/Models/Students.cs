@@ -4,8 +4,6 @@ namespace MiniSigaa.Models
     {
         public int Id {get; init; }
 
-        public string? Name {get; set; }
-
         public decimal Grade1 {get; set; }
 
         public decimal Grade2 {get; set; }
