@@ -2,18 +2,14 @@ namespace MiniSigaa.Models.Repository
 {
     public interface ICourseClassRepository
     {
-        IEnumerable<Student> GetAllStudentsInCourseClass();
+        Task<IEnumerable<CourseClass>> GetAllCourseClasses();
 
-        IEnumerable<CourseClass> GetAllCourseClasses();
+        Task<CourseClass> GetCourseClassById(int id);
 
-        CourseClass GetCourseClassById(int id);
+        Task RegisterStudent(int courseId, string name);
 
-        void ResgisterStudentGrade(Student student, decimal grade, int gradeNumber);
+        Task<List<Student>> GetClassStudents(int courseId);
 
-        bool StudentFailed(Student student);
-
-        void SaveGradesInMemory();
-
-        decimal GetCourseClassAvarageGrade();
+        Task<bool> StudentPassed(Student student, int numberOfGrades, decimal minimum);
     }
 }

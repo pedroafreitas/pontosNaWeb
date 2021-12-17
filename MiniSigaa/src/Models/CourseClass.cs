@@ -4,7 +4,7 @@ namespace MiniSigaa.Models
     {
         public int Id {get; init; }
 
-        IEnumerable<Student>? StudentsInCourseClass {get; set; }
+        public List<Student>? StudentsInCourseClass {get; set; }
 
         public int QuantityStudents {get; set; }
 

@@ -2,43 +2,41 @@ namespace MiniSigaa.Models.Repository
 {
     public class CourseClassRepository : ICourseClassRepository
     {
-        public CourseClassRepository()
+        private readonly List<CourseClass> courseClasses = new();
+
+        public async Task<IEnumerable<CourseClass>> GetAllCourseClasses()
         {
+            return await Task.FromResult(courseClasses);
         }
 
-        IEnumerable<CourseClass> ICourseClassRepository.GetAllCourseClasses()
+        public async Task<CourseClass> GetCourseClassById(int courseId)
         {
-            throw new NotImplementedException();
+            var courseClass = courseClasses.Where(existingClass => existingClass.Id == courseId).SingleOrDefault()
+                                ?? throw new ArgumentNullException(Constants.ErrorNullValue);
+            return await Task.FromResult(courseClass);
         }
 
-        IEnumerable<Student> ICourseClassRepository.GetAllStudentsInCourseClass()
+        public async Task RegisterStudent(int courseId, string name)
         {
-            throw new NotImplementedException();
+            Student student = new();
+            student.Name = name;
+            var students = await GetClassStudents(courseId);
+            students.Add(student);
         }
 
-        decimal ICourseClassRepository.GetCourseClassAvarageGrade()
+        public async Task<List<Student>> GetClassStudents(int courseId)
         {
-            throw new NotImplementedException();
+            var courseClass = await GetCourseClassById(courseId);
+            var students = courseClass.StudentsInCourseClass ?? throw new ArgumentNullException(Constants.ErrorNullValue);
+
+            return await Task.FromResult(students);
         }
 
-        CourseClass ICourseClassRepository.GetCourseClassById(int id)
+        public async Task<bool> StudentPassed(Student student, int numberOfGrades = 3, decimal minimum = 7.0m)
         {
-            throw new NotImplementedException();
-        }
-
-        void ICourseClassRepository.ResgisterStudentGrade(Student student, decimal grade, int gradeNumber)
-        {
-            throw new NotImplementedException();
-        }
-
-        void ICourseClassRepository.SaveGradesInMemory()
-        {
-            throw new NotImplementedException();
-        }
-
-        bool ICourseClassRepository.StudentFailed(Student student)
-        {
-            throw new NotImplementedException();
+            if((student.Grade1 + student.Grade2 + student.Grade3)/numberOfGrades < minimum)
+                return await Task.FromResult(true);
+            return await Task.FromResult(false);
         }
     }
 }
