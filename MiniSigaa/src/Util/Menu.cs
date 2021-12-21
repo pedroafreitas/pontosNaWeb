@@ -54,7 +54,7 @@ namespace MiniSigaa.Util
                     else 
                     {
                         
-                        _courseClass.CreateCourseClass(courseClass);
+                        _courseClass.CreateCourseClass(_courseClasses);
                         RegisterGradesMenu(classId);
                     }
 
