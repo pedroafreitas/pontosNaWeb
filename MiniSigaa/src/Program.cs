@@ -6,11 +6,15 @@ namespace MiniSigaa
 {
     public class Program
     {
+        
         public static void Main(string[] args)
         {
             bool showMenu = true;
+
             CourseClassRepository courseClass = new();
-            Menu menu = new(courseClass);
+            StudentClassRepository student = new();
+
+            Menu menu = new(courseClass, student);
             try
             {
                 Console.Clear();

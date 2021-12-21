@@ -10,6 +10,10 @@ namespace MiniSigaa.Repository
 
         List<Student> GetClassStudents(int courseId);
 
-        void CreateCourseClass(CourseClass courseClass);
+        CourseClass CreateCourseClass();
+
+        int AddStudent(int courseId);
+
+        void RegisterGrades(int courseId, int studentId, List<decimal> grades);
     }
 }

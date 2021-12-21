@@ -18,17 +18,43 @@ namespace MiniSigaa.Repository
             return courseClass;
         }
 
-        public void CreateCourseClass(CourseClass courseClass)
+        public CourseClass CreateCourseClass()
         {
-            courseClasses.Add(courseClass);
+            CourseClass newCourseClass = new();
+
+            newCourseClass.StudentsInCourseClass = new List<Student>();
+
+            courseClasses.Add(newCourseClass);
+            
+            return newCourseClass;
+        }
+
+        public int AddStudent(int courseId)
+        {
+            var courseClass = GetCourseClassById(courseId);
+
+            courseClass.StudentsInCourseClass.Add(new Student());
+
+            return courseClass.StudentsInCourseClass.Last().Id;     
         }
 
         public List<Student> GetClassStudents(int courseId)
         {
             var courseClass = GetCourseClassById(courseId);
-            var students = courseClass.StudentsInCourseClass ?? throw new ArgumentNullException(Constants.ErrorNullValue);
+            
+            var students = courseClass.StudentsInCourseClass ?? throw new ArgumentNullException(Constants.ErrorNullValue);;
 
             return students;
+        }
+
+        public void RegisterGrades(int courseId, int studentId, List<decimal> grades)
+        {
+            var courseClass = GetCourseClassById(courseId);
+            var student = courseClass.StudentsInCourseClass[studentId];
+
+            student.Grade1 = grades[0];
+            student.Grade2 = grades[1];
+            student.Grade3 = grades[2];
         }
     }
 }
