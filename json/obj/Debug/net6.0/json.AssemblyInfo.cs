@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("CommandAPI")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("json")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("CommandAPI")]
-[assembly: System.Reflection.AssemblyTitleAttribute("CommandAPI")]
+[assembly: System.Reflection.AssemblyProductAttribute("json")]
+[assembly: System.Reflection.AssemblyTitleAttribute("json")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Gerado pela classe WriteCodeFragment do MSBuild.

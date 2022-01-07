@@ -37,9 +37,7 @@ namespace TesteDeCasa.Controllers
         [HttpGet]
         [Route("get_by_account_number")]
         public async Task<IActionResult> GetByAccountNumberAsync(string AccountNumber)
-        {
-
-            
+        {   
             if(!Regex.IsMatch(AccountNumber, @"[0][1-9]\d{9}$|^[1-9]\d{9}$")) return BadRequest(Constants.InvalidAccountNumber);
 
             var account = await _accountService.GetByAccountNumberAsync(AccountNumber);

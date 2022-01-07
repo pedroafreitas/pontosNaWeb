@@ -1,0 +1,30 @@
+[
+    {
+        "Nome": "Anna Clara",
+        "Idade": 21,
+        "Empresa": "Biotech",
+        "Endereço": [
+            {
+                "Logradouro": "Rua teste",
+                "Numero": 10000,
+                "Bairro": "Centro",
+                "Cidade": "Bacabal",
+                "UF": "MA"
+            }
+        ]
+    },
+    {
+        "Nome": "Jose Carlos",
+        "Idade": 54,
+        "Empresa": "Camara Legislativa",
+        "Endereço": [
+            {
+                "Logradouro": "Av. teste",
+                "Numero": 50000,
+                "Bairro": "Centro",
+                "Cidade": "Campina Grande",
+                "UF": "PB"
+            }
+        ]        
+    }
+]
