@@ -4,11 +4,11 @@ namespace WebScraper.Notes
 {
     class PersonBuilder
     {
-        private string _ssn;
-        private string _passportData;
-        private string _driverLicenseNumber;
-        private string _firstName;
-        private string _lastName;
+        private string? _ssn;
+        private string? _passportData;
+        private string? _driverLicenseNumber;
+        private string? _firstName;
+        private string? _lastName;
         private int _age;
         private int _eyeColor;
 
@@ -34,7 +34,7 @@ namespace WebScraper.Notes
             return this;
         }
 
-        public PersonBuilder SetpassportData(string passportData)
+        public PersonBuilder SetPassportData(string passportData)
         {
             _passportData = passportData;
             return this;
