@@ -1,23 +1,25 @@
 
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using TesteDeCasa.Models;
 
 namespace TesteDeCasa.Services.Interfaces
 {
     public interface IAccountService
     {
-        Account Authenticate(string AccountNumber, string Pin);
+        Task<Account> AuthenticateAsync(string AccountNumber, string Pin);
 
-        IEnumerable<Account> GetAllAccounts();
-        Account Create(Account account, string Pin, string ConfirmPin);
+        Task<IEnumerable<Account>> GetAllAccountsAsync();
 
-        void Update(Account account, string Pin = null);
+        Task<Account> CreateAsync(Account account, string Pin, string ConfirmPin);
 
-        void Delete(Guid Id);
+        Task UpdateAsync(Account account, string Pin = null);
 
-        Account GetById(Guid Id);
+        Task DeleteAsync(Guid Id);
 
-        Account GetByAccountNumber(string AccountNumber);
+        Task<Account> GetByIdAsync(Guid Id);
+
+        Task<Account> GetByAccountNumberAsync(string AccountNumber);
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using TesteDeCasa.Dtos;
@@ -14,8 +15,8 @@ namespace TesteDeCasa.Controllers
     [Route("api/v3/[controller]")]
     public class AccountsController : ControllerBase
     {
-        private IAccountService _accountService;
-        IMapper _mapper;
+        private readonly IAccountService _accountService;
+        private readonly IMapper _mapper;
 
         public AccountsController(IAccountService accountService, IMapper mapper)
         {
@@ -25,9 +26,9 @@ namespace TesteDeCasa.Controllers
 
         [HttpGet]
         [Route("get_all_accounts")]
-        public IActionResult GetAllAccounts()
+        public async Task<IActionResult> GetAllAccountsAsync()
         {
-            var accounts = _accountService.GetAllAccounts();
+            var accounts = await _accountService.GetAllAccountsAsync();
             var cleanedAccounts = _mapper.Map<IList<GetAccountDto>>(accounts);
             
             return Ok(cleanedAccounts);
@@ -35,22 +36,20 @@ namespace TesteDeCasa.Controllers
 
         [HttpGet]
         [Route("get_by_account_number")]
-        public IActionResult GetByAccountNumber(string AccountNumber)
-        {
-
-            
+        public async Task<IActionResult> GetByAccountNumberAsync(string AccountNumber)
+        {   
             if(!Regex.IsMatch(AccountNumber, @"[0][1-9]\d{9}$|^[1-9]\d{9}$")) return BadRequest(Constants.InvalidAccountNumber);
 
-            var account = _accountService.GetByAccountNumber(AccountNumber);
+            var account = await _accountService.GetByAccountNumberAsync(AccountNumber);
             var cleanedAccount = _mapper.Map<GetAccountDto>(account);
             return Ok(cleanedAccount);
         }
 
         [HttpGet]
         [Route("get_by_account_id")]
-        public IActionResult GetByAccountId(Guid Id)
+        public async Task<IActionResult> GetByAccountIdAsync(Guid Id)
         {
-            var account = _accountService.GetById(Id);
+            var account = await _accountService.GetByIdAsync(Id);
             var cleanedAccount = _mapper.Map<GetAccountDto>(account);
             return Ok(cleanedAccount);
         }
@@ -58,37 +57,34 @@ namespace TesteDeCasa.Controllers
         
         [HttpPost]
         [Route("register_new_account")]
-        public IActionResult RegisterNewAccount([FromBody] RegisterNewAccountDto newAccount)
+        public async Task<IActionResult> RegisterNewAccountAsync([FromBody] RegisterNewAccountDto newAccount)
         {
             if(!ModelState.IsValid) return BadRequest(newAccount);
 
             var account = _mapper.Map<Account>(newAccount);
-            return Ok(_accountService.Create(account, newAccount.Pin, newAccount.ConfirmPin));
+            return Ok(await _accountService.CreateAsync(account, newAccount.Pin, newAccount.ConfirmPin));
         }
 
         [HttpPost]
         [Route("authenticate")]
-        public IActionResult Autheticate([FromBody] AuthenticateDto model)
+        public async Task<IActionResult> AutheticateAsync([FromBody] AuthenticateDto model)
         {
             if(!ModelState.IsValid) return BadRequest();
 
-            return Ok(_accountService.Authenticate(model.AccountNumber, model.Pin));
-            //retorn account, vamos ver se quando nos rodamos antes de saber se faz map ou nao
+            return Ok(await _accountService.AuthenticateAsync(model.AccountNumber, model.Pin));
         }
 
         [HttpPut]
         [Route("update_account")]
-        public IActionResult UpdateAccount([FromBody] UpdateAccountDto model)
+        public async Task<IActionResult> UpdateAccountAsync([FromBody] UpdateAccountDto model)
         {
             if(!ModelState.IsValid) return BadRequest(model);
 
             var account = _mapper.Map<Account>(model);
             
-            _accountService.Update(account, model.Pin);
+            await _accountService.UpdateAsync(account, model.Pin);
             return Ok();
             
         }
-
-
     }
 }

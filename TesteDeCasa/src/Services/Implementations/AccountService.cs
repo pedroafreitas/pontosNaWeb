@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using TesteDeCasa.Services.Strategy;
 using TesteDeCasa.Utils;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace TesteDeCasa.Services.Implementations
 {
@@ -14,15 +16,14 @@ namespace TesteDeCasa.Services.Implementations
     {
         private readonly BankingDbContext _dbContext;
         
-
         public AccountService(BankingDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public Account Authenticate(string AccountNumber, string Pin)
+        public async Task<Account> AuthenticateAsync(string AccountNumber, string Pin)
         {
-            var account = _dbContext.Accounts.Where(x => x.AccountNumberGenerated == AccountNumber).SingleOrDefault();
+            var account = await _dbContext.Accounts.Where(x => x.AccountNumberGenerated == AccountNumber).SingleOrDefaultAsync();
             if(account == null)
                 return null;
 
@@ -47,7 +48,7 @@ namespace TesteDeCasa.Services.Implementations
             return true;
         }
 
-        public Account Create(Account account, string Pin, string ConfirmPin)
+        public async Task<Account> CreateAsync(Account account, string Pin, string ConfirmPin)
         {
             CpfCnpj _cpfCnpj = new();
             
@@ -67,8 +68,8 @@ namespace TesteDeCasa.Services.Implementations
             account.PinHash = pinHash;
             account.PinSalt = pinSalt;
 
-            _dbContext.Accounts.Add(account);
-            _dbContext.SaveChanges();
+            await _dbContext.Accounts.AddAsync(account);
+            await _dbContext.SaveChangesAsync();
 
             _cpfCnpj = null;
             return account;
@@ -83,41 +84,41 @@ namespace TesteDeCasa.Services.Implementations
             }
         }
 
-        public void Delete(Guid Id)
+        public async Task DeleteAsync(Guid Id)
         {
-            var account = _dbContext.Accounts.Find(Id);
+            var account = await _dbContext.Accounts.FindAsync(Id);
             if(account != null)
             {
                 _dbContext.Accounts.Remove(account);
-                _dbContext.SaveChanges(); 
+                await _dbContext.SaveChangesAsync(); 
             }
         }
 
-        public IEnumerable<Account> GetAllAccounts()
+        public async Task<IEnumerable<Account>> GetAllAccountsAsync()
         {
-            return _dbContext.Accounts.ToList();
+            return await _dbContext.Accounts.ToListAsync();
         }
 
-        public Account GetByAccountNumber(string AccountNumber)
+        public async Task<Account> GetByAccountNumberAsync(string AccountNumber)
         {
-            var account = _dbContext.Accounts.Where(x => x.AccountNumberGenerated == AccountNumber).FirstOrDefault();
+            var account = _dbContext.Accounts.Where(x => x.AccountNumberGenerated == AccountNumber).FirstOrDefaultAsync();
             if(account == null) throw new ApplicationException(Constants.NullAccount);
 
-            return account;
+            return await account;
         }
 
-        public Account GetById(Guid Id)
+        public async Task<Account> GetByIdAsync(Guid Id)
         {
-            var account = _dbContext.Accounts.Where(x => x.Id.Equals(Id)).FirstOrDefault();
+            var account = _dbContext.Accounts.Where(x => x.Id.Equals(Id)).FirstOrDefaultAsync();
             if(account == null) throw new ApplicationException(Constants.NullAccount);
 
-            return account;
+            return await account;
         }
 
         //The user can only update his/her Email, Pin and LastName
-        public void Update(Account account, string Pin = null)
+        public async Task UpdateAsync(Account account, string Pin = null)
         {
-            var accountToBeUpdated = _dbContext.Accounts.Where(x => x.Id == account.Id).SingleOrDefault();
+            var accountToBeUpdated = await _dbContext.Accounts.Where(x => x.Id == account.Id).SingleOrDefaultAsync();
 
             if(accountToBeUpdated == null) throw new ApplicationException(Constants.NullAccount);
 
@@ -143,7 +144,7 @@ namespace TesteDeCasa.Services.Implementations
             accountToBeUpdated.DateLastUpdated = DateTime.Now;
 
             _dbContext.Accounts.Update(accountToBeUpdated);
-            _dbContext.SaveChanges();
+            await _dbContext.SaveChangesAsync();
         }
     }
 }

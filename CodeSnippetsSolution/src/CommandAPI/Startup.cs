@@ -25,7 +25,7 @@ namespace CommandAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-        
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>

@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "8b257ce0-5806-4db5-abe7-3b469bef65a2": {
+      "ProjectGuid": "8b257ce0-5806-4db5-abe7-3b469bef65a2",
+      "DisplayName": "RoomBookingApp.Core.Tests",
+      "ColorIndex": 0
+    },
+    "17905a5f-8ad3-4a71-9239-0f43814f81d9": {
+      "ProjectGuid": "17905a5f-8ad3-4a71-9239-0f43814f81d9",
+      "DisplayName": "RoomBookingApp.Core",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

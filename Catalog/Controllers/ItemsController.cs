@@ -88,7 +88,7 @@ namespace Catalog.Controllers
             };
 
             await repository.UpdateItemAsync(updatedItem);
-            
+                
             return NoContent();
         }
 
