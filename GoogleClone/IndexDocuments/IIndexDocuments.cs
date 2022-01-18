@@ -11,7 +11,7 @@ namespace GoogleClone.IndexDocuments
 
         //Recebe o conteúdo bruto do arquivo txt
         //Retorna um único texto do arquivo
-        string ParseText(string rawTxtFile);
+        List<string> ParseTexts(string file);
 
         //Recebe uma string com um Text.
         //Retorna o valor do Id
@@ -21,16 +21,13 @@ namespace GoogleClone.IndexDocuments
         //Retorna o Autor
         string ParseAutor(string text);
 
+
         //Recebe um string com um Text
-        //Retorna o body
-        string ParseBody(string body);
-
-        //Recebe uma string com o body do texto.
         //Retorna o Titulo        
-        string ParseTitulo(string body);
+        string ParseTitulo(string text);
 
-        //Recebe uma string com o body do texto.
-        string ParseConteudo(string body);
+        //Recebe um string com um Text
+        string ParseConteudo(string text);
 
         //Recebe o id, titulo, autor e conteudo para criar o objeto Document
         //Retorna o objeto criado
