@@ -1,4 +1,5 @@
 using System.Text.RegularExpressions;
+using WebScraper.Data;
 
 namespace WebScraper.Builders
 {
@@ -24,12 +25,19 @@ namespace WebScraper.Builders
            return this;
        }
     
-        public ScrapeCriteriaBuilder SetRegexOption(RegexOptions regexOption)
+        public ScrapeCriteriaPartBuilder SetRegexOption(RegexOptions regexOption)
         {
             _regexOption = regexOption;
             return this;
         }
 
-        public ScrapeCriteriaBui
+        public ScrapeCriteriaPart Build()
+        {
+            ScrapeCriteriaPart scrapeCriteriaPart = new();
+            scrapeCriteriaPart.Regex = _regex;
+            scrapeCriteriaPart.RegexOption = _regexOption;
+
+            return scrapeCriteriaPart;
+        }
     }
 }

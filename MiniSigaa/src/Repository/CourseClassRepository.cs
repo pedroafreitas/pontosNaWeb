@@ -11,14 +11,14 @@ namespace MiniSigaa.Repository
             return courseClasses;
         }
 
-        public CourseClass GetCourseClassById(int courseId)
+        async Task<CourseClass> GetCourseClassById(int courseId)
         {
             var courseClass = courseClasses.Where(existingClass => existingClass.Id == courseId).SingleOrDefault()
                                 ?? throw new ArgumentNullException(Constants.ErrorNullValue);
-            return courseClass;
+            return await courseClass;
         }
 
-        public CourseClass CreateCourseClass()
+        async Task<CourseClass> CreateCourseClass()
         {
             CourseClass newCourseClass = new();
 
@@ -26,16 +26,16 @@ namespace MiniSigaa.Repository
 
             courseClasses.Add(newCourseClass);
             
-            return newCourseClass;
+            return await newCourseClass;
         }
 
-        public int AddStudent(int courseId)
+        async Task<int> AddStudent(int courseId)
         {
             var courseClass = GetCourseClassById(courseId);
 
             courseClass.StudentsInCourseClass.Add(new Student());
 
-            return courseClass.StudentsInCourseClass.Last().Id;     
+            return await courseClass.StudentsInCourseClass.Last().Id;     
         }
 
         public List<Student> GetClassStudents(int courseId)

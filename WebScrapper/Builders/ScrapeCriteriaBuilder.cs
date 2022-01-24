@@ -9,7 +9,7 @@ namespace WebScraper.Builders
         private string? _regex;
         private RegexOptions _regexOption;
         private List<ScrapeCriteriaPart> _parts;
-        
+
         public ScrapeCriteriaBuilder()
         {
             SetDefaults();
@@ -21,27 +21,27 @@ namespace WebScraper.Builders
             _regex = string.Empty;
             _regexOption = RegexOptions.None;
             _parts = new List<ScrapeCriteriaPart>();
-        }   
+        }
 
-        public ScrapeCriteriaBuilder SetData(string data)
+        public ScrapeCriteriaBuilder WithData(string data)
         {
             _data = data;
             return this;
         }
 
-        public ScrapeCriteriaBuilder SetRegex(string regex)
+        public ScrapeCriteriaBuilder WithRegex(string regex)
         {
             _regex = regex;
             return this;
         }
 
-        public ScrapeCriteriaBuilder SetRegexOption(RegexOptions regexOption)
+        public ScrapeCriteriaBuilder WithRegexOption(RegexOptions regexOption)
         {
             _regexOption = regexOption;
             return this;
         }
 
-        public ScrapeCriteriaBuilder SetPart(ScrapeCriteriaPart scrapeCriteriaPart)
+        public ScrapeCriteriaBuilder WithPart(ScrapeCriteriaPart scrapeCriteriaPart)
         {
             _parts.Add(scrapeCriteriaPart);
             return this;
@@ -54,6 +54,7 @@ namespace WebScraper.Builders
             scrapeCriteria.Regex = _regex;
             scrapeCriteria.RegexOption = _regexOption;
             scrapeCriteria.Parts = _parts;
+
             return scrapeCriteria;
         }
     }
