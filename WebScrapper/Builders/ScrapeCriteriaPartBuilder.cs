@@ -5,7 +5,7 @@ namespace WebScraper.Builders
 {
     class ScrapeCriteriaPartBuilder
     {
-        private string _regex;
+        private string? _regex;
         private RegexOptions _regexOption;
 
         public ScrapeCriteriaPartBuilder()
@@ -19,13 +19,13 @@ namespace WebScraper.Builders
             _regexOption = RegexOptions.None;
        }
 
-       public ScrapeCriteriaPartBuilder SetRegex(string regex)
+       public ScrapeCriteriaPartBuilder WithRegex(string regex)
        {
            _regex = regex;
            return this;
        }
     
-        public ScrapeCriteriaPartBuilder SetRegexOption(RegexOptions regexOption)
+        public ScrapeCriteriaPartBuilder WithRegexOption(RegexOptions regexOption)
         {
             _regexOption = regexOption;
             return this;

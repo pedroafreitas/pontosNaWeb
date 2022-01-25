@@ -10,7 +10,7 @@ namespace WebScraper.Builders
         private RegexOptions _regexOption;
         private List<ScrapeCriteriaPart> _parts;
 
-        public ScrapeCriteriaBuilder()
+        public  ScrapeCriteriaBuilder()
         {
             SetDefaults();
         }
