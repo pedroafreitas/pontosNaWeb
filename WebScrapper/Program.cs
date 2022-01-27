@@ -28,14 +28,14 @@ namespace WebScraper
                 
                     ScrapeCriteria scrapeCriteria = new ScrapeCriteriaBuilder()
                         .WithData(content)
-                        .WithRegex(@"<a href=\""(.*?)\"" data-id=\""(.*?)\"" class=\""result-title hdrlnk\"">(.*?)</a>")
+                        .WithRegex("<a href=\"(.*?)\" data-id=\"(.*?)\" class=\"(.*?)\" id=\"(.*?)\">(.*?)<\\/a>")
                         .WithRegexOption(RegexOptions.ExplicitCapture)
                         .WithPart(new ScrapeCriteriaPartBuilder()
-                            .WithRegex(@">(.*?)</a>")
+                            .WithRegex(">(.*?)<\\/a>")
                             .WithRegexOption(RegexOptions.Singleline)
                             .Build())
                         .WithPart(new ScrapeCriteriaPartBuilder()
-                            .WithRegex(@"href=\""(.*?)\""")
+                            .WithRegex("href=\"(.*?)\"")
                             .WithRegexOption(RegexOptions.Singleline)
                             .Build())
                         .Build();

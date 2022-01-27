@@ -6,5 +6,5 @@ build_property.ProjectTypeGuids =
 build_property.PublishSingleFile = 
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
-build_property.RootNamespace = CommandAPI
-build_property.ProjectDir = c:\Users\Cliente\pontosNaWeb\CodeSnippetsSolution\src\CommandAPI\
+build_property.RootNamespace = Redis
+build_property.ProjectDir = c:\Users\Cliente\pontosNaWeb\Redis\
