@@ -45,39 +45,6 @@
         }
       },
       {
-        "HashCode": 801205886,
-        "Kind": "Components.Component",
-        "Name": "Redis.Pages.FetchData",
-        "AssemblyName": "Redis",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "FetchData"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Redis.Pages.FetchData"
-        }
-      },
-      {
-        "HashCode": 815259371,
-        "Kind": "Components.Component",
-        "Name": "Redis.Pages.FetchData",
-        "AssemblyName": "Redis",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Redis.Pages.FetchData"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Redis.Pages.FetchData",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": 847182750,
         "Kind": "Components.Component",
         "Name": "Redis.Pages.Index",
@@ -107,6 +74,39 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "Redis.Pages.Index",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 801205886,
+        "Kind": "Components.Component",
+        "Name": "Redis.Pages.FetchData",
+        "AssemblyName": "Redis",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "FetchData"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Redis.Pages.FetchData"
+        }
+      },
+      {
+        "HashCode": 815259371,
+        "Kind": "Components.Component",
+        "Name": "Redis.Pages.FetchData",
+        "AssemblyName": "Redis",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Redis.Pages.FetchData"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Redis.Pages.FetchData",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },

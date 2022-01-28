@@ -13,78 +13,92 @@ namespace Redis.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "c:\Users\Cliente\pontosNaWeb\Redis\_Imports.razor"
+#line 1 "C:\Users\Cliente\pontosNaWeb\Redis\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "c:\Users\Cliente\pontosNaWeb\Redis\_Imports.razor"
+#line 2 "C:\Users\Cliente\pontosNaWeb\Redis\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "c:\Users\Cliente\pontosNaWeb\Redis\_Imports.razor"
+#line 3 "C:\Users\Cliente\pontosNaWeb\Redis\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "c:\Users\Cliente\pontosNaWeb\Redis\_Imports.razor"
+#line 4 "C:\Users\Cliente\pontosNaWeb\Redis\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "c:\Users\Cliente\pontosNaWeb\Redis\_Imports.razor"
+#line 5 "C:\Users\Cliente\pontosNaWeb\Redis\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "c:\Users\Cliente\pontosNaWeb\Redis\_Imports.razor"
+#line 6 "C:\Users\Cliente\pontosNaWeb\Redis\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "c:\Users\Cliente\pontosNaWeb\Redis\_Imports.razor"
+#line 7 "C:\Users\Cliente\pontosNaWeb\Redis\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "c:\Users\Cliente\pontosNaWeb\Redis\_Imports.razor"
+#line 8 "C:\Users\Cliente\pontosNaWeb\Redis\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "c:\Users\Cliente\pontosNaWeb\Redis\_Imports.razor"
+#line 9 "C:\Users\Cliente\pontosNaWeb\Redis\_Imports.razor"
 using Redis;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "c:\Users\Cliente\pontosNaWeb\Redis\_Imports.razor"
+#line 10 "C:\Users\Cliente\pontosNaWeb\Redis\_Imports.razor"
 using Redis.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "c:\Users\Cliente\pontosNaWeb\Redis\Pages\FetchData.razor"
+#line 11 "C:\Users\Cliente\pontosNaWeb\Redis\_Imports.razor"
+using Microsoft.Extensions.Caching.Distributed;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\Users\Cliente\pontosNaWeb\Redis\Pages\FetchData.razor"
 using Redis.Data;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\Cliente\pontosNaWeb\Redis\Pages\FetchData.razor"
+using Redis.Extensions;
 
 #line default
 #line hidden
@@ -98,18 +112,49 @@ using Redis.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 39 "c:\Users\Cliente\pontosNaWeb\Redis\Pages\FetchData.razor"
+#line 49 "C:\Users\Cliente\pontosNaWeb\Redis\Pages\FetchData.razor"
        
     private WeatherForecast[] forecasts;
+    private string loadLocation = string.Empty;
+    private string isCacheData = string.Empty;
 
-    protected override async Task OnInitializedAsync()
+    
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 57 "C:\Users\Cliente\pontosNaWeb\Redis\Pages\FetchData.razor"
+        
+
+    private async Task LoadForecast()
     {
-        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+        forecasts = null;
+        loadLocation = null;
+
+        string recordKey = "WeatherForecast_" + DateTime.Now.ToString("yyyyMMdd_hhmm");
+
+        forecasts = await cache.GetRecordAsync<WeatherForecast[]>(recordKey);
+        
+        if(forecasts is null)
+        {
+            forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+            loadLocation = $"Loaded from API at {DateTime.Now}";
+            isCacheData = string.Empty;
+
+            await cache.SetRecordAsync(recordKey, forecasts);
+        }
+        else
+        {
+            loadLocation = $"Loaded from the cache at {DateTime.Now}";
+            isCacheData = "text-danger";
+        }
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IDistributedCache cache { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private WeatherForecastService ForecastService { get; set; }
     }
 }
