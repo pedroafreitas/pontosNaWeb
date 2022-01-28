@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Cliente\\pontosNaWeb\\WebScrapper\\WebScrapper.csproj",
+      "projectUniqueName": "C:\\Users\\Cliente\\pontosNaWeb\\WebScrapper\\src\\WebScrapper.csproj",
       "projectName": "WebScrapper",
-      "projectPath": "C:\\Users\\Cliente\\pontosNaWeb\\WebScrapper\\WebScrapper.csproj",
+      "projectPath": "C:\\Users\\Cliente\\pontosNaWeb\\WebScrapper\\src\\WebScrapper.csproj",
       "packagesPath": "C:\\Users\\Cliente\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Cliente\\pontosNaWeb\\WebScrapper\\obj\\",
+      "outputPath": "C:\\Users\\Cliente\\pontosNaWeb\\WebScrapper\\src\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Cliente\\AppData\\Roaming\\NuGet\\NuGet.Config",
