@@ -7,7 +7,7 @@ namespace WebScraper.Workers
     {
         public List<string> Scrape(ScrapeCriteria scrapeCriteria)
         {
-            List<string> scrapedElement = new List<string>();
+            List<string> scrapedElements = new List<string>();
             
             MatchCollection matches = Regex.Matches(scrapeCriteria.Data, scrapeCriteria.Regex, scrapeCriteria.RegexOption);
 
@@ -16,7 +16,7 @@ namespace WebScraper.Workers
             {
                 if(!scrapeCriteria.Parts.Any())
                 {
-                    scrapedElement.Add(match.Groups[0].Value);
+                    scrapedElements.Add(match.Groups[0].Value);
                 } 
                 else 
                 {
@@ -25,11 +25,11 @@ namespace WebScraper.Workers
                     {
                         Match matchedPart = Regex.Match(match.Groups[0].Value, part.Regex, part.RegexOption);
 
-                        if(matchedPart.Success) scrapedElement.Add(matchedPart.Groups[1].Value);
+                        if(matchedPart.Success) scrapedElements.Add(matchedPart.Groups[1].Value);
                     }
                 }
             }
-            return scrapedElement;
+            return scrapedElements;
         }
     }
 }

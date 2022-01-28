@@ -10,7 +10,7 @@ namespace WebScraper
     class Program
     {
         private const string Method = "search";
-
+    
         static void Main(string[] args)
         {
             try
@@ -25,17 +25,17 @@ namespace WebScraper
                 using (WebClient client = new WebClient())
                 {
                     string content = client.DownloadString($"https://{craigslistCity.Replace(" ", string.Empty)}.craigslist.org/{Method}/{craigslistCategoryName}");
-                
+
                     ScrapeCriteria scrapeCriteria = new ScrapeCriteriaBuilder()
                         .WithData(content)
-                        .WithRegex("<a href=\"(.*?)\" data-id=\"(.*?)\" class=\"(.*?)\" id=\"(.*?)\">(.*?)<\\/a>")
+                        .WithRegex("<a href=\"(.*?)\" data-id=\"(.*?)\" class=\"result-title hdrlnk\" id=\"(.*?)\" >(.*?)<")
                         .WithRegexOption(RegexOptions.ExplicitCapture)
                         .WithPart(new ScrapeCriteriaPartBuilder()
-                            .WithRegex(">(.*?)<\\/a>")
+                            .WithRegex(@">(.*?)<")
                             .WithRegexOption(RegexOptions.Singleline)
                             .Build())
                         .WithPart(new ScrapeCriteriaPartBuilder()
-                            .WithRegex("href=\"(.*?)\"")
+                            .WithRegex(@"href=\""(.*?)\""")
                             .WithRegexOption(RegexOptions.Singleline)
                             .Build())
                         .Build();
