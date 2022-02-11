@@ -251,12 +251,12 @@ paket-files/
 .idea/
 *.sln.iml
 
-# TodoApp
-src/TodoApp.Web/Logs/*
-src/TodoApp.Web.Host/Logs/*
-src/TodoApp.IdentityServer/Logs/*
-src/TodoApp.HttpApi.Host/Logs/*
-src/TodoApp.HttpApi.HostWithIds/Logs/*
-src/TodoApp.DbMigrator/Logs/*
-src/TodoApp.Blazor.Server/Logs/*
-src/TodoApp.Blazor.Server.Tiered/Logs/*
+# ProductManagement
+src/ProductManagement.Web/Logs/*
+src/ProductManagement.Web.Host/Logs/*
+src/ProductManagement.IdentityServer/Logs/*
+src/ProductManagement.HttpApi.Host/Logs/*
+src/ProductManagement.HttpApi.HostWithIds/Logs/*
+src/ProductManagement.DbMigrator/Logs/*
+src/ProductManagement.Blazor.Server/Logs/*
+src/ProductManagement.Blazor.Server.Tiered/Logs/*
