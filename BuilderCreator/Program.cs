@@ -3,7 +3,9 @@
 
 Console.WriteLine("Hello, World!");
 
-string atributos = "public string InscricaoParceiro { get; set; }public string IdProposta { get; set; }public string ProtocoloParceiro { get; set; }public bool Concorda { get; set; }";
+List<string> tipos = new();
+tipos.Add("string");
+tipos.Add("string");
 
 string padraoGetSet = "{ get; set; }";
 string padraoPublic = "public";
