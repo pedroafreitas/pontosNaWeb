@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "EN1unsWBoeexqAp6k0uy/iBU40GaCKwPcJxC1+9GHXtIMyvRZXGDlcWJdp+Opj/UPkg/uqOGDkmKlvmre54DAw==",
+  "success": false,
+  "projectFilePath": "C:\\Users\\Cliente\\pontosNaWeb\\BookListRazor\\BookListRazor\\BookListRazor.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package Microsoft.AspNetCore.Components.Web. No packages exist with this id in source(s): nuget.org",
+      "libraryId": "Microsoft.AspNetCore.Components.Web",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
+}

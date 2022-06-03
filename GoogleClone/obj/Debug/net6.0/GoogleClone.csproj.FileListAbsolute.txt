@@ -1,0 +1,15 @@
+C:\Users\Cliente\pontosNaWeb\GoogleClone\obj\Debug\net6.0\GoogleClone.csproj.AssemblyReference.cache
+C:\Users\Cliente\pontosNaWeb\GoogleClone\obj\Debug\net6.0\GoogleClone.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cliente\pontosNaWeb\GoogleClone\obj\Debug\net6.0\GoogleClone.AssemblyInfoInputs.cache
+C:\Users\Cliente\pontosNaWeb\GoogleClone\obj\Debug\net6.0\GoogleClone.AssemblyInfo.cs
+C:\Users\Cliente\pontosNaWeb\GoogleClone\obj\Debug\net6.0\GoogleClone.csproj.CoreCompileInputs.cache
+C:\Users\Cliente\pontosNaWeb\GoogleClone\bin\Debug\net6.0\GoogleClone.exe
+C:\Users\Cliente\pontosNaWeb\GoogleClone\bin\Debug\net6.0\GoogleClone.deps.json
+C:\Users\Cliente\pontosNaWeb\GoogleClone\bin\Debug\net6.0\GoogleClone.runtimeconfig.json
+C:\Users\Cliente\pontosNaWeb\GoogleClone\bin\Debug\net6.0\GoogleClone.dll
+C:\Users\Cliente\pontosNaWeb\GoogleClone\bin\Debug\net6.0\ref\GoogleClone.dll
+C:\Users\Cliente\pontosNaWeb\GoogleClone\bin\Debug\net6.0\GoogleClone.pdb
+C:\Users\Cliente\pontosNaWeb\GoogleClone\obj\Debug\net6.0\GoogleClone.dll
+C:\Users\Cliente\pontosNaWeb\GoogleClone\obj\Debug\net6.0\ref\GoogleClone.dll
+C:\Users\Cliente\pontosNaWeb\GoogleClone\obj\Debug\net6.0\GoogleClone.pdb
+C:\Users\Cliente\pontosNaWeb\GoogleClone\obj\Debug\net6.0\GoogleClone.genruntimeconfig.cache

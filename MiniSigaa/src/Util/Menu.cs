@@ -124,5 +124,7 @@ namespace MiniSigaa.Util
                 RegisterGradesMenu(newCourseClass.Id);
             }            
         }
+
+        
     }
 }
