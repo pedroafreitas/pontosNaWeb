@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossCutting", "Api.CrossCu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Api.Data\Data.csproj", "{583EBA88-DAB0-4430-9FD0-B5365F8372CE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Api.Service\Service.csproj", "{D78B7CF0-23C7-421C-85FF-A29F2D257513}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,5 +74,17 @@ Global
 		{583EBA88-DAB0-4430-9FD0-B5365F8372CE}.Release|x64.Build.0 = Release|Any CPU
 		{583EBA88-DAB0-4430-9FD0-B5365F8372CE}.Release|x86.ActiveCfg = Release|Any CPU
 		{583EBA88-DAB0-4430-9FD0-B5365F8372CE}.Release|x86.Build.0 = Release|Any CPU
+		{D78B7CF0-23C7-421C-85FF-A29F2D257513}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D78B7CF0-23C7-421C-85FF-A29F2D257513}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D78B7CF0-23C7-421C-85FF-A29F2D257513}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D78B7CF0-23C7-421C-85FF-A29F2D257513}.Debug|x64.Build.0 = Debug|Any CPU
+		{D78B7CF0-23C7-421C-85FF-A29F2D257513}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D78B7CF0-23C7-421C-85FF-A29F2D257513}.Debug|x86.Build.0 = Debug|Any CPU
+		{D78B7CF0-23C7-421C-85FF-A29F2D257513}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D78B7CF0-23C7-421C-85FF-A29F2D257513}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D78B7CF0-23C7-421C-85FF-A29F2D257513}.Release|x64.ActiveCfg = Release|Any CPU
+		{D78B7CF0-23C7-421C-85FF-A29F2D257513}.Release|x64.Build.0 = Release|Any CPU
+		{D78B7CF0-23C7-421C-85FF-A29F2D257513}.Release|x86.ActiveCfg = Release|Any CPU
+		{D78B7CF0-23C7-421C-85FF-A29F2D257513}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
