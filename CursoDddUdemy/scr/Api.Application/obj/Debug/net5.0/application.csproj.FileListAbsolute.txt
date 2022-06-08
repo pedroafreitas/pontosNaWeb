@@ -5,7 +5,6 @@ C:\Users\pedro\Documents\pontosNaWeb\CursoDddUdemy\scr\Api.Application\bin\Debug
 C:\Users\pedro\Documents\pontosNaWeb\CursoDddUdemy\scr\Api.Application\bin\Debug\net5.0\application.runtimeconfig.json
 C:\Users\pedro\Documents\pontosNaWeb\CursoDddUdemy\scr\Api.Application\bin\Debug\net5.0\application.runtimeconfig.dev.json
 C:\Users\pedro\Documents\pontosNaWeb\CursoDddUdemy\scr\Api.Application\bin\Debug\net5.0\application.dll
-C:\Users\pedro\Documents\pontosNaWeb\CursoDddUdemy\scr\Api.Application\bin\Debug\net5.0\ref\application.dll
 C:\Users\pedro\Documents\pontosNaWeb\CursoDddUdemy\scr\Api.Application\bin\Debug\net5.0\application.pdb
 C:\Users\pedro\Documents\pontosNaWeb\CursoDddUdemy\scr\Api.Application\bin\Debug\net5.0\Microsoft.OpenApi.dll
 C:\Users\pedro\Documents\pontosNaWeb\CursoDddUdemy\scr\Api.Application\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
@@ -19,7 +18,6 @@ C:\Users\pedro\Documents\pontosNaWeb\CursoDddUdemy\scr\Api.Application\obj\Debug
 C:\Users\pedro\Documents\pontosNaWeb\CursoDddUdemy\scr\Api.Application\obj\Debug\net5.0\application.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\pedro\Documents\pontosNaWeb\CursoDddUdemy\scr\Api.Application\obj\Debug\net5.0\application.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\pedro\Documents\pontosNaWeb\CursoDddUdemy\scr\Api.Application\obj\Debug\net5.0\staticwebassets\application.StaticWebAssets.Manifest.cache
-C:\Users\pedro\Documents\pontosNaWeb\CursoDddUdemy\scr\Api.Application\obj\Debug\net5.0\staticwebassets\application.StaticWebAssets.xml
 C:\Users\pedro\Documents\pontosNaWeb\CursoDddUdemy\scr\Api.Application\obj\Debug\net5.0\scopedcss\bundle\application.styles.css
 C:\Users\pedro\Documents\pontosNaWeb\CursoDddUdemy\scr\Api.Application\obj\Debug\net5.0\application.RazorTargetAssemblyInfo.cache
 C:\Users\pedro\Documents\pontosNaWeb\CursoDddUdemy\scr\Api.Application\obj\Debug\net5.0\application.csproj.CopyComplete
@@ -27,3 +25,5 @@ C:\Users\pedro\Documents\pontosNaWeb\CursoDddUdemy\scr\Api.Application\obj\Debug
 C:\Users\pedro\Documents\pontosNaWeb\CursoDddUdemy\scr\Api.Application\obj\Debug\net5.0\ref\application.dll
 C:\Users\pedro\Documents\pontosNaWeb\CursoDddUdemy\scr\Api.Application\obj\Debug\net5.0\application.pdb
 C:\Users\pedro\Documents\pontosNaWeb\CursoDddUdemy\scr\Api.Application\obj\Debug\net5.0\application.genruntimeconfig.cache
+C:\Users\pedro\Documents\pontosNaWeb\CursoDddUdemy\scr\Api.Application\bin\Debug\net5.0\application.StaticWebAssets.xml
+C:\Users\pedro\Documents\pontosNaWeb\CursoDddUdemy\scr\Api.Application\obj\Debug\net5.0\refint\application.dll
