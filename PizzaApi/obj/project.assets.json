@@ -208,19 +208,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Cliente\\.nuget\\packages\\": {}
+    "C:\\Users\\pedro\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Cliente\\Labs\\https\\https.csproj",
+      "projectUniqueName": "C:\\Users\\pedro\\Documents\\pontosNaWeb\\PizzaApi\\https.csproj",
       "projectName": "https",
-      "projectPath": "C:\\Users\\Cliente\\Labs\\https\\https.csproj",
-      "packagesPath": "C:\\Users\\Cliente\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Cliente\\Labs\\https\\obj\\",
+      "projectPath": "C:\\Users\\pedro\\Documents\\pontosNaWeb\\PizzaApi\\https.csproj",
+      "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pedro\\Documents\\pontosNaWeb\\PizzaApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Cliente\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\pedro\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -267,7 +267,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
