@@ -1,0 +1,15 @@
+C:\Users\Cliente\pontosNaWeb\.net6\dateAndTime\bin\Debug\net6.0\dateAndTime.exe
+C:\Users\Cliente\pontosNaWeb\.net6\dateAndTime\bin\Debug\net6.0\dateAndTime.deps.json
+C:\Users\Cliente\pontosNaWeb\.net6\dateAndTime\bin\Debug\net6.0\dateAndTime.runtimeconfig.json
+C:\Users\Cliente\pontosNaWeb\.net6\dateAndTime\bin\Debug\net6.0\dateAndTime.dll
+C:\Users\Cliente\pontosNaWeb\.net6\dateAndTime\bin\Debug\net6.0\dateAndTime.pdb
+C:\Users\Cliente\pontosNaWeb\.net6\dateAndTime\obj\Debug\net6.0\dateAndTime.csproj.AssemblyReference.cache
+C:\Users\Cliente\pontosNaWeb\.net6\dateAndTime\obj\Debug\net6.0\dateAndTime.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cliente\pontosNaWeb\.net6\dateAndTime\obj\Debug\net6.0\dateAndTime.AssemblyInfoInputs.cache
+C:\Users\Cliente\pontosNaWeb\.net6\dateAndTime\obj\Debug\net6.0\dateAndTime.AssemblyInfo.cs
+C:\Users\Cliente\pontosNaWeb\.net6\dateAndTime\obj\Debug\net6.0\dateAndTime.csproj.CoreCompileInputs.cache
+C:\Users\Cliente\pontosNaWeb\.net6\dateAndTime\obj\Debug\net6.0\dateAndTime.dll
+C:\Users\Cliente\pontosNaWeb\.net6\dateAndTime\obj\Debug\net6.0\refint\dateAndTime.dll
+C:\Users\Cliente\pontosNaWeb\.net6\dateAndTime\obj\Debug\net6.0\dateAndTime.pdb
+C:\Users\Cliente\pontosNaWeb\.net6\dateAndTime\obj\Debug\net6.0\dateAndTime.genruntimeconfig.cache
+C:\Users\Cliente\pontosNaWeb\.net6\dateAndTime\obj\Debug\net6.0\ref\dateAndTime.dll
