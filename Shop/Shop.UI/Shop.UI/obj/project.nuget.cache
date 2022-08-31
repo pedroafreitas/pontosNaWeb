@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "B3/gI06Nvf2DhQ3sIFRywPvy3A6NVpdyAcreT00wRJQFs2dt1ylDRCUjYCMk8Dii+JIzGC6laUntM+P7xXiszg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Cliente\\OneDrive\\Documentos\\pontosNaWeb\\Shop\\Shop.UI\\Shop.UI\\Shop.UI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Cliente\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.26\\microsoft.netcore.app.host.win-x64.3.1.26.nupkg.sha512"
+  ],
+  "logs": []
+}

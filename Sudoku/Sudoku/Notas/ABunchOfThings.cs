@@ -11,6 +11,7 @@ namespace Sudoku.Notas
             Console.WriteLine("Chamado por delegate");
         }
 
+
         static public void LessonABunchOfThings()
         {
             /*StringBuilderNotes.LeassonStringBuilder();
@@ -47,8 +48,8 @@ namespace Sudoku.Notas
             
             
             //Delegate
-            //Delegate serve para referenciar um método.
-            //Deve ser declarado (acima), intânciado e depois invocado.
+            //Delegate serve para referenciar um metodo.
+            //Deve ser declarado (acima), instanciado e depois invocado.
             ExemploDelegate exemploDelegate = new ExemploDelegate(FuncaoDelegate);
             exemploDelegate();
             Console.ReadKey();
@@ -144,7 +145,8 @@ namespace Sudoku.Notas
                 else
                 {
                     Console.WriteLine("Lamborghini is off, turn it on");
-                }            }
+                }            
+            }
         }
     }
 }

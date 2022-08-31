@@ -1,0 +1,15 @@
+C:\Users\Cliente\OneDrive\Documentos\pontosNaWeb\Financeiro\Juros\Juros\bin\Debug\net6.0\Juros.exe
+C:\Users\Cliente\OneDrive\Documentos\pontosNaWeb\Financeiro\Juros\Juros\bin\Debug\net6.0\Juros.deps.json
+C:\Users\Cliente\OneDrive\Documentos\pontosNaWeb\Financeiro\Juros\Juros\bin\Debug\net6.0\Juros.runtimeconfig.json
+C:\Users\Cliente\OneDrive\Documentos\pontosNaWeb\Financeiro\Juros\Juros\bin\Debug\net6.0\Juros.dll
+C:\Users\Cliente\OneDrive\Documentos\pontosNaWeb\Financeiro\Juros\Juros\bin\Debug\net6.0\Juros.pdb
+C:\Users\Cliente\OneDrive\Documentos\pontosNaWeb\Financeiro\Juros\Juros\obj\Debug\net6.0\Juros.csproj.AssemblyReference.cache
+C:\Users\Cliente\OneDrive\Documentos\pontosNaWeb\Financeiro\Juros\Juros\obj\Debug\net6.0\Juros.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cliente\OneDrive\Documentos\pontosNaWeb\Financeiro\Juros\Juros\obj\Debug\net6.0\Juros.AssemblyInfoInputs.cache
+C:\Users\Cliente\OneDrive\Documentos\pontosNaWeb\Financeiro\Juros\Juros\obj\Debug\net6.0\Juros.AssemblyInfo.cs
+C:\Users\Cliente\OneDrive\Documentos\pontosNaWeb\Financeiro\Juros\Juros\obj\Debug\net6.0\Juros.csproj.CoreCompileInputs.cache
+C:\Users\Cliente\OneDrive\Documentos\pontosNaWeb\Financeiro\Juros\Juros\obj\Debug\net6.0\Juros.dll
+C:\Users\Cliente\OneDrive\Documentos\pontosNaWeb\Financeiro\Juros\Juros\obj\Debug\net6.0\refint\Juros.dll
+C:\Users\Cliente\OneDrive\Documentos\pontosNaWeb\Financeiro\Juros\Juros\obj\Debug\net6.0\Juros.pdb
+C:\Users\Cliente\OneDrive\Documentos\pontosNaWeb\Financeiro\Juros\Juros\obj\Debug\net6.0\Juros.genruntimeconfig.cache
+C:\Users\Cliente\OneDrive\Documentos\pontosNaWeb\Financeiro\Juros\Juros\obj\Debug\net6.0\ref\Juros.dll
