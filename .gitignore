@@ -399,5 +399,5 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
-Financeiro\Juros\Juros\bin
-Financeiro\Juros\Juros\obj
+Financeiro/Juros/Juros/bin
+Financeiro/Juros/Juros/obj
